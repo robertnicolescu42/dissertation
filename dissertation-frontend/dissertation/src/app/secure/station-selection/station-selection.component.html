@@ -1,0 +1,126 @@
+<div>{{ workstations.length }} Workstations available:</div>
+
+<!-- [(selection)]="selectedWorkstations" -->
+<p-table
+  #dt
+  [value]="workstations"
+  dataKey="stationId"
+  styleClass="p-datatable-workstations"
+  [rowHover]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [paginator]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [filterDelay]="0"
+  [globalFilterFields]="[
+    'displayName',
+    'description',
+    'isOeeCalculable',
+    'runningTime'
+  ]"
+>
+  <ng-template pTemplate="caption">
+    <div class="table-header">
+      List of Workstations
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filterGlobal($event.target.value, 'contains')"
+          placeholder="Global Search"
+        />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem"></th>
+      <th pSortableColumn="displayName">
+        Display Name <p-sortIcon field="displayName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="isOeeCalculable">
+        OEE Calculable <p-sortIcon field="isOeeCalculable"></p-sortIcon>
+      </th>
+      <th pSortableColumn="description">
+        Description <p-sortIcon field="description"></p-sortIcon>
+      </th>
+      <th pSortableColumn="runningTime">
+        Running Time <p-sortIcon field="runningTime"></p-sortIcon>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filter($event.target.value, 'displayName', 'startsWith')"
+          placeholder="Search by Display Name"
+          class="p-column-filter"
+        />
+      </th>
+      <th>
+        <p-dropdown
+          [options]="oeeCalculableOptions"
+          (onChange)="dt.filter($event.value, 'isOeeCalculable', 'equals')"
+          styleClass="p-column-filter"
+          placeholder="Select an option"
+          [showClear]="true"
+        >
+          <ng-template let-option pTemplate="item">
+            <span>{{ option.label }}</span>
+          </ng-template>
+        </p-dropdown>
+      </th>
+      <th>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filter($event.target.value, 'description', 'contains')"
+          placeholder="Search by Description"
+          class="p-column-filter"
+        />
+      </th>
+      <th>
+        <input
+          pInputText
+          type="text"
+          (input)="dt.filter($event.target.value, 'runningTime', 'contains')"
+          placeholder="Search by Running Time"
+          class="p-column-filter"
+        />
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-workstation>
+    <tr class="p-selectable-row">
+      <td>
+        <p-tableCheckbox [value]="workstation"></p-tableCheckbox>
+      </td>
+      <!-- <td>
+        <span class="p-column-title">Station ID</span>
+        {{ workstation.stationId }}
+      </td> -->
+      <td>
+        <span class="p-column-title">Display Name</span>
+        {{ workstation.displayName }}
+      </td>
+      <td>
+        <span class="p-column-title">Is OEE Calculable</span>
+        {{ workstation.isOeeCalculable }}
+      </td>
+      <td>
+        <span class="p-column-title">Description</span>
+        {{ workstation.description }}
+      </td>
+      <td>
+        <span class="p-column-title">Running Time</span>
+        {{ workstation.runningTime }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
