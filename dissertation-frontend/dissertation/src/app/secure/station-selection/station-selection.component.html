@@ -1,6 +1,5 @@
 <div>{{ workstations.length }} Workstations available:</div>
 
-<!-- [(selection)]="selectedWorkstations" -->
 <p-table
   #dt
   [value]="workstations"
@@ -36,7 +35,6 @@
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th style="width: 3rem"></th>
       <th pSortableColumn="displayName">
         Display Name <p-sortIcon field="displayName"></p-sortIcon>
       </th>
@@ -52,9 +50,6 @@
     </tr>
     <tr>
       <th>
-        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-      </th>
-      <th>
         <input
           pInputText
           type="text"
@@ -64,8 +59,8 @@
         />
       </th>
       <th>
-        <p-dropdown
-          [options]="oeeCalculableOptions"
+        <!-- <p-dropdown
+          [options]="['true', 'false']"
           (onChange)="dt.filter($event.value, 'isOeeCalculable', 'equals')"
           styleClass="p-column-filter"
           placeholder="Select an option"
@@ -74,7 +69,7 @@
           <ng-template let-option pTemplate="item">
             <span>{{ option.label }}</span>
           </ng-template>
-        </p-dropdown>
+        </p-dropdown> -->
       </th>
       <th>
         <input
@@ -98,13 +93,6 @@
   </ng-template>
   <ng-template pTemplate="body" let-workstation>
     <tr class="p-selectable-row">
-      <td>
-        <p-tableCheckbox [value]="workstation"></p-tableCheckbox>
-      </td>
-      <!-- <td>
-        <span class="p-column-title">Station ID</span>
-        {{ workstation.stationId }}
-      </td> -->
       <td>
         <span class="p-column-title">Display Name</span>
         {{ workstation.displayName }}
