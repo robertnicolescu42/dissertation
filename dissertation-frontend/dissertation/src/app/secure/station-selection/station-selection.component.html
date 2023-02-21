@@ -1,12 +1,12 @@
-<div>{{ workstations.length }} Workstations available:</div>
+<!-- <div>{{ workstations.length }} Workstations available:</div> -->
 
 <p-table
   #dt
-  [value]="workstations"
+  [value]="filteredWorkstations"
   dataKey="stationId"
   styleClass="p-datatable-workstations"
   [rowHover]="true"
-  [rows]="10"
+  [rows]="12"
   [showCurrentPageReport]="true"
   [rowsPerPageOptions]="[10, 25, 50]"
   [paginator]="true"
@@ -56,6 +56,7 @@
           (input)="dt.filter($event.target.value, 'displayName', 'startsWith')"
           placeholder="Search by Display Name"
           class="p-column-filter"
+          style="padding: 2px"
         />
       </th>
       <th>
@@ -78,16 +79,48 @@
           (input)="dt.filter($event.target.value, 'description', 'contains')"
           placeholder="Search by Description"
           class="p-column-filter"
+          style="padding: 2px"
         />
       </th>
       <th>
+        <!-- (input)="dt.filter($event.target.value, 'runningTime', 'gt')" -->
+        <!-- (input)="filterByRunningTime($event.target.value, undefined)" -->
         <input
           pInputText
-          type="text"
-          (input)="dt.filter($event.target.value, 'runningTime', 'contains')"
-          placeholder="Search by Running Time"
+          type="number"
+          [(ngModel)]="greaterThanRunningTime"
+          (input)="greaterThanRunningTime = $event.target.value"
+          placeholder="  >="
           class="p-column-filter"
+          style="padding: 2px; width: 5%"
         />
+        <!-- (input)="dt.filter($event.target.value, 'runningTime', 'lt')" -->
+        <!-- (input)="filterByRunningTime(undefined, $event.target.value)" -->
+        <input
+          pInputText
+          type="number"
+          [(ngModel)]="smallerThanRunningTime"
+          (input)="smallerThanRunningTime = $event.target.value"
+          placeholder="  <="
+          class="p-column-filter"
+          style="padding: 2px; width: 5%"
+        />
+        <button
+          type="button"
+          class="btn btn-primary mx-1 py-1"
+          title="Filter"
+          (click)="filterByRunningTime()"
+        >
+          Filter
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary mx-1 py-1"
+          title="Filter"
+          (click)="resetRunningTimeFilter()"
+        >
+          Reset
+        </button>
       </th>
     </tr>
   </ng-template>
