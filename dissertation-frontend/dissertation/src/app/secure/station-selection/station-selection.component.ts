@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Workstation } from '../../types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
+import { StationDetailsComponent } from '../station-details/station-details.component';
 
 @Component({
   selector: 'app-station-selection',
@@ -12,9 +14,11 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
   filteredWorkstations: Workstation[] = [];
   greaterThanRunningTime: number = 0;
   smallerThanRunningTime: number = 0;
+  modalRef: BsModalRef | undefined;
 
   constructor(
-    private workstationGeneratorService: WorkstationGeneratorService
+    private workstationGeneratorService: WorkstationGeneratorService,
+    private modalService: BsModalService
   ) {}
   ngOnInit(): void {
     this.workstations =
@@ -30,7 +34,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
   filterByRunningTime() {
     let filteredWorkstations: Workstation[] = this.workstations;
 
-    //check if biggerThan is actually smaller than lessThan, and if
+    // check if biggerThan is actually smaller than lessThan, and if
     // lessThan is bigger than biggerThan. Only then, return something
     if (
       this.greaterThanRunningTime &&
@@ -60,6 +64,15 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     this.greaterThanRunningTime = 0;
     this.smallerThanRunningTime = 0;
     this.filteredWorkstations = this.workstations;
+  }
+
+  showStationDetails(workstation: Workstation) {
+    console.log(workstation);
+    this.modalRef = this.modalService.show(StationDetailsComponent, {
+      ignoreBackdropClick: true,
+    });
+    this.modalRef.setClass('modal-lg');
+    // open the StationDetailsComponent modal, while passing workstation as an input value
   }
   ngOnDestroy(): void {}
 }

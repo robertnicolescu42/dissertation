@@ -18,6 +18,9 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
+import { StationDetailsComponent } from './secure/station-details/station-details.component';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import { DropdownModule } from 'primeng/dropdown';
     StationSelectionComponent,
     NavbarComponent,
     ConfigComponent,
+    StationDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +45,10 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextModule,
     ProgressBarModule,
     TableModule,
+    FormsModule, // two way data-binding doesn't work without this module
+    ModalModule,
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
