@@ -8,7 +8,7 @@
   [rowHover]="true"
   [rows]="12"
   [showCurrentPageReport]="true"
-  [rowsPerPageOptions]="[10, 25, 50]"
+  [rowsPerPageOptions]="[12, 25, 50]"
   [paginator]="true"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   [filterDelay]="0"
@@ -35,18 +35,19 @@
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="displayName">
+      <th class="col-md-3" pSortableColumn="displayName">
         Display Name <p-sortIcon field="displayName"></p-sortIcon>
       </th>
-      <th pSortableColumn="isOeeCalculable">
+      <th class="col-md-3" pSortableColumn="isOeeCalculable">
         OEE Calculable <p-sortIcon field="isOeeCalculable"></p-sortIcon>
       </th>
-      <th pSortableColumn="description">
+      <th class="col-md-3" pSortableColumn="description">
         Description <p-sortIcon field="description"></p-sortIcon>
       </th>
-      <th pSortableColumn="runningTime">
+      <th class="col-md-3" pSortableColumn="runningTime">
         Running Time <p-sortIcon field="runningTime"></p-sortIcon>
       </th>
+      <th class="col-md-3" pSortableColumn="runningTime">Actions</th>
     </tr>
     <tr>
       <th>
@@ -92,7 +93,7 @@
           (input)="greaterThanRunningTime = $event.target.value"
           placeholder="  >="
           class="p-column-filter"
-          style="padding: 2px; width: 5%"
+          style="padding: 2px; width: 10%"
         />
         <!-- (input)="dt.filter($event.target.value, 'runningTime', 'lt')" -->
         <!-- (input)="filterByRunningTime(undefined, $event.target.value)" -->
@@ -103,7 +104,7 @@
           (input)="smallerThanRunningTime = $event.target.value"
           placeholder="  <="
           class="p-column-filter"
-          style="padding: 2px; width: 5%"
+          style="padding: 2px; width: 10%"
         />
         <button
           type="button"
@@ -122,6 +123,7 @@
           Reset
         </button>
       </th>
+      <th></th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-workstation>
@@ -141,6 +143,15 @@
       <td>
         <span class="p-column-title">Running Time</span>
         {{ workstation.runningTime }}
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="showStationDetails(workstation)"
+        >
+          View Details
+        </button>
       </td>
     </tr>
   </ng-template>
