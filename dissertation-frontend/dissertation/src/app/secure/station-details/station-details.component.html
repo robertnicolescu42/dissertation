@@ -1,5 +1,9 @@
-<div class="modal-header">
-  <h4 class="modal-title pull-left">Modal</h4>
+<div class="modal-header" *ngIf="workstation">
+  <h4 class="modal-title pull-left">
+    {{ city.name }}/{{ workstation?.stationId }}
+    <small class="text-muted italic">
+      - <em>{{ workstation?.description }} in {{ city.country }}</em></small>
+  </h4>
   <button
     type="button"
     class="btn-close close pull-right"
@@ -9,4 +13,29 @@
     <span aria-hidden="true" class="visually-hidden">&times;</span>
   </button>
 </div>
-<div class="modal-body">This is a modal</div>
+<div class="modal-body">
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+  <div>{{ workstation?.description }}</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="onClose()">
+    Close
+  </button>
+  <button type="button" class="btn btn-primary">Save changes</button>
+</div>
