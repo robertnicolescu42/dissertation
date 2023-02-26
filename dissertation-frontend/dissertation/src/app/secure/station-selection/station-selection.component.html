@@ -1,14 +1,12 @@
-<!-- <div>{{ workstations.length }} Workstations available:</div> -->
-
 <p-table
   #dt
   [value]="filteredWorkstations"
   dataKey="stationId"
   styleClass="p-datatable-workstations"
   [rowHover]="true"
-  [rows]="12"
+  [rows]="11"
   [showCurrentPageReport]="true"
-  [rowsPerPageOptions]="[12, 25, 50]"
+  [rowsPerPageOptions]="[11, 25, 50]"
   [paginator]="true"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   [filterDelay]="0"
@@ -49,7 +47,7 @@
       </th>
       <th class="col-md-3" pSortableColumn="runningTime">Actions</th>
     </tr>
-    <tr>
+    <tr style="overflow-y: auto">
       <th>
         <input
           pInputText
@@ -60,19 +58,7 @@
           style="padding: 2px"
         />
       </th>
-      <th>
-        <!-- <p-dropdown
-          [options]="['true', 'false']"
-          (onChange)="dt.filter($event.value, 'isOeeCalculable', 'equals')"
-          styleClass="p-column-filter"
-          placeholder="Select an option"
-          [showClear]="true"
-        >
-          <ng-template let-option pTemplate="item">
-            <span>{{ option.label }}</span>
-          </ng-template>
-        </p-dropdown> -->
-      </th>
+      <th></th>
       <th>
         <input
           pInputText
@@ -84,8 +70,6 @@
         />
       </th>
       <th>
-        <!-- (input)="dt.filter($event.target.value, 'runningTime', 'gt')" -->
-        <!-- (input)="filterByRunningTime($event.target.value, undefined)" -->
         <input
           pInputText
           type="number"
@@ -95,8 +79,6 @@
           class="p-column-filter"
           style="padding: 2px; width: 10%"
         />
-        <!-- (input)="dt.filter($event.target.value, 'runningTime', 'lt')" -->
-        <!-- (input)="filterByRunningTime(undefined, $event.target.value)" -->
         <input
           pInputText
           type="number"
@@ -130,7 +112,7 @@
     <tr class="p-selectable-row">
       <td>
         <span class="p-column-title">Display Name</span>
-        {{ workstation.displayName }}
+        {{ workstation.plantIndex }}/{{ workstation.displayName }}
       </td>
       <td>
         <span class="p-column-title">Is OEE Calculable</span>
@@ -147,10 +129,10 @@
       <td>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary btn-sm mx-1 py-1"
           (click)="showStationDetails(workstation)"
         >
-          View Details
+          Details
         </button>
       </td>
     </tr>

@@ -19,6 +19,8 @@ export interface Workstation {
   stationMonitorYellow: number;
   stationMonitorRed: number;
   runningTime: number;
+  productionCount: number;
+  defectCount: number;
 
   // productionArea: {
   //   plantIndex: string;

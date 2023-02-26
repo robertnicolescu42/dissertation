@@ -27,10 +27,6 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     this.filteredWorkstations = this.workstations;
   }
 
-  logIt(val: any) {
-    console.log(val);
-  }
-
   filterByRunningTime() {
     let filteredWorkstations: Workstation[] = this.workstations;
 
@@ -67,12 +63,14 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
   }
 
   showStationDetails(workstation: Workstation) {
-    console.log(workstation);
+    const initialState = {
+      workstation: workstation,
+    };
     this.modalRef = this.modalService.show(StationDetailsComponent, {
       ignoreBackdropClick: true,
+      initialState,
     });
-    this.modalRef.setClass('modal-lg');
-    // open the StationDetailsComponent modal, while passing workstation as an input value
+    this.modalRef.setClass('modal-fullscreen modal-dialog-centered');
   }
   ngOnDestroy(): void {}
 }
