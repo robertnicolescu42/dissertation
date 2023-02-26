@@ -2,7 +2,8 @@
   <h4 class="modal-title pull-left">
     {{ city.name }}/{{ workstation?.stationId }}
     <small class="text-muted italic">
-      - <em>{{ workstation?.description }} in {{ city.country }}</em></small>
+      - <em>{{ workstation?.description }} in {{ city.country }}</em></small
+    >
   </h4>
   <button
     type="button"
@@ -15,23 +16,7 @@
 </div>
 <div class="modal-body">
   <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
-  <div>{{ workstation?.description }}</div>
+  <app-oee-calculation *ngIf="workstation?.isOeeCalculable"></app-oee-calculation>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" (click)="onClose()">

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Workstation } from '../../types/work-station';
+import { OEE } from '../../types/oee';
 
 @Injectable({
   providedIn: 'root',
@@ -52,6 +53,8 @@ export class WorkstationGeneratorService {
       stationMonitorYellow: Math.floor(Math.random() * 1000),
       stationMonitorRed: Math.floor(Math.random() * 1000),
       runningTime: Math.floor(Math.random() * 1000),
+      productionCount: Math.floor(Math.random() * 1000),
+      defectCount: Math.floor(Math.random() * 1000),
     };
   }
 
@@ -150,5 +153,46 @@ export class WorkstationGeneratorService {
       stationId: stationId,
       description: description,
     };
+  }
+
+  // OEE(Overall Equipment Effectiveness) is the gold standard for
+  // measuring manufacturing productivity.Simply put – it identifies
+  // the percentage of manufacturing time that is truly productive.
+  // An OEE score of 100 % means you are manufacturing only Good Parts,
+  // as fast as possible, with no Stop Time.In the language of OEE that
+  // means 100 % Quality(only Good Parts), 100 % Performance(as fast as possible),
+  // and 100 % Availability(no Stop Time).
+  /**
+   * Calculates the OEE for a given workstation based on its properties
+   * @param workstation The workstation object to calculate OEE for
+   * @returns An object containing the availability, performance, and quality
+   */
+  calculateOEE(workstation: Workstation): OEE {
+    // Calculate availability as the percentage of time the workstation was available for production
+    const availability =
+      (workstation.runningTime - workstation.cycleTimeDelay) /
+      workstation.runningTime;
+
+    // Calculate performance as the percentage of ideal cycle time achieved by the workstation
+    const performance =
+      (workstation.cycleTime * workstation.productionCount) /
+      (workstation.runningTime - workstation.cycleTimeDelay);
+
+    // Calculate quality as the percentage of parts produced that were not defective
+    const quality =
+      (workstation.productionCount - workstation.defectCount) /
+      workstation.productionCount;
+
+    // Calculate OEE as the product of availability, performance, and quality
+    const oee = availability * performance * quality;
+
+    // Return an object containing the availability, performance, and quality
+    let oeeObject: OEE = {
+      availability: availability,
+      performance: performance,
+      quality: quality,
+    };
+
+    return oeeObject;
   }
 }

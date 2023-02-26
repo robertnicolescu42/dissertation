@@ -22,6 +22,8 @@
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.2.1",
+    "ng2-charts": "^4.1.1",
     "primeicons": "^6.0.1",
     "primeng": "^15.2.0",
     "rxjs": "~7.8.0",

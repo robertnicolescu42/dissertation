@@ -21,6 +21,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { StationDetailsComponent } from './secure/station-details/station-details.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
+import { OeeCalculationComponent } from './secure/station-details/widgets/oee-calculation/oee-calculation.component';
+import { NgChartsModule } from 'ng2-charts';
+import { OeeChartComponent } from './secure/station-details/widgets/oee-calculation/oee-chart/oee-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +32,14 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
     NavbarComponent,
     ConfigComponent,
     StationDetailsComponent,
+    OeeCalculationComponent,
+    OeeChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    NgChartsModule,
     CalendarModule,
     SliderModule,
     DialogModule,
