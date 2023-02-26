@@ -25,12 +25,13 @@ export class WorkstationGeneratorService {
     abbreviation: string
   ): { abbreviation: string; name: string; country: string } | undefined {
     // Find the city object with the matching abbreviation, or return undefined if not found
-    console.log(abbreviation);
     return this.cities.find((city) => city.abbreviation === abbreviation);
   }
   generateWorkstation(): Workstation {
     let { stationId, description } =
       this.generateWorkstationNameAndDescription();
+
+    let productionCount = Math.floor(Math.random() * 100);
     return {
       stationId: stationId,
       displayName: `Workstation ${Math.floor(Math.random() * 100)}`,
@@ -40,7 +41,7 @@ export class WorkstationGeneratorService {
       isOeeCalculable: true,
       isSendingQualityRate: Math.random() >= 0.5,
       cycleTime: Math.floor(Math.random() * 1000),
-      cycleTimeDelay: Math.floor(Math.random() * 1000),
+      cycleTimeDelay: Math.floor(Math.random() * 100),
       description: description,
       plantIndex:
         this.cities[Math.floor(Math.random() * this.cities.length)]
@@ -53,9 +54,9 @@ export class WorkstationGeneratorService {
       isShowStatusOnly: Math.random() >= 0.5,
       stationMonitorYellow: Math.floor(Math.random() * 1000),
       stationMonitorRed: Math.floor(Math.random() * 1000),
-      runningTime: Math.floor(Math.random() * 1000),
-      productionCount: Math.floor(Math.random() * 1000),
-      defectCount: Math.floor(Math.random() * 1000),
+      runningTime: Math.floor(Math.random() * 100),
+      productionCount: productionCount,
+      defectCount: Math.floor(Math.random() * (productionCount - 0 + 1)),
     };
   }
 
@@ -160,7 +161,7 @@ export class WorkstationGeneratorService {
   // measuring manufacturing productivity.Simply put – it identifies
   // the percentage of manufacturing time that is truly productive.
   // An OEE score of 100 % means you are manufacturing only Good Parts,
-  // as fast as possible, with no Stop Time.In the language of OEE that
+  // as fast as possible, with no Stop Time. In the language of OEE that
   // means 100 % Quality(only Good Parts), 100 % Performance(as fast as possible),
   // and 100 % Availability(no Stop Time).
   /**
@@ -169,30 +170,33 @@ export class WorkstationGeneratorService {
    * @returns An object containing the availability, performance, and quality
    */
   calculateOEE(workstation: Workstation): OEE {
-    // Calculate availability as the percentage of time the workstation was available for production
-    const availability =
-      (workstation.runningTime - workstation.cycleTimeDelay) /
-      workstation.runningTime;
-
     // Calculate performance as the percentage of ideal cycle time achieved by the workstation
     const performance =
-      (workstation.cycleTime * workstation.productionCount) /
-      (workstation.runningTime - workstation.cycleTimeDelay);
+      ((workstation.cycleTime * workstation.productionCount) /
+        (workstation.runningTime - workstation.cycleTimeDelay)) %
+      100;
 
     // Calculate quality as the percentage of parts produced that were not defective
     const quality =
       (workstation.productionCount - workstation.defectCount) /
-      workstation.productionCount;
+      workstation.productionCount
+    * 100;
+
+    // Calculate availability as the percentage of time the workstation was available for production
+    const availability =
+      ((workstation.runningTime - workstation.cycleTimeDelay) /
+        workstation.runningTime) *
+      100;
 
     // Calculate OEE as the product of availability, performance, and quality
-    const oee = availability * performance * quality;
+    const oee = (availability * performance * quality) % 100;
 
     // Return an object containing the availability, performance, and quality
     let oeeObject: OEE = {
-      availability: parseFloat(availability.toFixed(2)),
-      performance: parseFloat(performance.toFixed(2)),
-      quality: parseFloat(quality.toFixed(2)),
-      oee: parseFloat(oee.toFixed(2)),
+      availability: Math.abs(parseFloat(availability.toFixed(2))),
+      performance: Math.abs(parseFloat(performance.toFixed(2))),
+      quality: Math.abs(parseFloat(quality.toFixed(2))),
+      oee: Math.abs(parseFloat(oee.toFixed(2))),
     };
 
     return oeeObject;

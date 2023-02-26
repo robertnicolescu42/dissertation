@@ -70,7 +70,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
       ignoreBackdropClick: true,
       initialState,
     });
-    this.modalRef.setClass('modal-xl modal-dialog-centered');
+    this.modalRef.setClass('modal-fullscreen modal-dialog-centered');
   }
   ngOnDestroy(): void {}
 }
