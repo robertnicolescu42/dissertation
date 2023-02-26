@@ -1,26 +1,31 @@
-<div class="modal-header" *ngIf="workstation">
-  <h4 class="modal-title pull-left">
-    {{ city.name }}/{{ workstation?.stationId }}
-    <small class="text-muted italic">
-      - <em>{{ workstation?.description }} in {{ city.country }}</em></small
+<div class="custom-dialog">
+  <div class="modal-header" *ngIf="workstation">
+    <h4 class="modal-title pull-left">
+      {{ city.name }}/{{ workstation?.stationId }}
+      <small class="text-muted italic">
+        - <em>{{ workstation?.description }} in {{ city.country }}</em></small
+      >
+    </h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="onClose()"
     >
-  </h4>
-  <button
-    type="button"
-    class="btn-close close pull-right"
-    aria-label="Close"
-    (click)="onClose()"
-  >
-    <span aria-hidden="true" class="visually-hidden">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <div>{{ workstation?.description }}</div>
-  <app-oee-calculation *ngIf="workstation?.isOeeCalculable"></app-oee-calculation>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" (click)="onClose()">
-    Close
-  </button>
-  <button type="button" class="btn btn-primary">Save changes</button>
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row" *ngIf="workstation?.isOeeCalculable">
+      <div class="col-12">
+        <app-oee-calculation [workstation]="workstation"></app-oee-calculation>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer sticky-footer">
+    <!-- <button type="button" class="btn btn-secondary" (click)="onClose()">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary">Save changes</button> -->
+  </div>
 </div>

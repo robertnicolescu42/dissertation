@@ -36,7 +36,8 @@ export class WorkstationGeneratorService {
       displayName: `Workstation ${Math.floor(Math.random() * 100)}`,
       isConsiderScrapForOee: Math.random() >= 0.5,
       equipmentNumber: Math.random().toString(36).substring(2, 15),
-      isOeeCalculable: Math.random() >= 0.5,
+      // isOeeCalculable: Math.random() >= 0.5,
+      isOeeCalculable: true,
       isSendingQualityRate: Math.random() >= 0.5,
       cycleTime: Math.floor(Math.random() * 1000),
       cycleTimeDelay: Math.floor(Math.random() * 1000),
@@ -188,9 +189,10 @@ export class WorkstationGeneratorService {
 
     // Return an object containing the availability, performance, and quality
     let oeeObject: OEE = {
-      availability: availability,
-      performance: performance,
-      quality: quality,
+      availability: parseFloat(availability.toFixed(2)),
+      performance: parseFloat(performance.toFixed(2)),
+      quality: parseFloat(quality.toFixed(2)),
+      oee: parseFloat(oee.toFixed(2)),
     };
 
     return oeeObject;

@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
-import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
+import { Component, Input, OnInit } from '@angular/core';
+import { ChartConfiguration } from 'chart.js';
+import { OEE } from '../../../../../types/oee';
 
 @Component({
   selector: 'app-oee-chart',
   templateUrl: './oee-chart.component.html',
   styleUrls: ['./oee-chart.component.scss'],
 })
-export class OeeChartComponent {
+export class OeeChartComponent implements OnInit {
   title = 'OEE Chart';
+
+  @Input()
+  oeeCalculated: OEE = {
+    performance: 0,
+    quality: 0,
+    availability: 0,
+    oee: 0,
+  };
 
   public barChartLegend = true;
   public barChartPlugins = [];
@@ -23,5 +32,9 @@ export class OeeChartComponent {
   public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: false,
   };
-  constructor() {}
+  constructor() { }
+
+  ngOnInit(): void {
+    console.log(this.oeeCalculated);
+  }
 }
