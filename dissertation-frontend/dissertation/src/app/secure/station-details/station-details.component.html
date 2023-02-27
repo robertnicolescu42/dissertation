@@ -17,23 +17,27 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12">
         <div class="row">
           <app-status-widget [workstation]="workstation"></app-status-widget>
         </div>
       </div>
-      <div class="col-6">
-        <div class="chart-container" *ngIf="workstation?.isOeeCalculable; else noOEE">
-          <!-- style="position: relative; height: 40vh; width: 49vw" -->
+      <div class="row col-3">
+        <div
+          class="chart-container m-2"
+          *ngIf="workstation?.isOeeCalculable; else noOEE"
+        >
           <app-oee-calculation
+            style="position: relative; height: 40vh; width: 49vw"
             [workstation]="workstation"
           ></app-oee-calculation>
         </div>
       </div>
+
+      <div class="col-9">
+        <div class="col-12">gogu pintenogu</div>
+      </div>
       <!-- <div class="col-3">asdf</div> -->
-    </div>
-    <div class="row">
-      <div class="col-12">gogu pintenogu</div>
     </div>
     <div class="modal-footer sticky-footer">
       <!-- <button type="button" class="btn btn-secondary" (click)="onClose()">

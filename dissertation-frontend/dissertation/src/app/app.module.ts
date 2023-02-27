@@ -26,6 +26,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { OeeChartComponent } from './secure/station-details/widgets/oee-calculation/oee-chart/oee-chart.component';
 import { StatusWidgetComponent } from './secure/station-details/widgets/status-widget/status-widget.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { WorkstationConfigComponent } from './secure/config/workstation-config/workstation-config.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
     OeeCalculationComponent,
     OeeChartComponent,
     StatusWidgetComponent,
+    WorkstationConfigComponent,
   ],
   imports: [
     BrowserModule,

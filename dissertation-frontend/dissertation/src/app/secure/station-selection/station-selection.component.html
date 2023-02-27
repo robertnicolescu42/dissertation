@@ -37,7 +37,7 @@
         Display Name <p-sortIcon field="displayName"></p-sortIcon>
       </th>
       <th class="col-md-3" pSortableColumn="isOeeCalculable">
-        OEE Calculable <p-sortIcon field="isOeeCalculable"></p-sortIcon>
+        Is OEE Available <p-sortIcon field="isOeeCalculable"></p-sortIcon>
       </th>
       <th class="col-md-3" pSortableColumn="description">
         Description <p-sortIcon field="description"></p-sortIcon>
@@ -134,7 +134,7 @@
           class="badge"
           [ngClass]="workstation.isOeeCalculable ? 'bg-success' : 'bg-danger'"
         >
-          {{ workstation.isOeeCalculable }}
+          {{ workstation.isOeeCalculable ? 'Yes' : 'No'}}
         </div>
       </td>
       <td>
