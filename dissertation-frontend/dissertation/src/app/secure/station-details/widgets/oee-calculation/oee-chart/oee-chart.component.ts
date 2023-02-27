@@ -27,7 +27,8 @@ export class OeeChartComponent implements OnInit {
   };
 
   public barChartOptions: ChartConfiguration['options'] = {
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: false,
     backgroundColor: 'red',
     plugins: {
       legend: {

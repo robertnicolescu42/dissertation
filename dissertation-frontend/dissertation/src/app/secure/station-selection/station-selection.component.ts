@@ -10,6 +10,7 @@ import { StationDetailsComponent } from '../station-details/station-details.comp
   styleUrls: ['./station-selection.component.scss'],
 })
 export class StationSelectionComponent implements OnInit, OnDestroy {
+  public isCollapsed = true;
   workstations: Workstation[] = [];
   filteredWorkstations: Workstation[] = [];
   greaterThanRunningTime: number = 0;

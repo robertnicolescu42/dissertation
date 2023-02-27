@@ -4,7 +4,7 @@
   dataKey="stationId"
   styleClass="p-datatable-workstations"
   [rowHover]="true"
-  [rows]="11"
+  [rows]="isCollapsed ? 11 : 10"
   [showCurrentPageReport]="true"
   [rowsPerPageOptions]="[11, 25, 50]"
   [paginator]="true"
@@ -37,17 +37,31 @@
         Display Name <p-sortIcon field="displayName"></p-sortIcon>
       </th>
       <th class="col-md-3" pSortableColumn="isOeeCalculable">
-        OEE Calculable <p-sortIcon field="isOeeCalculable"></p-sortIcon>
+        Is OEE Available <p-sortIcon field="isOeeCalculable"></p-sortIcon>
       </th>
       <th class="col-md-3" pSortableColumn="description">
         Description <p-sortIcon field="description"></p-sortIcon>
       </th>
       <th class="col-md-3" pSortableColumn="runningTime">
-        Running Time <p-sortIcon field="runningTime"></p-sortIcon>
+        Running Time (m:s)<p-sortIcon field="runningTime"></p-sortIcon>
       </th>
-      <th class="col-md-3" pSortableColumn="runningTime">Actions</th>
+      <th class="col-md-3">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="collapse.toggle()"
+          [attr.aria-expanded]="!isCollapsed"
+          aria-controls="collapseExample"
+        >
+          Toggle filter
+        </button>
+      </th>
     </tr>
-    <tr style="overflow-y: auto">
+    <tr
+      #collapse="ngbCollapse"
+      [(ngbCollapse)]="isCollapsed"
+      style="overflow-y: auto"
+    >
       <th>
         <input
           pInputText
@@ -94,7 +108,7 @@
           title="Filter"
           (click)="filterByRunningTime()"
         >
-          Filter
+          Filter (s)
         </button>
         <button
           type="button"
@@ -116,15 +130,20 @@
       </td>
       <td>
         <span class="p-column-title">Is OEE Calculable</span>
-        {{ workstation.isOeeCalculable }}
+        <div
+          class="badge"
+          [ngClass]="workstation.isOeeCalculable ? 'bg-success' : 'bg-danger'"
+        >
+          {{ workstation.isOeeCalculable ? 'Yes' : 'No'}}
+        </div>
       </td>
       <td>
         <span class="p-column-title">Description</span>
         {{ workstation.description }}
       </td>
       <td>
-        <span class="p-column-title">Running Time</span>
-        {{ workstation.runningTime }}
+        <span class="p-column-title">Running Time (s)</span>
+        {{ workstation.runningTime * 1000 | date : "mm:ss" : "UTC" }}
       </td>
       <td>
         <button

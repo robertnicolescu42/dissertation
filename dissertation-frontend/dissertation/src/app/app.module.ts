@@ -24,6 +24,10 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { OeeCalculationComponent } from './secure/station-details/widgets/oee-calculation/oee-calculation.component';
 import { NgChartsModule } from 'ng2-charts';
 import { OeeChartComponent } from './secure/station-details/widgets/oee-calculation/oee-chart/oee-chart.component';
+import { StatusWidgetComponent } from './secure/station-details/widgets/status-widget/status-widget.component';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { WorkstationConfigComponent } from './secure/config/workstation-config/workstation-config.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { OeeChartComponent } from './secure/station-details/widgets/oee-calculat
     StationDetailsComponent,
     OeeCalculationComponent,
     OeeChartComponent,
+    StatusWidgetComponent,
+    WorkstationConfigComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +59,7 @@ import { OeeChartComponent } from './secure/station-details/widgets/oee-calculat
     TableModule,
     FormsModule, // two way data-binding doesn't work without this module
     ModalModule,
+    NgbCollapseModule
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],
