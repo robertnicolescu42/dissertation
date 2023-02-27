@@ -24,6 +24,7 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { OeeCalculationComponent } from './secure/station-details/widgets/oee-calculation/oee-calculation.component';
 import { NgChartsModule } from 'ng2-charts';
 import { OeeChartComponent } from './secure/station-details/widgets/oee-calculation/oee-chart/oee-chart.component';
+import { StatusWidgetComponent } from './secure/station-details/widgets/status-widget/status-widget.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { OeeChartComponent } from './secure/station-details/widgets/oee-calculat
     StationDetailsComponent,
     OeeCalculationComponent,
     OeeChartComponent,
+    StatusWidgetComponent,
   ],
   imports: [
     BrowserModule,
