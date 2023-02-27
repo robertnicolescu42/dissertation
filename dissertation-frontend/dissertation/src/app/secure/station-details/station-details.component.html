@@ -16,14 +16,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="row" *ngIf="workstation?.isOeeCalculable">
+    <div class="row">
       <div class="col-6">
         <div class="row">
           <app-status-widget [workstation]="workstation"></app-status-widget>
         </div>
       </div>
       <div class="col-6">
-        <div class="chart-container">
+        <div class="chart-container" *ngIf="workstation?.isOeeCalculable; else noOEE">
           <!-- style="position: relative; height: 40vh; width: 49vw" -->
           <app-oee-calculation
             [workstation]="workstation"
@@ -33,9 +33,7 @@
       <!-- <div class="col-3">asdf</div> -->
     </div>
     <div class="row">
-      <div class="col-12">
-        gogu pintenogu
-      </div>
+      <div class="col-12">gogu pintenogu</div>
     </div>
     <div class="modal-footer sticky-footer">
       <!-- <button type="button" class="btn btn-secondary" (click)="onClose()">
@@ -45,3 +43,19 @@
     </div>
   </div>
 </div>
+
+<ng-template #noOEE>
+  <div class="chart-container">
+    <div class="alert alert-warning" role="alert">
+      <h4 class="alert-heading">OEE is not calculable!</h4>
+      <p>
+        The OEE is not calculable for this station because it is not configured
+        properly.
+      </p>
+      <hr />
+      <p class="mb-0">
+        Please contact your system administrator to fix this issue.
+      </p>
+    </div>
+  </div>
+</ng-template>

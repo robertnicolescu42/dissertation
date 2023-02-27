@@ -130,7 +130,12 @@
       </td>
       <td>
         <span class="p-column-title">Is OEE Calculable</span>
-        {{ workstation.isOeeCalculable }}
+        <div
+          class="badge"
+          [ngClass]="workstation.isOeeCalculable ? 'bg-success' : 'bg-danger'"
+        >
+          {{ workstation.isOeeCalculable }}
+        </div>
       </td>
       <td>
         <span class="p-column-title">Description</span>
@@ -138,7 +143,7 @@
       </td>
       <td>
         <span class="p-column-title">Running Time (s)</span>
-        {{ workstation.runningTime * 1000 | date: 'mm:ss':'UTC'}}
+        {{ workstation.runningTime * 1000 | date : "mm:ss" : "UTC" }}
       </td>
       <td>
         <button
