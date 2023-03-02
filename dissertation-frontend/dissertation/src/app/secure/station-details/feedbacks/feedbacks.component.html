@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <div class="card-text">
+      <dl class="row">
+        <dt class="col-sm-3">Total</dt>
+        <dd class="col-sm-9">{{ total }}</dd>
+
+        <dt class="col-sm-3">
+          {{ feedbackType === "SCRAP" ? "Rate" : "Last Result" }}
+        </dt>
+        <dd class="col-sm-9" *ngIf="feedbackType !== 'SCRAP'">
+          <div
+            class="badge"
+            [ngClass]="lastResult === true ? 'bg-success' : 'bg-danger'"
+          >
+            {{ lastResult === true ? "OK" : "NOK" }}
+        </div>
+        </dd>
+
+        <dd class="col-sm-9" *ngIf="feedbackType === 'SCRAP'">{{ rate }}%</dd>
+
+        <dt class="col-sm-3">Last ID</dt>
+        <dd class="col-sm-9">{{ lastId }}</dd>
+
+        <dt class="col-sm-3">Last Time</dt>
+        <dd class="col-sm-9">{{ lastTime | date : "M/d/yy, h:mm a" }}</dd>
+      </dl>
+    </div>
+  </div>
+</div>

@@ -40,7 +40,6 @@ export class OeeChartComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.oeeCalculated);
     this.barChartData = {
       labels: ['Performance', 'Quality', 'Availability', 'OEE'],
       datasets: [

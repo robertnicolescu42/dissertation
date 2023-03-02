@@ -178,9 +178,9 @@ export class WorkstationGeneratorService {
 
     // Calculate quality as the percentage of parts produced that were not defective
     const quality =
-      (workstation.productionCount - workstation.defectCount) /
-      workstation.productionCount
-    * 100;
+      ((workstation.productionCount - workstation.defectCount) /
+        workstation.productionCount) *
+      100;
 
     // Calculate availability as the percentage of time the workstation was available for production
     const availability =
@@ -200,5 +200,145 @@ export class WorkstationGeneratorService {
     };
 
     return oeeObject;
+  }
+
+  generatePartialFeedbacksData(): {
+    title: string;
+    total: number;
+    lastResult: boolean;
+    lastId: string;
+    lastTime: Date;
+    rate: number;
+  } {
+    const title: string = 'n/a';
+    const total: number = Math.floor(Math.random() * 100);
+    const lastResult: boolean = false;
+
+    // Generate lastId
+    const chars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let id: string = '';
+    for (let i = 0; i < 10; i++) {
+      id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    id += '-';
+    for (let i = 0; i < 10; i++) {
+      id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    id = id.toUpperCase();
+
+    // Generate lastTime
+    const now: Date = new Date();
+    const weekday: number = now.getDay();
+    let daysAgo: number = 0;
+    switch (weekday) {
+      case 0: // Sunday
+      case 6: // Saturday
+        daysAgo = weekday - 5;
+        break;
+      default:
+        daysAgo = weekday - 1;
+        break;
+    }
+    const lastTime: Date = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() - daysAgo,
+      8 + Math.floor(Math.random() * 9),
+      Math.floor(Math.random() * 60),
+      Math.floor(Math.random() * 60),
+      0
+    );
+
+    const rate: number = +(Math.random() * 100).toFixed(2);
+
+    return {
+      title,
+      total,
+      lastResult,
+      lastId: id,
+      lastTime,
+      rate,
+    };
+  }
+
+  generateFeedbackData() {
+    let okFeedbacks = {
+      title: 'n/a',
+      total: 0,
+      lastResult: false,
+      lastId: 'n/a',
+      lastTime: new Date(),
+      rate: 0,
+    };
+
+    let nokFeedbacks = {
+      title: 'n/a',
+      total: 0,
+      lastResult: false,
+      lastId: 'n/a',
+      lastTime: new Date(),
+      rate: 0,
+    };
+
+    let scrapFeedbacks = {
+      title: 'n/a',
+      total: 0,
+      lastResult: false,
+      lastId: 'n/a',
+      lastTime: new Date(),
+      rate: 0,
+    };
+
+    // Generate data for okFeedbacks
+    const okCount = Math.floor(Math.random() * 10);
+    for (let i = 0; i < okCount; i++) {
+      const data: any = this.generatePartialFeedbacksData();
+      okFeedbacks = data;
+      okFeedbacks.total += data.total;
+    }
+
+    // Generate data for nokFeedbacks
+    const nokCount = Math.floor(Math.random() * 10);
+    for (let i = 0; i < nokCount; i++) {
+      const data = this.generatePartialFeedbacksData();
+      nokFeedbacks = data;
+      nokFeedbacks.total += data.total;
+    }
+    // Generate data for scrapFeedbacks
+    const scrapCount = Math.floor(Math.random() * 10);
+    for (let i = 0; i < scrapCount; i++) {
+      const data = this.generatePartialFeedbacksData();
+      scrapFeedbacks = data;
+      scrapFeedbacks.total += data.total;
+    }
+
+    // Calculate the total
+    const total = okFeedbacks.total + nokFeedbacks.total + scrapFeedbacks.total;
+
+    okFeedbacks.rate = Number(((okFeedbacks.total / total) * 100).toFixed(2));
+    nokFeedbacks.rate = Number(((nokFeedbacks.total / total) * 100).toFixed(2));
+    scrapFeedbacks.rate = Number(
+      ((scrapFeedbacks.total / total) * 100).toFixed(2)
+    );
+
+    // Find the most recent feedback
+    let mostRecent = new Date(0);
+    let mostRecentFeedback: any;
+    [okFeedbacks, nokFeedbacks, scrapFeedbacks].forEach((feedback) => {
+      if (feedback.lastTime > mostRecent) {
+        mostRecent = feedback.lastTime;
+        mostRecentFeedback = feedback;
+      }
+    });
+
+    // Build the completeFeedbacks object
+    const completeFeedbacks = {
+      total,
+      lastResult: mostRecentFeedback.lastResult,
+      lastId: mostRecentFeedback.lastId,
+      lastTime: mostRecentFeedback.lastTime,
+    };
+
+    return { okFeedbacks, nokFeedbacks, scrapFeedbacks, completeFeedbacks };
   }
 }

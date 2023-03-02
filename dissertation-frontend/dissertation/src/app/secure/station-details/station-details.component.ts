@@ -12,6 +12,39 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
   @Input()
   workstation?: Workstation;
 
+  feedbacksData?: {
+    okFeedbacks: {
+      title: string;
+      total: number;
+      lastResult: boolean;
+      lastId: string;
+      lastTime: Date;
+      rate: number;
+    };
+    nokFeedbacks: {
+      title: string;
+      total: number;
+      lastResult: boolean;
+      lastId: string;
+      lastTime: Date;
+      rate: number;
+    };
+    scrapFeedbacks: {
+      title: string;
+      total: number;
+      lastResult: boolean;
+      lastId: string;
+      lastTime: Date;
+      rate: number;
+    };
+    completeFeedbacks: {
+      total: number;
+      lastResult: any;
+      lastId: any;
+      lastTime: any;
+    };
+  };
+
   city?: { abbreviation: string; name: string; country: string };
   constructor(
     public bsModalRef: BsModalRef,
@@ -21,10 +54,12 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (this.workstation) {
-      console.log(this.workstation);
       this.city = this.workstationGeneratorService.getCityByAbbreviation(
         this.workstation.plantIndex
       );
+
+      this.feedbacksData =
+        this.workstationGeneratorService.generateFeedbackData();
     } else {
       console.log(typeof this.workstation);
     }
