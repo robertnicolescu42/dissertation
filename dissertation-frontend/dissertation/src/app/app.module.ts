@@ -30,6 +30,8 @@ import { WorkstationConfigComponent } from './secure/config/workstation-config/w
 import { GaugeComponent } from './secure/station-details/widgets/gauge/gauge.component';
 import { FeedbacksComponent } from './secure/station-details/feedbacks/feedbacks.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SignUpComponent } from './public/sign-up/sign-up.component';
+import { SignInComponent } from './public/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     WorkstationConfigComponent,
     GaugeComponent,
     FeedbacksComponent,
+    SignUpComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
