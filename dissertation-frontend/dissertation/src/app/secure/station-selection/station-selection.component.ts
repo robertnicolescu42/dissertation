@@ -24,12 +24,18 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     private modalService: BsModalService
   ) {}
   ngOnInit(): void {
-    // this.workstations = this.workstationGeneratorService.generateWorkstations(100);
+    let mockData = false;
 
-    this.workstationService.getWorkstations().subscribe((workstations) => {
-      this.workstations = workstations;
+    if (mockData) {
+      this.workstations =
+        this.workstationGeneratorService.generateWorkstations(100);
       this.filteredWorkstations = this.workstations;
-    });
+    } else {
+      this.workstationService.getWorkstations().subscribe((workstations) => {
+        this.workstations = workstations;
+        this.filteredWorkstations = this.workstations;
+      });
+    }
   }
 
   filterByRunningTime() {
