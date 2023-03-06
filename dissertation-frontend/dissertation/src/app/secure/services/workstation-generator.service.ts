@@ -332,6 +332,11 @@ export class WorkstationGeneratorService {
     });
 
     // Build the completeFeedbacks object
+    if (mostRecentFeedback.lastId === okFeedbacks.lastId) {
+      mostRecentFeedback.lastResult = true;
+    } else {
+      mostRecentFeedback.lastResult = false;
+    }
     const completeFeedbacks = {
       total,
       lastResult: mostRecentFeedback.lastResult,
