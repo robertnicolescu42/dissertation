@@ -29,7 +29,7 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { WorkstationConfigComponent } from './secure/config/workstation-config/workstation-config.component';
 import { GaugeComponent } from './secure/station-details/widgets/gauge/gauge.component';
 import { FeedbacksComponent } from './secure/station-details/feedbacks/feedbacks.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,8 @@ import { FeedbacksComponent } from './secure/station-details/feedbacks/feedbacks
     TableModule,
     FormsModule, // two way data-binding doesn't work without this module
     ModalModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    HttpClientModule
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

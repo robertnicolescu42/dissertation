@@ -1,23 +1,12 @@
 export interface Workstation {
-
   stationId: string;
   displayName: string;
-  isConsiderScrapForOee: boolean;
   equipmentNumber: string;
   isOeeCalculable: boolean;
-  isSendingQualityRate: boolean;
   cycleTime: number;
   cycleTimeDelay: number;
   description: string;
   plantIndex: string;
-  isStatusSynthetical: boolean;
-  isUsingQmetric: boolean;
-  isPredictiveMaintenanceDisplayed: boolean;
-  isStationMonitorDisplayed: boolean;
-  isProcessTimesDisplayed: boolean;
-  isShowStatusOnly: boolean;
-  stationMonitorYellow: number;
-  stationMonitorRed: number;
   runningTime: number;
   productionCount: number;
   defectCount: number;

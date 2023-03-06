@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Workstation } from '../../types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
+import { WorkstationsService } from '../services/workstations.service';
 import { StationDetailsComponent } from '../station-details/station-details.component';
 
 @Component({
@@ -19,13 +20,16 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
 
   constructor(
     private workstationGeneratorService: WorkstationGeneratorService,
+    private workstationService: WorkstationsService,
     private modalService: BsModalService
   ) {}
   ngOnInit(): void {
-    this.workstations =
-      this.workstationGeneratorService.generateWorkstations(100);
+    // this.workstations = this.workstationGeneratorService.generateWorkstations(100);
 
-    this.filteredWorkstations = this.workstations;
+    this.workstationService.getWorkstations().subscribe((workstations) => {
+      this.workstations = workstations;
+      this.filteredWorkstations = this.workstations;
+    });
   }
 
   filterByRunningTime() {

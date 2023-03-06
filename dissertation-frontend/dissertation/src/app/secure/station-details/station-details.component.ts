@@ -59,7 +59,7 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
       );
 
       this.feedbacksData =
-        this.workstationGeneratorService.generateFeedbackData();
+      this.workstationGeneratorService.generateFeedbackData();
     } else {
       console.log(typeof this.workstation);
     }

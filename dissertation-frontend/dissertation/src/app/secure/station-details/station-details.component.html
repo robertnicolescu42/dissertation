@@ -17,21 +17,22 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-12">
-        <div class="row">
-          <app-status-widget [workstation]="workstation"></app-status-widget>
-        </div>
+      <div
+        [ngClass]="{
+          'col-6': workstation?.isOeeCalculable,
+          'col-12': !workstation?.isOeeCalculable
+        }"
+      >
+        <app-status-widget [workstation]="workstation"></app-status-widget>
+      </div>
+      <div
+        class="chart-container m-2 col-6"
+        *ngIf="workstation?.isOeeCalculable"
+      >
+        <!-- style="position: relative; height: 40vh; width: 49vw" -->
+        <app-oee-calculation [workstation]="workstation"></app-oee-calculation>
       </div>
       <div class="my-3 row">
-        <!-- <div
-            class="chart-container m-2"
-            *ngIf="workstation?.isOeeCalculable; else noOEE"
-          >
-            <app-oee-calculation
-              style="position: relative; height: 40vh; width: 49vw"
-              [workstation]="workstation"
-            ></app-oee-calculation>
-          </div> -->
         <div class="row col-12">
           <div class="col-3">
             <app-feedbacks
