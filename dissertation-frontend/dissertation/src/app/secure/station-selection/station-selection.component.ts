@@ -24,7 +24,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     private modalService: BsModalService
   ) {}
   ngOnInit(): void {
-    let mockData = false;
+    let mockData = true;
 
     if (mockData) {
       this.workstations =
