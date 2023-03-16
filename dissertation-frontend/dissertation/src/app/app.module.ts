@@ -32,6 +32,7 @@ import { FeedbacksComponent } from './secure/station-details/feedbacks/feedbacks
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './public/sign-up/sign-up.component';
 import { SignInComponent } from './public/sign-in/sign-in.component';
+import { PlantSelectionComponent } from './secure/plant-selection/plant-selection.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SignInComponent } from './public/sign-in/sign-in.component';
     FeedbacksComponent,
     SignUpComponent,
     SignInComponent,
+    PlantSelectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,7 @@ import { SignInComponent } from './public/sign-in/sign-in.component';
     FormsModule, // two way data-binding doesn't work without this module
     ModalModule,
     NgbCollapseModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],
