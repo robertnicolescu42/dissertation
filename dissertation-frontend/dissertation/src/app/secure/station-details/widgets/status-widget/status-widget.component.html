@@ -1,10 +1,12 @@
 <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Status</h5>
-    <h6 class="card-subtitle mb-2 text-muted">
-      The workstation's current status
-    </h6>
-    <div class="card-text">
+  <div>
+    <div class="card-header">
+      <h5 class="card-title">Status</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        The workstation's current status
+      </h6>
+    </div>
+    <div class="card-text card-body">
       <dl class="row">
         <dt class="col-sm-3">Planned Cycle Time</dt>
         <dd class="col-sm-9">{{ plannedCycleTime }}s</dd>
@@ -16,7 +18,7 @@
         <dd class="col-sm-9">{{ plannedRunningTime }}s</dd>
         <dt class="col-sm-3">Last Running Time</dt>
         <dd class="col-sm-9">{{ workstation?.runningTime }}s</dd>
-        <hr>
+        <hr />
         <dt class="col-sm-3">Equipment number</dt>
         <dd class="col-sm-9">{{ workstation?.equipmentNumber }}s</dd>
         <!-- <hr>

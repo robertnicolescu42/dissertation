@@ -11,6 +11,16 @@ export class PredictiveMaintenanceMachineOverviewComponent {
   @Input()
   workstation?: Workstation;
 
+  isHealthScoreChart = true;
+
+  calculatedStatistics = {
+    rulPercentage: 0,
+    rulShots: 0,
+    numAnomalies: 0,
+    errorRatio: 0.0,
+    timestamp: new Date(),
+  };
+
   plantId: string;
   stationId: string;
   constructor(private route: ActivatedRoute) {

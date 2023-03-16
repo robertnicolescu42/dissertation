@@ -1,3 +1,48 @@
-plantId: {{ plantId }}
+<!-- plantId: {{ plantId }}
 
-{{ workstation | json }}
+<div class="row half-gutters">
+    {{ workstation | json }}
+</div> -->
+
+<div class="row py-2">
+  <!-- First card with chart -->
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          {{
+            "RUL Info - " +
+              (isHealthScoreChart ? "Health Score" : "RUL In Quantity") +
+              " Chart"
+          }}
+        </h5>
+      </div>
+      <div class="card-body">
+        <app-predictive-maintenance-chart></app-predictive-maintenance-chart>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second card with statistics -->
+  <div class="col-4">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Statistics</h5>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-sm-6">RUL in %:</dt>
+          <dd class="col-sm-6">{{ calculatedStatistics.rulPercentage }}</dd>
+          <dt class="col-sm-6">RUL in shots:</dt>
+          <dd class="col-sm-6">{{ calculatedStatistics.rulShots }}</dd>
+          <dt class="col-sm-6">Number of anomalies:</dt>
+          <dd class="col-sm-6">{{ calculatedStatistics.numAnomalies }}</dd>
+          <dt class="col-sm-6">Error ratio:</dt>
+          <dd class="col-sm-6">{{ calculatedStatistics.errorRatio }}</dd>
+          <dt class="col-sm-6">Timestamp:</dt>
+          <dd class="col-sm-6">{{ calculatedStatistics.timestamp }}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
