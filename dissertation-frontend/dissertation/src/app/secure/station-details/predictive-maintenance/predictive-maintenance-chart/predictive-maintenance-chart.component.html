@@ -1,1 +1,13 @@
-<p>predictive-maintenance-chart works!</p>
+<div class="chart-wrapper">
+  <canvas
+    class="oee-chart"
+    baseChart
+    [labels]="lineChartLabels"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [plugins]="lineChartPlugins"
+    [legend]="lineChartLegend"
+    [type]="'line'"
+  >
+  </canvas>
+</div>

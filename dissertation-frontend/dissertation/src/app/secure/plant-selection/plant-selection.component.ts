@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-plant-selection',
@@ -29,4 +30,8 @@ export class PlantSelectionComponent {
         'https://cdn.britannica.com/01/94501-050-7C939333/Big-Ben-London.jpg',
     },
   ];
+
+  constructor(private breadcrumbService: BreadcrumbService) {
+    this.breadcrumbService.set('@plant-selection', 'Child One');
+  }
 }

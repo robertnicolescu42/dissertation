@@ -38,6 +38,8 @@ import { PredictiveMaintenanceComponent } from './secure/station-details/predict
 import { PredictiveMaintenanceMachineOverviewComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-machine-overview/predictive-maintenance-machine-overview.component';
 import { PredictiveMaintenanceChartComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component';
 import { GenericCardComponent } from './secure/station-details/widgets/generic-card/generic-card.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { GenericCardComponent } from './secure/station-details/widgets/generic-c
     PredictiveMaintenanceMachineOverviewComponent,
     PredictiveMaintenanceAnomalyOverviewComponent,
     GenericCardComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,7 @@ import { GenericCardComponent } from './secure/station-details/widgets/generic-c
     ModalModule,
     NgbCollapseModule,
     HttpClientModule,
+    BreadcrumbModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

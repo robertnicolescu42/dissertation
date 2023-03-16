@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { map, Observable, of } from 'rxjs';
+import { RulInfoDataEntry } from 'src/app/types/predictive-maintenance';
 import { Workstation } from '../../types/work-station';
 
 @Injectable({
@@ -7,6 +9,10 @@ import { Workstation } from '../../types/work-station';
 export class PredictiveMaintenanceService {
   workstation: Workstation;
 
+  private _rulInfoData$!: Observable<RulInfoDataEntry[]>;
+  get rulInfoData$(): Observable<RulInfoDataEntry[]> {
+    return this._rulInfoData$;
+  }
   constructor() {
     this.workstation = {
       stationId: '',
@@ -21,10 +27,31 @@ export class PredictiveMaintenanceService {
       productionCount: 0,
       defectCount: 0,
     };
+
+    // this._rulInfoData$ = this.generateRulInfoData();
+    this._rulInfoData$ = of(
+      this.convertToRulInfoDataEntries(
+        []
+      ));
+  }
+
+  convertToRulInfoDataEntries(data: any[]): RulInfoDataEntry[] {
+    return data.map((item) => {
+      return new RulInfoDataEntry({
+        toolID: item.toolID,
+        rulInQuantity: item.rulInQuantity,
+        cycleNumber: item.cycleNumber,
+        errorRatio: item.errorRatio,
+        rulInPercent: item.rulInPercent,
+        numberAnomalies: item.numberAnomalies,
+        timestamp: item.timestamp,
+      });
+    });
   }
 
   generateRulInfoData() {
-    const data = [];
+    const data: RulInfoDataEntry[] = [];
+
     for (let i = 0; i < 100; i++) {
       const toolID = `Tool asdf`;
       const rulInQuantity = Math.floor(Math.random() * 100) + 1;
@@ -34,17 +61,21 @@ export class PredictiveMaintenanceService {
       const numberAnomalies = Math.floor(Math.random() * 100) + 1;
       const timestamp = new Date().toISOString();
 
-      data.push({
-        toolID,
-        rulInQuantity,
-        cycleNumber,
-        errorRatio,
-        rulInPercent,
-        numberAnomalies,
-        timestamp,
-      });
+      const entry: RulInfoDataEntry = {
+        data: {
+          toolID,
+          rulInQuantity,
+          cycleNumber,
+          errorRatio,
+          rulInPercent,
+          numberAnomalies,
+          timestamp,
+        },
+      };
+
+      data.push(entry);
     }
 
-    return data;
+    return of(data);
   }
 }

@@ -13,13 +13,13 @@ export class RulInfoDataEntry {
   constructor(
     // public timestamp: string,
     public data: {
-      toolID: number;
+      toolID: string;
       rulInQuantity: number;
       cycleNumber: number; // a singular shot
       errorRatio: number;
       rulInPercent: number;
       numberAnomalies: number;
-      timestamp: Date;
+      timestamp: string;
     }
   ) {}
 }

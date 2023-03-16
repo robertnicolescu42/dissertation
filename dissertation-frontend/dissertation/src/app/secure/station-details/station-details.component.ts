@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BreadcrumbService } from 'xng-breadcrumb';
 import { Workstation } from '../../../app/types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
 
@@ -53,7 +54,8 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
     private modalService: BsModalService,
     private workstationGeneratorService: WorkstationGeneratorService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private breadcrumbService: BreadcrumbService
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +67,7 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
 
       this.feedbacksData =
         this.workstationGeneratorService.generateFeedbackData();
+
     } else {
       console.log(typeof this.workstation);
     }

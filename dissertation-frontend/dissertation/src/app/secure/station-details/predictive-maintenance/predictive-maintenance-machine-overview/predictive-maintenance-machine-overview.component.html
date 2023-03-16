@@ -11,8 +11,11 @@
           }}
         </h5>
       </div>
-      <div class="card-body">
-        <app-predictive-maintenance-chart></app-predictive-maintenance-chart>
+      <div class="card-body" *ngIf="rulInfoData">
+        <app-predictive-maintenance-chart
+          [lineChartData]="rulInfoData.lineChartData"
+          [lineChartLabels]="rulInfoData.lineChartLabels"
+        ></app-predictive-maintenance-chart>
       </div>
     </div>
   </div>
@@ -46,38 +49,6 @@
       </div>
     </div>
   </div>
-
-  <app-generic-card
-    title="Calculated statistics"
-    [fields]="[
-      {
-        label: 'Planned Cycle Time',
-        value: calculatedStatistics.rulPercentage.toString()
-      },
-      {
-        label: 'Last Cycle Time',
-        value: calculatedStatistics.rulShots.toString()
-      },
-      {
-        label: 'Cycle Time Delay',
-        value: calculatedStatistics.numAnomalies.toString()
-      },
-      {
-        label: 'Planned Running Time',
-        value: calculatedStatistics.errorRatio.toString()
-      },
-      {
-        label: 'Last Running Time',
-        value: calculatedStatistics.timestamp.toString()
-      },
-      {
-        label: 'Equipment Number',
-        value: 'E0001'
-      }
-    ]"
-    [rightTemplate]="critical"
-  >
-  </app-generic-card>
 </div>
 
 <ng-template #critical>
