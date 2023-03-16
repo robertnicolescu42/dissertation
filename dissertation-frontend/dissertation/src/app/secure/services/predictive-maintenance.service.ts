@@ -32,6 +32,9 @@ export class PredictiveMaintenanceService {
   }
 
   convertToRulInfoDataEntries(data: any[]): RulInfoDataEntry[] {
+    //sort data by rulInPercent
+    data.sort((a, b) => (a.rulInPercent > b.rulInPercent ? 1 : -1));
+
     return data.map((item) => {
       return new RulInfoDataEntry({
         toolID: item.toolID,
@@ -86,8 +89,10 @@ export class PredictiveMaintenanceService {
       const cycleNumber = 316563 + i * 100;
       const rulInQuantity = Math.round(cycleNumber * (rulInPercentBase / 100));
       const rulInPercent = rulInPercentBase - i * 0.0045;
-      const errorRatio = 0.0;
-      const numberAnomalies = 0;
+
+      const rand = Math.random();
+      const errorRatio = rand > 0.9 ? parseFloat(rand.toFixed(2)) : 0.0;
+      const numberAnomalies = 100;
       const timestamp = new Date(startTimestamp + i * 3600000).toISOString();
 
       const entry: RulInfoDataEntry = {

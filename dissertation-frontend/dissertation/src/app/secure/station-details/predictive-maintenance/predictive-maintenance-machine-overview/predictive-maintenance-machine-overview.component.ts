@@ -19,6 +19,8 @@ export class PredictiveMaintenanceMachineOverviewComponent
   private subscriptions: Subscription = new Subscription();
   statisticsData?: { errorRatio: number; numberAnomalies: number };
 
+  currentStatus?: RulInfoDataEntry;
+
   isHealthScoreChart = true;
 
   calculatedStatistics = {
@@ -59,6 +61,11 @@ export class PredictiveMaintenanceMachineOverviewComponent
       this.rulInfoData$.subscribe((data) => {
         this.rulInfoData = this.processData(data);
         this.statisticsData = this.calculateStatistics(data);
+        this.currentStatus = data[data.length - 1];
+        console.log(
+          '🚀 ~ file: predictive-maintenance-machine-overview.component.ts:65 ~ this.rulInfoData$.subscribe ~  this.currentStatus:',
+          this.currentStatus
+        );
       })
     );
   }
