@@ -28,11 +28,7 @@ export class PredictiveMaintenanceService {
       defectCount: 0,
     };
 
-    // this._rulInfoData$ = this.generateRulInfoData();
-    this._rulInfoData$ = of(
-      this.convertToRulInfoDataEntries(
-        []
-      ));
+    this._rulInfoData$ = this.generateRulInfoData();
   }
 
   convertToRulInfoDataEntries(data: any[]): RulInfoDataEntry[] {
@@ -49,17 +45,50 @@ export class PredictiveMaintenanceService {
     });
   }
 
+  // generateRulInfoData() {
+  //   const data: RulInfoDataEntry[] = [];
+
+  //   for (let i = 0; i < 100; i++) {
+  //     const toolID = `Tool asdf`;
+  //     const rulInQuantity = Math.floor(Math.random() * 100) + 1;
+  //     const cycleNumber = Math.floor(Math.random() * 100) + 1;
+  //     const errorRatio = Math.floor(Math.random() * 100) + 1;
+  //     const rulInPercent = Math.floor(Math.random() * 100) + 1;
+  //     const numberAnomalies = Math.floor(Math.random() * 100) + 1;
+  //     const timestamp = new Date().toISOString();
+
+  //     const entry: RulInfoDataEntry = {
+  //       data: {
+  //         toolID,
+  //         rulInQuantity,
+  //         cycleNumber,
+  //         errorRatio,
+  //         rulInPercent,
+  //         numberAnomalies,
+  //         timestamp,
+  //       },
+  //     };
+
+  //     data.push(entry);
+  //   }
+
+  //   return of(data);
+  // }
+
   generateRulInfoData() {
     const data: RulInfoDataEntry[] = [];
 
+    const startTimestamp = Date.parse(new Date().toISOString());
+    const rulInPercentBase = 14.6377;
+
     for (let i = 0; i < 100; i++) {
-      const toolID = `Tool asdf`;
-      const rulInQuantity = Math.floor(Math.random() * 100) + 1;
-      const cycleNumber = Math.floor(Math.random() * 100) + 1;
-      const errorRatio = Math.floor(Math.random() * 100) + 1;
-      const rulInPercent = Math.floor(Math.random() * 100) + 1;
-      const numberAnomalies = Math.floor(Math.random() * 100) + 1;
-      const timestamp = new Date().toISOString();
+      const toolID = 'TOOLID';
+      const cycleNumber = 316563 + i * 100;
+      const rulInQuantity = Math.round(cycleNumber * (rulInPercentBase / 100));
+      const rulInPercent = rulInPercentBase - i * 0.0045;
+      const errorRatio = 0.0;
+      const numberAnomalies = 0;
+      const timestamp = new Date(startTimestamp + i * 3600000).toISOString();
 
       const entry: RulInfoDataEntry = {
         data: {

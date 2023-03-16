@@ -13,7 +13,10 @@ export class PredictiveMaintenanceChartComponent {
   public lineChartPlugins: ChartConfiguration<'line'>['plugins'] = [];
 
   @Input()
-  public lineChartData: any;
+  public lineChartData: ChartConfiguration<'line'>['data'] | any;
+
+  @Input()
+  public lineChartColors: any[] = [];
 
   @Input()
   public lineChartLabels: ChartConfiguration<'line'>['data']['labels'] = [];
@@ -32,30 +35,24 @@ export class PredictiveMaintenanceChartComponent {
   constructor() {}
 
   ngOnInit(): void {
-    // this.lineChartData = {
-    //   datasets: [],
-    // };
-    // this.lineChartData = {
-    //   labels: ['Performance', 'Quality', 'Availability', 'OEE'],
-    //   datasets: [
-    //     {
-    //       data: [77, 88, 99, 100],
-    //       backgroundColor: ['red', 'blue', 'pink', 'green'],
-    //       label: 'OEE Values',
-    //     },
-    //   ],
-    // };
-    console.log(
-      '🚀 ~ file: predictive-maintenance-chart.component.ts:45 ~ PredictiveMaintenanceChartComponent ~ ngOnInit ~ this.lineChartData:',
-      this.lineChartData
-    );
-
     let fullData: any[] = [];
     let tempData = this.lineChartData[0].data;
 
     tempData.forEach((element: any) => {
       fullData.push(element.y);
     });
+
+    let colors = [
+      '#FF6384',
+      '#36A2EB',
+      '#FFCE56',
+      '#FF6384',
+      '#36A2EB',
+      '#FFCE56',
+      '#FF6384',
+      '#36A2EB',
+      '#FFCE56',
+    ];
 
     this.lineChartData = {
       labels: this.lineChartLabels,
@@ -64,15 +61,12 @@ export class PredictiveMaintenanceChartComponent {
           label: 'RUL Info',
           data: fullData,
           fill: false,
-          borderColor: 'rgb(75, 192, 192)',
+          borderColor: this.lineChartColors[0].borderColor,
+          pointBorderColor: this.lineChartColors[0].borderColor,
+          pointBackgroundColor: this.lineChartColors[0].borderColor,
           tension: 0.1,
         },
       ],
     };
-
-    console.log(
-      '🚀 ~ file: predictive-maintenance-chart.component.ts:23 ~ PredictiveMaintenanceChartComponent ~ lineChartLabels:',
-      this.lineChartLabels
-    );
   }
 }
