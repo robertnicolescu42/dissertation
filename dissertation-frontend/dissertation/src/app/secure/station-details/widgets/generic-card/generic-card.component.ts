@@ -14,6 +14,7 @@ export class GenericCardComponent implements OnInit {
   @Input() title!: string;
   @Input() fields!: Field[];
   @Input() rightTemplate: string = '';
+  @Input() content: string = '';
 
   constructor() {}
   ngOnInit(): void {}

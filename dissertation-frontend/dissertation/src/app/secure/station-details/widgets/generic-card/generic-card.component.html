@@ -9,12 +9,17 @@
       </div>
     </div>
     <div class="card-body">
-      <dl class="row">
-        <ng-container *ngFor="let field of fields">
-          <dt class="col-sm-3">{{ field.label }}</dt>
-          <dd class="col-sm-9">{{ field.value }}</dd>
-        </ng-container>
-      </dl>
+      <div *ngIf="!content">
+        <dl class="row">
+          <ng-container *ngFor="let field of fields">
+            <dt class="col-sm-3">{{ field.label }}</dt>
+            <dd class="col-sm-9">{{ field.value }}</dd>
+          </ng-container>
+        </dl>
+      </div>
+      <div *ngIf="content">
+        <ng-container [ngTemplateOutlet]="content"></ng-container>
+      </div>
     </div>
   </div>
 </div>
