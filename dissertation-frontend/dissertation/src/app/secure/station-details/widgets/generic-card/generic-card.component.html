@@ -1,0 +1,20 @@
+<div class="card p-2">
+  <div class="card-header">
+    <div class="row mb-3">
+      <div class="col-sm-6">
+        <h5 class="card-title">{{ title }}</h5>
+      </div>
+      <div class="col-sm-6 text-end" *ngIf="rightTemplate">
+        <ng-container [ngTemplateOutlet]="rightTemplate"></ng-container>
+      </div>
+    </div>
+    <div class="card-body">
+      <dl class="row">
+        <ng-container *ngFor="let field of fields">
+          <dt class="col-sm-3">{{ field.label }}</dt>
+          <dd class="col-sm-9">{{ field.value }}</dd>
+        </ng-container>
+      </dl>
+    </div>
+  </div>
+</div>

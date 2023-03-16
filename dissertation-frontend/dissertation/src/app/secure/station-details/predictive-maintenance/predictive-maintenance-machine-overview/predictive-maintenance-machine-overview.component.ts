@@ -14,7 +14,7 @@ export class PredictiveMaintenanceMachineOverviewComponent {
   isHealthScoreChart = true;
 
   calculatedStatistics = {
-    rulPercentage: 0,
+    rulPercentage: 70,
     rulShots: 0,
     numAnomalies: 0,
     errorRatio: 0.0,

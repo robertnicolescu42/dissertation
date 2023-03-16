@@ -37,6 +37,7 @@ import { PredictiveMaintenanceAnomalyOverviewComponent } from './secure/station-
 import { PredictiveMaintenanceComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance.component';
 import { PredictiveMaintenanceMachineOverviewComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-machine-overview/predictive-maintenance-machine-overview.component';
 import { PredictiveMaintenanceChartComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component';
+import { GenericCardComponent } from './secure/station-details/widgets/generic-card/generic-card.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { PredictiveMaintenanceChartComponent } from './secure/station-details/pr
     PredictiveMaintenanceChartComponent,
     PredictiveMaintenanceMachineOverviewComponent,
     PredictiveMaintenanceAnomalyOverviewComponent,
+    GenericCardComponent,
   ],
   imports: [
     BrowserModule,
