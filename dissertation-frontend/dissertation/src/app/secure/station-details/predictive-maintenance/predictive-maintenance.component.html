@@ -1,0 +1,27 @@
+<p>predictive-maintenance works!</p>
+asdf: {{ workstation | json }}
+
+<nav class="nav nav-tabs">
+  <a
+    *ngFor="let tab of tabs"
+    class="nav-link"
+    [ngClass]="{ active: tab.id === activeTab }"
+    (click)="activeTab = tab.id"
+  >
+    {{ tab.name }}
+  </a>
+</nav>
+<ng-container [ngSwitch]="activeTab">
+  <div *ngSwitchCase="'machine-overview'">
+    <app-predictive-maintenance-view-machine-overview
+      [workstation]="workstation$ | async"
+    >
+    </app-predictive-maintenance-view-machine-overview>
+  </div>
+  <div *ngSwitchCase="'anomaly-overview'">
+    <app-predictive-maintenance-view-anomaly-overview
+      [workstation]="workstation$ | async"
+    >
+    </app-predictive-maintenance-view-anomaly-overview>
+  </div>
+</ng-container>

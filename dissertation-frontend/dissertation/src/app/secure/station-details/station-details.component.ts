@@ -9,6 +9,8 @@ import { WorkstationGeneratorService } from '../services/workstation-generator.s
   styleUrls: ['./station-details.component.scss'],
 })
 export class StationDetailsComponent implements OnInit, OnDestroy {
+
+  activeTab = 'station-details';
   @Input()
   workstation?: Workstation;
 

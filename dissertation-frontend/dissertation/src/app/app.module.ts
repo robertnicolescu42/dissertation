@@ -33,6 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './public/sign-up/sign-up.component';
 import { SignInComponent } from './public/sign-in/sign-in.component';
 import { PlantSelectionComponent } from './secure/plant-selection/plant-selection.component';
+import { PredictiveMaintenanceAnomalyOverviewComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-anomaly-overview/predictive-maintenance-anomaly-overview.component';
+import { PredictiveMaintenanceComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance.component';
+import { PredictiveMaintenanceMachineOverviewComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-machine-overview/predictive-maintenance-machine-overview.component';
+import { PredictiveMaintenanceChartComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { PlantSelectionComponent } from './secure/plant-selection/plant-selectio
     SignUpComponent,
     SignInComponent,
     PlantSelectionComponent,
+    PredictiveMaintenanceComponent,
+    PredictiveMaintenanceChartComponent,
+    PredictiveMaintenanceMachineOverviewComponent,
+    PredictiveMaintenanceAnomalyOverviewComponent,
   ],
   imports: [
     BrowserModule,
