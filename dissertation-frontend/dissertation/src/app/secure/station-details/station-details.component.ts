@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Workstation } from '../../../app/types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
@@ -9,7 +10,6 @@ import { WorkstationGeneratorService } from '../services/workstation-generator.s
   styleUrls: ['./station-details.component.scss'],
 })
 export class StationDetailsComponent implements OnInit, OnDestroy {
-
   activeTab = 'station-details';
   @Input()
   workstation?: Workstation;
@@ -51,23 +51,41 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
   constructor(
     public bsModalRef: BsModalRef,
     private modalService: BsModalService,
-    private workstationGeneratorService: WorkstationGeneratorService
+    private workstationGeneratorService: WorkstationGeneratorService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    this.workstation = history.state.workstation;
     if (this.workstation) {
       this.city = this.workstationGeneratorService.getCityByAbbreviation(
         this.workstation.plantIndex
       );
 
       this.feedbacksData =
-      this.workstationGeneratorService.generateFeedbackData();
+        this.workstationGeneratorService.generateFeedbackData();
     } else {
       console.log(typeof this.workstation);
     }
+
+    this.route.queryParams.subscribe((params) => {
+      this.activeTab = params['view'] || 'station-details';
+    });
   }
   onClose() {
-    this.bsModalRef.hide();
+    // this.bsModalRef.hide();
+    this.router.navigate(['../../'], { relativeTo: this.route });
+  }
+
+  onTabClick(tabName: string) {
+    this.activeTab = tabName;
+    const queryParams = { view: tabName };
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams,
+      queryParamsHandling: 'merge',
+    });
   }
 
   getCityDetails() {

@@ -1,4 +1,4 @@
-<div class="custom-dialog">
+<div class="custom-dialog p-3">
   <div class="modal-header" *ngIf="workstation">
     <h4 class="modal-title pull-left">
       {{ city.name }}/{{ workstation?.stationId }}
@@ -22,7 +22,7 @@
           <a
             class="nav-link"
             [ngClass]="{ active: activeTab === 'station-details' }"
-            (click)="activeTab = 'station-details'"
+            (click)="onTabClick('station-details')"
             style="font-weight: bold; color: #333"
             >Station Details</a
           >
@@ -31,7 +31,7 @@
           <a
             class="nav-link"
             [ngClass]="{ active: activeTab === 'predictive-maintenance' }"
-            (click)="activeTab = 'predictive-maintenance'"
+            (click)="onTabClick('predictive-maintenance')"
             style="font-weight: bold; color: #333"
             >Predictive Maintenance</a
           >
@@ -120,7 +120,9 @@
     </div>
   </div>
   <div *ngIf="activeTab === 'predictive-maintenance'">
-    <app-predictive-maintenance [workstation]="workstation"></app-predictive-maintenance>
+    <app-predictive-maintenance
+      [workstation]="workstation"
+    ></app-predictive-maintenance>
   </div>
 </div>
 
