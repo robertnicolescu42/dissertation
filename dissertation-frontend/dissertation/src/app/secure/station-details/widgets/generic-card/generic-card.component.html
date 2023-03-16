@@ -1,0 +1,58 @@
+<div class="card p-2">
+  <div class="card-header">
+    <div class="row mb-3">
+      <div class="col-sm-6">
+        <h5 class="card-title">{{ title }}</h5>
+      </div>
+      <div class="col-sm-6 text-end" *ngIf="rightTemplate">
+        <ng-container [ngTemplateOutlet]="rightTemplate"></ng-container>
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngIf="!content">
+        <dl class="row">
+          <ng-container *ngFor="let field of fields">
+            <dt class="col-sm-3">{{ field.label }}</dt>
+            <dd class="col-sm-9">{{ field.value }}</dd>
+          </ng-container>
+        </dl>
+      </div>
+      <div *ngIf="content">
+        <ng-container [ngTemplateOutlet]="content"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXAMPLE OF USE -->
+<!-- <app-generic-card
+  title="Calculated statistics"
+  [fields]="[
+    {
+      label: 'Planned Cycle Time',
+      value: calculatedStatistics.rulPercentage.toString()
+    },
+    {
+      label: 'Last Cycle Time',
+      value: calculatedStatistics.rulShots.toString()
+    },
+    {
+      label: 'Cycle Time Delay',
+      value: calculatedStatistics.numAnomalies.toString()
+    },
+    {
+      label: 'Planned Running Time',
+      value: calculatedStatistics.errorRatio.toString()
+    },
+    {
+      label: 'Last Running Time',
+      value: calculatedStatistics.timestamp.toString()
+    },
+    {
+      label: 'Equipment Number',
+      value: 'E0001'
+    }
+  ]"
+  [rightTemplate]="critical"
+>
+</app-generic-card> -->

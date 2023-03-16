@@ -1,0 +1,26 @@
+<div class="card h-75 p-2">
+  <div class="card-header bg-white">Select a Plant</div>
+  <div class="card-body">
+    <div class="row row-cols-1 row-cols-md-5 g-5">
+      <div class="col mb-4" *ngFor="let plant of plants">
+        <div class="card mb-4 box-shadow">
+          <a
+            routerLink="/plant-selection/{{ plant.id }}"
+            class="text-decoration-none"
+          >
+            <img
+              class="card-img-top img-fluid"
+              src="{{ plant.imageUrl }}"
+              alt="{{ plant.title }}"
+              style="width: 400px; height: 200px"
+            />
+            <div class="card-body">
+              <h4 class="card-title text-black">{{ plant.title }}</h4>
+              <p class="card-text text-secondary">{{ plant.description }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

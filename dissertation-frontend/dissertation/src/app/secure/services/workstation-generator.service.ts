@@ -27,7 +27,7 @@ export class WorkstationGeneratorService {
     // Find the city object with the matching abbreviation, or return undefined if not found
     return this.cities.find((city) => city.abbreviation === abbreviation);
   }
-  generateWorkstation(): Workstation {
+  generateWorkstation(plantId: string): Workstation {
     let { stationId, description } =
       this.generateWorkstationNameAndDescription();
 
@@ -41,21 +41,28 @@ export class WorkstationGeneratorService {
       cycleTime: Math.floor(Math.random() * 1000),
       cycleTimeDelay: Math.floor(Math.random() * 100),
       description: description,
-      plantIndex:
-        this.cities[Math.floor(Math.random() * this.cities.length)]
-          .abbreviation,
+      // plantIndex:
+      //   this.cities[Math.floor(Math.random() * this.cities.length)]
+      //     .abbreviation,
+      plantIndex: plantId,
       runningTime: Math.floor(Math.random() * 100),
       productionCount: productionCount,
       defectCount: Math.floor(Math.random() * (productionCount - 0 + 1)),
     };
   }
 
-  generateWorkstations(number: number): Workstation[] {
-    const workstations: Workstation[] = [];
-    for (let i = 0; i < number; i++) {
-      workstations.push(this.generateWorkstation());
+  generateWorkstations(number: number, plantId: string): Workstation[] {
+    if (number < 1)
+      throw new Error('Number of workstations must be greater than 0');
+
+    if (plantId.length > 0) {
+      const workstations: Workstation[] = [];
+      for (let i = 0; i < number; i++) {
+        workstations.push(this.generateWorkstation(plantId));
+      }
+      return workstations;
     }
-    return workstations;
+    return [];
   }
 
   generateWorkstationNameAndDescription(): {

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Workstation } from '../../types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
@@ -21,15 +22,28 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
   constructor(
     private workstationGeneratorService: WorkstationGeneratorService,
     private workstationService: WorkstationsService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit(): void {
     let mockData = true;
 
     if (mockData) {
-      this.workstations =
-        this.workstationGeneratorService.generateWorkstations(100);
-      this.filteredWorkstations = this.workstations;
+      this.route.paramMap.subscribe((params) => {
+        const plantId = params.get('id');
+        console.log(
+          '🚀 ~ file: station-selection.component.ts:33 ~ StationSelectionComponent ~ ngOnInit ~ plantId:',
+          plantId
+        );
+        this.workstations =
+          this.workstationGeneratorService.generateWorkstations(
+            100,
+            plantId ? plantId : ''
+          );
+        this.filteredWorkstations = this.workstations;
+        // Do something with the plantId
+      });
     } else {
       this.workstationService.getWorkstations().subscribe((workstations) => {
         this.workstations = workstations;
@@ -74,14 +88,22 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
   }
 
   showStationDetails(workstation: Workstation) {
-    const initialState = {
-      workstation: workstation,
-    };
-    this.modalRef = this.modalService.show(StationDetailsComponent, {
-      ignoreBackdropClick: true,
-      initialState,
-    });
-    this.modalRef.setClass('modal-fullscreen modal-dialog-centered');
+    // const initialState = {
+    //   workstation: workstation,
+    // };
+    // this.modalRef = this.modalService.show(StationDetailsComponent, {
+    //   ignoreBackdropClick: true,
+    //   initialState,
+    // });
+    // this.modalRef.setClass('modal-fullscreen modal-dialog-centered');
+    const currentUrl = this.router.url;
+    const plantId = currentUrl.substr(currentUrl.lastIndexOf('/') + 1);
+    this.router.navigate(
+      [`/plant-selection/${plantId}/station-details/${workstation.stationId}`],
+      {
+        state: { workstation: workstation },
+      }
+    );
   }
   ngOnDestroy(): void {}
 }

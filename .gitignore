@@ -1,1 +1,22 @@
 dissertation-frontend/dissertation/src/environments/environment.ts
+predictive help/mock.txt
+predictive help/predictive/service/predictive-maintenance.service.ts
+predictive help/predictive/station-view-predictive-maintenance/station-view-predictive-maintenance.component.html
+predictive help/predictive/station-view-predictive-maintenance/station-view-predictive-maintenance.component.scss
+predictive help/predictive/station-view-predictive-maintenance/station-view-predictive-maintenance.component.ts
+predictive help/predictive/station-view-predictive-maintenance/station-view-predictive-maintenance.service.ts
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component.html
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component.scss
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component.ts
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/predictive-maintenance-view-anomaly-overview.component.html
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/predictive-maintenance-view-anomaly-overview.component.scss
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/predictive-maintenance-view-anomaly-overview.component.ts
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/predictive-maintenance-view-anomaly-overview.service.ts
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/anomaly-observe-spectogram-modal/anomaly-observe-spectogram-modal.component.html
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/anomaly-observe-spectogram-modal/anomaly-observe-spectogram-modal.component.scss
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-anomaly-overview/anomaly-observe-spectogram-modal/anomaly-observe-spectogram-modal.component.ts
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-machine-overview/predictive-maintenance-view-machine-overview.component.html
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-machine-overview/predictive-maintenance-view-machine-overview.component.scss
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-machine-overview/predictive-maintenance-view-machine-overview.component.ts
+predictive help/predictive/station-view-predictive-maintenance/predictive-maintenance-view-machine-overview/predictive-maintenance-view-machine-overview.service.ts
+predictive help/predictive/types/predictive-maintenance.ts

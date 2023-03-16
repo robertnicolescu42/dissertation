@@ -32,6 +32,14 @@ import { FeedbacksComponent } from './secure/station-details/feedbacks/feedbacks
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './public/sign-up/sign-up.component';
 import { SignInComponent } from './public/sign-in/sign-in.component';
+import { PlantSelectionComponent } from './secure/plant-selection/plant-selection.component';
+import { PredictiveMaintenanceAnomalyOverviewComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-anomaly-overview/predictive-maintenance-anomaly-overview.component';
+import { PredictiveMaintenanceComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance.component';
+import { PredictiveMaintenanceMachineOverviewComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-machine-overview/predictive-maintenance-machine-overview.component';
+import { PredictiveMaintenanceChartComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-chart/predictive-maintenance-chart.component';
+import { GenericCardComponent } from './secure/station-details/widgets/generic-card/generic-card.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +56,13 @@ import { SignInComponent } from './public/sign-in/sign-in.component';
     FeedbacksComponent,
     SignUpComponent,
     SignInComponent,
+    PlantSelectionComponent,
+    PredictiveMaintenanceComponent,
+    PredictiveMaintenanceChartComponent,
+    PredictiveMaintenanceMachineOverviewComponent,
+    PredictiveMaintenanceAnomalyOverviewComponent,
+    GenericCardComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +83,8 @@ import { SignInComponent } from './public/sign-in/sign-in.component';
     FormsModule, // two way data-binding doesn't work without this module
     ModalModule,
     NgbCollapseModule,
-    HttpClientModule
+    HttpClientModule,
+    BreadcrumbModule,
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

@@ -1,0 +1,63 @@
+<div class="row py-2">
+  <!-- First card with chart -->
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">
+          {{
+            "RUL Info - " +
+              (isHealthScoreChart ? "Health Score" : "RUL In Quantity") +
+              " Chart"
+          }}
+        </h5>
+      </div>
+      <div class="card-body" *ngIf="rulInfoData">
+        <app-predictive-maintenance-chart
+          [lineChartData]="rulInfoData.lineChartData"
+          [lineChartLabels]="rulInfoData.lineChartLabels"
+          [lineChartColors]="rulInfoData.lineChartColors"
+        ></app-predictive-maintenance-chart>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second card with statistics -->
+  <div class="col-4 d-flex">
+    <div class="card flex-grow-1">
+      <div class="card-header">
+        <h5 class="card-title">Statistics</h5>
+      </div>
+      <div class="card-body d-flex flex-column">
+        <dl class="row">
+          <dt class="col-sm-6">RUL in %:</dt>
+          <dd class="col-sm-6">
+            {{ currentStatus?.data?.rulInPercent | number : "1.2-2" }}%
+          </dd>
+          <dt class="col-sm-6">RUL in shots:</dt>
+          <dd class="col-sm-6">{{ currentStatus?.data?.rulInQuantity }}</dd>
+          <dt class="col-sm-6">Number of anomalies:</dt>
+          <dd class="col-sm-6">{{ calculatedStatistics.numAnomalies }}</dd>
+          <dt class="col-sm-6">Error ratio:</dt>
+          <dd class="col-sm-6">
+            {{ calculatedStatistics.errorRatio | number : "1.2-2" }}%
+          </dd>
+          <dt class="col-sm-6">Classification result:</dt>
+          <dd class="col-sm-6">
+            <ng-container
+              *ngIf="currentStatus?.data?.rulInPercent > 60; else critical"
+              ><span class="text-primary">Normal</span></ng-container
+            >
+          </dd>
+          <dt class="col-sm-6">Timestamp:</dt>
+          <dd class="col-sm-6">
+            {{ currentStatus?.data?.timestamp | date : "medium" }}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #critical>
+  <span class="text-danger">Critical</span>
+</ng-template>
