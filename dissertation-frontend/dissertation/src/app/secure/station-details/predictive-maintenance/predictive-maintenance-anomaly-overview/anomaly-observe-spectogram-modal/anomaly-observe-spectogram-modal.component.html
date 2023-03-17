@@ -29,19 +29,16 @@
     <div class="spectogram-image-container">
       <figcaption
         *ngIf="anomaly.normalFileByteStream"
-        style="text-align: center; color: #0097ac"
-        class="figura1"
+        style="text-align: center"
+        class="figura1 py-1"
       >
         <a
           class="scroll-btn"
           style="cursor: pointer"
           (click)="scrollTo('figura2')"
           title="Scroll Down"
-          >Abnormal Measurement<fa-icon
-            [icon]="faArrowDown"
-            style="color: black"
-          ></fa-icon
-        ></a>
+          >Normal Measurement</a
+        >
       </figcaption>
       <img
         *ngIf="anomaly.normalFileByteStream"
@@ -56,19 +53,16 @@
     <div class="spectogram-image-container">
       <figcaption
         *ngIf="anomaly?.anomalyFileByteStream"
-        style="text-align: center; color: #0097ac"
-        class="figura2"
+        style="text-align: center;"
+        class="figura2 py-1"
       >
         <a
           class="scroll-btn"
           style="cursor: pointer"
           (click)="scrollTo('figura1')"
           title="Scroll Up"
-          >Abnormal Measurement<fa-icon
-            [icon]="faArrowUp"
-            style="color: black"
-          ></fa-icon
-        ></a>
+          >Abnormal Measurement</a
+        >
       </figcaption>
       <img
         *ngIf="anomaly.anomalyFileByteStream"
