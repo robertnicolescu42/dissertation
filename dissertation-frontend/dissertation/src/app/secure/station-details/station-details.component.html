@@ -1,7 +1,12 @@
 <div class="custom-dialog p-3">
   <div class="modal-header" *ngIf="workstation">
     <h4 class="modal-title pull-left">
-      {{ city.name }}/{{ workstation?.stationId }}
+      <span
+        role="button"
+        class="text-primary"
+        (click)="navigateToPreviousPage()"
+        >{{ city.name }}</span
+      >/{{ workstation?.stationId }}
       <small class="text-muted italic">
         - <em>{{ workstation?.description }} in {{ city.country }}</em></small
       >

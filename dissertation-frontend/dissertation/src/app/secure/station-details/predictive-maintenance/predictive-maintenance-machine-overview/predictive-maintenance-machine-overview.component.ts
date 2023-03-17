@@ -4,7 +4,10 @@ import { Observable, Subscription } from 'rxjs';
 import { PredictiveMaintenanceService } from '../../../services/predictive-maintenance.service';
 import { RulInfoDataEntry } from '../../../../types/predictive-maintenance';
 import { Workstation } from '../../../../../app/types/work-station';
-
+import { Papa } from 'ngx-papaparse';
+import { FileSaverService } from 'ngx-filesaver';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { ExportConfirmationModalComponent } from '../../widgets/export-confirmation-modal/export-confirmation-modal.component';
 @Component({
   selector: 'app-predictive-maintenance-machine-overview',
   templateUrl: './predictive-maintenance-machine-overview.component.html',
@@ -52,7 +55,10 @@ export class PredictiveMaintenanceMachineOverviewComponent
   stationId: string;
   constructor(
     private route: ActivatedRoute,
-    private predictiveMaintenanceViewMachineOverviewService: PredictiveMaintenanceService
+    private predictiveMaintenanceViewMachineOverviewService: PredictiveMaintenanceService,
+    private papa: Papa,
+    private fileSaverService: FileSaverService,
+    private modalService: BsModalService
   ) {
     this.plantId = this.route.snapshot.paramMap.get('id') ?? '';
     this.stationId = this.route.snapshot.paramMap.get('stationId') ?? '';
@@ -62,13 +68,33 @@ export class PredictiveMaintenanceMachineOverviewComponent
         this.rulInfoData = this.processData(data);
         this.statisticsData = this.calculateStatistics(data);
         this.currentStatus = data[data.length - 1];
-        console.log(
-          '🚀 ~ file: predictive-maintenance-machine-overview.component.ts:65 ~ this.rulInfoData$.subscribe ~  this.currentStatus:',
-          this.currentStatus
-        );
       })
     );
   }
+
+  exportData(): void {
+    let dataToUse = this.isHealthScoreChart
+      ? this.rulInfoData?.lineChartData[0].data
+      : this.rulInfoData?.rulInQuantityData![0].data;
+    const initialState = {};
+    const modalRef = this.modalService.show(ExportConfirmationModalComponent, {
+      initialState,
+    });
+
+    modalRef.content?.confirmExport.subscribe(() => {
+      const csv = this.papa.unparse(dataToUse);
+
+      // use filesaver to save as CSV file
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      this.fileSaverService.save(blob, 'predictiveMaintenanceData.csv');
+    });
+
+    // listen for cancelExport event
+    modalRef.content?.cancelExport.subscribe(() => {
+      modalRef.hide();
+    });
+  }
+
   calculateStatistics(data: RulInfoDataEntry[]) {
     let errorRatioSum = 0;
     let sumOfAnomalies = 0;

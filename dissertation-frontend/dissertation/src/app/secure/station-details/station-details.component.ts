@@ -67,7 +67,6 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
 
       this.feedbacksData =
         this.workstationGeneratorService.generateFeedbackData();
-
     } else {
       console.log(typeof this.workstation);
     }
@@ -98,6 +97,10 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
       );
     }
     return '';
+  }
+
+  navigateToPreviousPage() {
+    this.router.navigate(['../../'], { relativeTo: this.route });
   }
 
   ngOnDestroy(): void {}

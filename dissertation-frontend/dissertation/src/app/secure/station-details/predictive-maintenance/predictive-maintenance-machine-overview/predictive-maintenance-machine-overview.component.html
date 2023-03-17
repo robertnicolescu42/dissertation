@@ -72,6 +72,16 @@
           <dd class="col-sm-6">
             {{ currentStatus?.data?.timestamp | date : "medium" }}
           </dd>
+          <dt class="col-sm-6">Export current chart data:</dt>
+          <dd class="col-sm-6">
+            <button
+              type="button"
+              (click)="exportData()"
+              class="btn btn-block chart-button btn-primary"
+            >
+              Export
+            </button>
+          </dd>
         </dl>
       </div>
     </div>
@@ -87,6 +97,7 @@
     <div class="col-md-9"></div>
     <div class="col-md-3">
       <div class="p-1 row">
+        <div class="col-6"></div>
         <div class="col-6">
           <button
             ngDefaultControl
