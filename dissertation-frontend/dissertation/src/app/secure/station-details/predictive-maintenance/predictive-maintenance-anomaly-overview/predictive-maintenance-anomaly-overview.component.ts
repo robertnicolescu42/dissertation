@@ -57,10 +57,6 @@ export class PredictiveMaintenanceAnomalyOverviewComponent
 
   ngOnInit(): void {
     this.anomalyData$.subscribe((data) => {
-      console.log(
-        '🚀 ~ file: predictive-maintenance-anomaly-overview.component.ts:47 ~ this.anomalyData$.subscribe ~ data:',
-        data
-      );
       this.anomalyData = data;
     });
   }

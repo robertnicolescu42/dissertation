@@ -41,6 +41,7 @@ import { GenericCardComponent } from './secure/station-details/widgets/generic-c
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component';
 import { AnomalyObserveSpectogramModalComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-anomaly-overview/anomaly-observe-spectogram-modal/anomaly-observe-spectogram-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { AnomalyObserveSpectogramModalComponent } from './secure/station-details
     NgbCollapseModule,
     HttpClientModule,
     BreadcrumbModule,
+    FontAwesomeModule
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],
