@@ -30,7 +30,7 @@ export interface Tool {
 
 export interface AnomalyEntry {
   errorMessage: string;
-  errorCode: string;
+  errorCode?: string;
   ts: string;
   counter: string;
   partID: string;

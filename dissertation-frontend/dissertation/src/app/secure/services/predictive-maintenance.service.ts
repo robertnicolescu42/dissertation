@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
-import { RulInfoDataEntry } from 'src/app/types/predictive-maintenance';
+import {
+  AnomalyEntry,
+  RulInfoDataEntry,
+} from 'src/app/types/predictive-maintenance';
 import { Workstation } from '../../types/work-station';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PredictiveMaintenanceService {
+  getAnomalySpectograms(ts: string): Observable<any> {
+    return of('asdf');
+  }
   workstation: Workstation;
 
   private _rulInfoData$!: Observable<RulInfoDataEntry[]>;
@@ -109,11 +115,42 @@ export class PredictiveMaintenanceService {
 
       data.push(entry);
     }
+    return of(data);
+  }
 
-    console.log(
-      '🚀 ~ file: predictive-maintenance.service.ts:115 ~ PredictiveMaintenanceService ~ generateRulInfoData ~ data:',
-      data
-    );
+  generateAnomalyOverview(): Observable<AnomalyEntry[]> {
+    const partID = '2022_10_13_TP-65-2_5000003459';
+    const startTimestamp = new Date().getTime();
+    const endTimestamp = new Date().getTime();
+    const data = [];
+
+    for (let i = 0; i < 100; i++) {
+      const timestamp = new Date(
+        startTimestamp + Math.random() * (endTimestamp - startTimestamp)
+      );
+      const counter = 315000 + Math.floor(Math.random() * 10000).toString();
+      let errorMessage = '';
+
+      switch (Math.floor(Math.random() * 3)) {
+        case 0:
+          errorMessage = 'Process start';
+          break;
+        case 1:
+          errorMessage = 'Delayed process start';
+          break;
+        case 2:
+          errorMessage = 'Incomplete shot';
+          break;
+      }
+
+      data.push({
+        errorMessage,
+        ts: timestamp.toISOString(),
+        counter,
+        partID,
+      });
+    }
+
     return of(data);
   }
 }
