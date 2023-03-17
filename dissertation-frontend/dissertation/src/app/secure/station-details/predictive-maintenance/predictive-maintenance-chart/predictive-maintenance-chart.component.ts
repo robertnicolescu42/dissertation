@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartConfiguration, PluginChartOptions } from 'chart.js';
-import { Colors } from 'chart.js';
+import { Component, Input } from '@angular/core';
+import { ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-predictive-maintenance-chart',
@@ -21,6 +20,9 @@ export class PredictiveMaintenanceChartComponent {
   @Input()
   public lineChartLabels: ChartConfiguration<'line'>['data']['labels'] = [];
 
+  @Input()
+  public yAxisLabel = '';
+
   public lineChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     maintainAspectRatio: false,
@@ -28,6 +30,28 @@ export class PredictiveMaintenanceChartComponent {
     plugins: {
       legend: {
         display: true,
+      },
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Shots',
+          font: {
+            size: 20,
+          },
+        },
+        ticks: {
+          maxRotation: 0,
+          autoSkip: true,
+          maxTicksLimit: 15,
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: this.yAxisLabel,
+        },
       },
     },
   };
@@ -42,17 +66,15 @@ export class PredictiveMaintenanceChartComponent {
       fullData.push(element.y);
     });
 
-    let colors = [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56',
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56',
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56',
-    ];
+    this.lineChartOptions!.scales!['y']! = {
+      title: {
+        display: true,
+        text: this.yAxisLabel,
+        font: {
+          size: 20,
+        },
+      },
+    };
 
     this.lineChartData = {
       labels: this.lineChartLabels,

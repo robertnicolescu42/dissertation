@@ -21,7 +21,7 @@ export class PredictiveMaintenanceMachineOverviewComponent
 
   currentStatus?: RulInfoDataEntry;
 
-  isHealthScoreChart = true;
+  isHealthScoreChart: boolean = true;
 
   calculatedStatistics = {
     rulPercentage: 70,
@@ -268,7 +268,7 @@ export class PredictiveMaintenanceMachineOverviewComponent
     lineChartData[0].data.pop();
     lineChartLabels.pop();
 
-    let n = 500;
+    let n = 100;
     let xStep = (lastPoint.x - secondLastPoint.x) / n;
     let yStep = (lastPoint.y - secondLastPoint.y) / n;
 
@@ -313,6 +313,10 @@ export class PredictiveMaintenanceMachineOverviewComponent
     chartObj.lineChartLabels = lineChartLabels;
 
     return chartObj;
+  }
+
+  switchChart() {
+    this.isHealthScoreChart = !this.isHealthScoreChart;
   }
 
   ngOnDestroy(): void {

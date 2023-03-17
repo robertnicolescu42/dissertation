@@ -40,6 +40,8 @@ import { PredictiveMaintenanceChartComponent } from './secure/station-details/pr
 import { GenericCardComponent } from './secure/station-details/widgets/generic-card/generic-card.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component';
+import { AnomalyObserveSpectogramModalComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-anomaly-overview/anomaly-observe-spectogram-modal/anomaly-observe-spectogram-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component
     PredictiveMaintenanceAnomalyOverviewComponent,
     GenericCardComponent,
     BreadcrumbsComponent,
+    AnomalyObserveSpectogramModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component
     NgbCollapseModule,
     HttpClientModule,
     BreadcrumbModule,
+    FontAwesomeModule
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent],

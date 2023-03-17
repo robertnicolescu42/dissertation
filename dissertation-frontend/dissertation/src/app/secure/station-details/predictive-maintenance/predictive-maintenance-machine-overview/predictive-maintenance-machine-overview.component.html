@@ -2,21 +2,41 @@
   <!-- First card with chart -->
   <div class="col-8">
     <div class="card">
-      <div class="card-header">
-        <h5 class="card-title">
-          {{
-            "RUL Info - " +
-              (isHealthScoreChart ? "Health Score" : "RUL In Quantity") +
-              " Chart"
-          }}
-        </h5>
+      <div class="card-header d-flex justify-content-between">
+        <div class="col-sm-6">
+          <h5 class="card-title">
+            {{
+              "RUL Info - " +
+                (isHealthScoreChart ? "Health Score" : "RUL In Quantity") +
+                " Chart"
+            }}
+          </h5>
+        </div>
+        <div class="col-sm-6 d-flex justify-content-end px-5">
+          <ng-container [ngTemplateOutlet]="chartFeatures"></ng-container>
+        </div>
       </div>
       <div class="card-body" *ngIf="rulInfoData">
-        <app-predictive-maintenance-chart
-          [lineChartData]="rulInfoData.lineChartData"
-          [lineChartLabels]="rulInfoData.lineChartLabels"
-          [lineChartColors]="rulInfoData.lineChartColors"
-        ></app-predictive-maintenance-chart>
+        <span *ngIf="isHealthScoreChart">
+          <app-predictive-maintenance-chart
+            [lineChartData]="rulInfoData.lineChartData"
+            [lineChartLabels]="rulInfoData.lineChartLabels"
+            [lineChartColors]="rulInfoData.lineChartColors"
+            [yAxisLabel]="
+              isHealthScoreChart ? 'Health Score' : 'RUL In Quantity'
+            "
+          ></app-predictive-maintenance-chart>
+        </span>
+        <span *ngIf="!isHealthScoreChart">
+          <app-predictive-maintenance-chart
+            [lineChartData]="rulInfoData.rulInQuantityData"
+            [lineChartLabels]="rulInfoData.rulInQuantityDataLabels"
+            [lineChartColors]="rulInfoData.rulInQuantityDataColours"
+            [yAxisLabel]="
+              isHealthScoreChart ? 'Health Score' : 'RUL In Quantity'
+            "
+          ></app-predictive-maintenance-chart>
+        </span>
       </div>
     </div>
   </div>
@@ -60,4 +80,26 @@
 
 <ng-template #critical>
   <span class="text-danger">Critical</span>
+</ng-template>
+
+<ng-template #chartFeatures>
+  <div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+      <div class="p-1 row">
+        <div class="col-6">
+          <button
+            ngDefaultControl
+            type="button"
+            [ngModel]="isHealthScoreChart"
+            [ngClass]="[isHealthScoreChart ? 'btn-danger' : 'btn-predictive']"
+            (click)="switchChart()"
+            class="btn btn-block chart-button text-white"
+          >
+            Switch Chart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-template>

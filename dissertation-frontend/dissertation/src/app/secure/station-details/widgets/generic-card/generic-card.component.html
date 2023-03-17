@@ -1,14 +1,16 @@
-<div class="card p-2">
-  <div class="card-header">
-    <div class="row mb-3">
-      <div class="col-sm-6">
-        <h5 class="card-title">{{ title }}</h5>
-      </div>
-      <div class="col-sm-6 text-end" *ngIf="rightTemplate">
-        <ng-container [ngTemplateOutlet]="rightTemplate"></ng-container>
+<div class="card p-2 d-flex">
+  <div class="flex-grow-1">
+    <div class="card-header">
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <h5 class="card-title">{{ title }}</h5>
+        </div>
+        <div class="col-sm-6 text-end" *ngIf="rightTemplate">
+          <ng-container [ngTemplateOutlet]="rightTemplate"></ng-container>
+        </div>
       </div>
     </div>
-    <div class="card-body">
+    <div class="card-body d-flex flex-column">
       <div *ngIf="!content">
         <dl class="row">
           <ng-container *ngFor="let field of fields">
@@ -18,7 +20,9 @@
         </dl>
       </div>
       <div *ngIf="content">
-        <ng-container [ngTemplateOutlet]="content"></ng-container>
+        <div class="row">
+          <ng-container [ngTemplateOutlet]="content"></ng-container>
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +57,13 @@
       value: 'E0001'
     }
   ]"
+  [rightTemplate]="critical"
+>
+</app-generic-card> -->
+
+<!-- <app-generic-card
+  title="Calculated statistics"
+  [content]="critical"
   [rightTemplate]="critical"
 >
 </app-generic-card> -->
