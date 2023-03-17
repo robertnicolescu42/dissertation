@@ -38,124 +38,130 @@
         </li>
       </ul>
     </div> -->
-    <div class="component-container p-2">
-      <div class="button-group justify-content-center py-2">
-        <button
-          class="button w-25"
-          [ngClass]="{ active: activeTab === 'station-details' }"
-          (click)="onTabClick('station-details')"
-        >
-          Station Details
-        </button>
-        <button
-          class="button w-25"
-          [ngClass]="{ active: activeTab === 'predictive-maintenance' }"
-          (click)="onTabClick('predictive-maintenance')"
-        >
-          Predictive Maintenance
-        </button>
-      </div>
-    </div>
-
-    <div *ngIf="activeTab === 'station-details'" class="py-2">
-      <div class="row">
-        <div
-          [ngClass]="{
-            'col-6': workstation?.isOeeCalculable,
-            'col-12': !workstation?.isOeeCalculable
-          }"
-        >
-          <app-status-widget [workstation]="workstation"></app-status-widget>
-        </div>
-        <div
-          class="chart-container m-2 col-6"
-          *ngIf="workstation?.isOeeCalculable"
-        >
-          <!-- style="position: relative; height: 40vh; width: 49vw" -->
-          <app-oee-calculation
-            [workstation]="workstation"
-          ></app-oee-calculation>
-        </div>
-        <div class="my-3 row">
-          <div class="row col-12">
-            <div class="col-3">
-              <app-feedbacks
-                [title]="'Feedbacks'"
-                [total]="feedbacksData?.completeFeedbacks.total"
-                [lastResult]="feedbacksData?.completeFeedbacks.lastResult"
-                [lastId]="feedbacksData?.completeFeedbacks.lastId"
-                [lastTime]="feedbacksData?.completeFeedbacks.lastTime"
-                [rate]="feedbacksData?.completeFeedbacks.rate"
-              ></app-feedbacks>
-            </div>
-            <div class="col-3">
-              <app-feedbacks
-                [title]="'OK Feedbacks'"
-                [feedbackType]="'SCRAP'"
-                [total]="feedbacksData?.okFeedbacks.total"
-                [lastResult]="feedbacksData?.okFeedbacks.lastResult"
-                [lastId]="feedbacksData?.okFeedbacks.lastId"
-                [lastTime]="feedbacksData?.okFeedbacks.lastTime"
-                [rate]="feedbacksData?.okFeedbacks.rate"
-              ></app-feedbacks>
-            </div>
-            <div class="col-3">
-              <app-feedbacks
-                [title]="'NOK Feedbacks'"
-                [feedbackType]="'SCRAP'"
-                [total]="feedbacksData?.nokFeedbacks.total"
-                [lastResult]="feedbacksData?.nokFeedbacks.lastResult"
-                [lastId]="feedbacksData?.nokFeedbacks.lastId"
-                [lastTime]="feedbacksData?.nokFeedbacks.lastTime"
-                [rate]="feedbacksData?.nokFeedbacks.rate"
-              ></app-feedbacks>
-            </div>
-            <div class="col-3">
-              <app-feedbacks
-                [title]="'SCRAP Feedbacks'"
-                [feedbackType]="'SCRAP'"
-                [total]="feedbacksData?.scrapFeedbacks.total"
-                [lastResult]="feedbacksData?.scrapFeedbacks.lastResult"
-                [lastId]="feedbacksData?.scrapFeedbacks.lastId"
-                [lastTime]="feedbacksData?.scrapFeedbacks.lastTime"
-                [rate]="feedbacksData?.scrapFeedbacks.rate"
-              ></app-feedbacks>
-            </div>
-          </div>
-
-          <div class="col-9">
-            <!-- <app-gauge></app-gauge> -->
-          </div>
-          <!-- <div class="col-3">asdf</div> -->
+      <div class="component-container p-2">
+        <div class="button-group justify-content-center py-2">
+          <button
+            class="button w-25"
+            [ngClass]="{ active: activeTab === 'station-details' }"
+            (click)="onTabClick('station-details')"
+          >
+            Station Details
+          </button>
+          <button
+            class="button w-25"
+            [ngClass]="{ active: activeTab === 'predictive-maintenance' }"
+            (click)="onTabClick('predictive-maintenance')"
+          >
+            Predictive Maintenance
+          </button>
         </div>
       </div>
-      <div class="modal-footer sticky-footer">
-        <!-- <button type="button" class="btn btn-secondary" (click)="onClose()">
+
+      <div *ngIf="activeTab === 'station-details'" class="py-2">
+        <div class="row">
+          <div
+            [ngClass]="{
+              'col-6': workstation?.isOeeCalculable,
+              'col-12': !workstation?.isOeeCalculable
+            }"
+          >
+            <app-status-widget [workstation]="workstation"></app-status-widget>
+          </div>
+          <div
+            class="col-6"
+            *ngIf="workstation?.isOeeCalculable"
+          >
+            <app-generic-card title="OEE Chart" [content]="oeeChart">
+            </app-generic-card>
+          </div>
+          <!-- <div class="col-6">
+            <app-generic-card title="OEE Chart" [content]="oeeChart"> </app-generic-card>
+          </div> -->
+          <div class="my-3 row">
+            <div class="row col-12">
+              <div class="col-3">
+                <app-feedbacks
+                  [title]="'Feedbacks'"
+                  [total]="feedbacksData?.completeFeedbacks.total"
+                  [lastResult]="feedbacksData?.completeFeedbacks.lastResult"
+                  [lastId]="feedbacksData?.completeFeedbacks.lastId"
+                  [lastTime]="feedbacksData?.completeFeedbacks.lastTime"
+                  [rate]="feedbacksData?.completeFeedbacks.rate"
+                ></app-feedbacks>
+              </div>
+              <div class="col-3">
+                <app-feedbacks
+                  [title]="'OK Feedbacks'"
+                  [feedbackType]="'SCRAP'"
+                  [total]="feedbacksData?.okFeedbacks.total"
+                  [lastResult]="feedbacksData?.okFeedbacks.lastResult"
+                  [lastId]="feedbacksData?.okFeedbacks.lastId"
+                  [lastTime]="feedbacksData?.okFeedbacks.lastTime"
+                  [rate]="feedbacksData?.okFeedbacks.rate"
+                ></app-feedbacks>
+              </div>
+              <div class="col-3">
+                <app-feedbacks
+                  [title]="'NOK Feedbacks'"
+                  [feedbackType]="'SCRAP'"
+                  [total]="feedbacksData?.nokFeedbacks.total"
+                  [lastResult]="feedbacksData?.nokFeedbacks.lastResult"
+                  [lastId]="feedbacksData?.nokFeedbacks.lastId"
+                  [lastTime]="feedbacksData?.nokFeedbacks.lastTime"
+                  [rate]="feedbacksData?.nokFeedbacks.rate"
+                ></app-feedbacks>
+              </div>
+              <div class="col-3">
+                <app-feedbacks
+                  [title]="'SCRAP Feedbacks'"
+                  [feedbackType]="'SCRAP'"
+                  [total]="feedbacksData?.scrapFeedbacks.total"
+                  [lastResult]="feedbacksData?.scrapFeedbacks.lastResult"
+                  [lastId]="feedbacksData?.scrapFeedbacks.lastId"
+                  [lastTime]="feedbacksData?.scrapFeedbacks.lastTime"
+                  [rate]="feedbacksData?.scrapFeedbacks.rate"
+                ></app-feedbacks>
+              </div>
+            </div>
+
+            <div class="col-9">
+              <!-- <app-gauge></app-gauge> -->
+            </div>
+            <!-- <div class="col-3">asdf</div> -->
+          </div>
+        </div>
+        <div class="modal-footer sticky-footer">
+          <!-- <button type="button" class="btn btn-secondary" (click)="onClose()">
         Close
     </button>
     <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="activeTab === 'predictive-maintenance'">
-    <app-predictive-maintenance
-      [workstation]="workstation"
-    ></app-predictive-maintenance>
-  </div>
-</div>
-
-<ng-template #noOEE>
-  <div class="chart-container">
-    <div class="alert alert-warning" role="alert">
-      <h4 class="alert-heading">OEE is not calculable!</h4>
-      <p>
-        The OEE is not calculable for this station because it is not configured
-        properly.
-      </p>
-      <hr />
-      <p class="mb-0">
-        Please contact your system administrator to fix this issue.
-      </p>
+    <div *ngIf="activeTab === 'predictive-maintenance'">
+      <app-predictive-maintenance
+        [workstation]="workstation"
+      ></app-predictive-maintenance>
     </div>
   </div>
+
+  <ng-template #noOEE>
+    <div class="chart-container">
+      <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">OEE is not calculable!</h4>
+        <p>
+          The OEE is not calculable for this station because it is not
+          configured properly.
+        </p>
+        <hr />
+        <p class="mb-0">
+          Please contact your system administrator to fix this issue.
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #oeeChart>
+  <app-oee-calculation [workstation]="workstation"></app-oee-calculation>
 </ng-template>

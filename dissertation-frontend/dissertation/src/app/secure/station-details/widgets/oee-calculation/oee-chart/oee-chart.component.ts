@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ChartConfiguration, PluginChartOptions } from 'chart.js';
+import { ChartConfiguration } from 'chart.js';
 import { OEE } from '../../../../../types/oee';
-import { Colors } from 'chart.js';
 
 @Component({
   selector: 'app-oee-chart',

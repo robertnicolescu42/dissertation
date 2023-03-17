@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartConfiguration, PluginChartOptions } from 'chart.js';
-import { Colors } from 'chart.js';
+import { Component, Input } from '@angular/core';
+import { ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-predictive-maintenance-chart',
