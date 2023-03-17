@@ -88,7 +88,7 @@ export class PredictiveMaintenanceService {
       const toolID = 'TOOLID';
       const cycleNumber = 316563 + i * 100;
       const rulInQuantity = Math.round(cycleNumber * (rulInPercentBase / 100));
-      const rulInPercent = rulInPercentBase - i * 0.0045;
+      const rulInPercent = rulInPercentBase - i * 0.0045 * Math.random();
 
       const rand = Math.random();
       const errorRatio = rand > 0.9 ? parseFloat(rand.toFixed(2)) : 0.0;
@@ -110,6 +110,10 @@ export class PredictiveMaintenanceService {
       data.push(entry);
     }
 
+    console.log(
+      '🚀 ~ file: predictive-maintenance.service.ts:115 ~ PredictiveMaintenanceService ~ generateRulInfoData ~ data:',
+      data
+    );
     return of(data);
   }
 }
