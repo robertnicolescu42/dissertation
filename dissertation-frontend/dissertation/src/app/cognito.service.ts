@@ -16,7 +16,7 @@ export interface IUser {
   providedIn: 'root',
 })
 export class CognitoService {
-  private authenticationSubject: BehaviorSubject<any>;
+  public authenticationSubject: BehaviorSubject<boolean>;
 
   constructor() {
     Amplify.configure({
@@ -24,6 +24,9 @@ export class CognitoService {
     });
 
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
+    this.isAuthenticated().then((authenticated) => {
+      this.authenticationSubject.next(authenticated);
+    });
   }
 
   public signUp(user: IUser): Promise<any> {
@@ -50,21 +53,13 @@ export class CognitoService {
   }
 
   public isAuthenticated(): Promise<boolean> {
-    if (this.authenticationSubject.value) {
-      return Promise.resolve(true);
-    } else {
-      return this.getUser()
-        .then((user: any) => {
-          if (user) {
-            return true;
-          } else {
-            return false;
-          }
-        })
-        .catch(() => {
-          return false;
-        });
-    }
+    return Auth.currentAuthenticatedUser()
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return false;
+      });
   }
 
   public getUser(): Promise<any> {
@@ -74,6 +69,20 @@ export class CognitoService {
   public updateUser(user: IUser): Promise<any> {
     return Auth.currentUserPoolUser().then((cognitoUser: any) => {
       return Auth.updateUserAttributes(cognitoUser, user);
+    });
+  }
+
+  public getAuthenticationSubject(): BehaviorSubject<boolean> {
+    return this.authenticationSubject;
+  }
+
+  private onLogin(): void {
+    this.authenticationSubject.next(true);
+
+    this.getUser().then((user) => {
+      let userNameCognito = user.attributes.email;
+      let userName = userNameCognito.split('@')[0];
+      localStorage.setItem('username', userName);
     });
   }
 }
