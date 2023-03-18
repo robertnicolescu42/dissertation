@@ -32,10 +32,6 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     if (mockData) {
       this.route.paramMap.subscribe((params) => {
         const plantId = params.get('id');
-        console.log(
-          '🚀 ~ file: station-selection.component.ts:33 ~ StationSelectionComponent ~ ngOnInit ~ plantId:',
-          plantId
-        );
         this.workstations =
           this.workstationGeneratorService.generateWorkstations(
             100,

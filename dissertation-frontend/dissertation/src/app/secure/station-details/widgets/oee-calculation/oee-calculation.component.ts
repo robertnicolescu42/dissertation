@@ -36,7 +36,6 @@ export class OeeCalculationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.workstation);
     if (this.workstation) {
       this.oeeCalculated = this.workstationGeneratorService.calculateOEE(
         this.workstation
