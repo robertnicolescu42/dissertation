@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   isAuthenticated: boolean;
 
   userName$: Subject<string> = new Subject<string>();
-
+  showDropdown: boolean = false;
   greeting = '';
 
   constructor(private router: Router, public cognitoService: CognitoService) {
@@ -54,5 +54,12 @@ export class AppComponent implements OnInit {
     this.cognitoService.signOut().then(() => {
       this.router.navigate(['/signIn']);
     });
+  }
+
+  handleDropdownClick(event: MouseEvent) {
+    const dropdown = document.querySelector('.dropdown-menu');
+    if (!dropdown!.contains(event.target as Node)) {
+      this.showDropdown = false;
+    }
   }
 }

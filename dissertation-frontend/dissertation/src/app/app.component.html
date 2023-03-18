@@ -36,25 +36,35 @@
             >Sign in</a
           >
         </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink=""
-            (click)="signOut()"
-            *ngIf="cognitoService.authenticationSubject | async"
-            >Sign out</a
-          >
-        </li>
       </ul>
 
       <ul
         class="navbar-nav ml-auto p-3"
         *ngIf="cognitoService.authenticationSubject | async"
       >
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/userProfile']">
+        <li class="nav-item dropdown" (click)="showDropdown = !showDropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <i class="fas fa-user"></i> {{ greeting }}, {{ userName$ | async }}
           </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            [class.show]="showDropdown"
+            (click)="handleDropdownClick($event)"
+          >
+            <li>
+              <a class="dropdown-item" [routerLink]="['/userProfile']"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" (click)="signOut()">Sign Out</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
