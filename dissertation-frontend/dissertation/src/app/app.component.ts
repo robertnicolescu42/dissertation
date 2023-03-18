@@ -22,15 +22,9 @@ export class AppComponent implements OnInit {
     this.cognitoService.isAuthenticated().then((success: boolean) => {
       this.isAuthenticated = success;
       if (success) {
-        this.cognitoService
-          .getUser()
-          .then((user) => {
-            let userNameCognito = user.attributes.email;
-            this.userName$?.next(userNameCognito.split('@')[0]);
-          })
-          .catch((err) => {
-            console.log('Error fetching user:', err);
-          });
+        let userName = localStorage.getItem('userName');
+        if (userName) this.userName$.next(userName);
+      } else {
       }
     });
 
@@ -42,11 +36,21 @@ export class AppComponent implements OnInit {
     } else {
       this.greeting = 'Good evening';
     }
+
+    // Listen for login events and update the username
+    this.cognitoService.onLogin$.subscribe(() => {
+      this.cognitoService.getUser().then((user) => {
+        let userNameCognito = user.attributes.email.split('@')[0];
+        localStorage.setItem('userName', userNameCognito);
+        this.userName$.next(userNameCognito);
+      });
+    });
   }
 
   public ngOnInit(): void {}
 
   public signOut(): void {
+    localStorage.removeItem('userName');
     this.cognitoService.signOut().then(() => {
       this.router.navigate(['/signIn']);
     });

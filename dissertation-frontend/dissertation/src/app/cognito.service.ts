@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Amplify, Auth } from 'aws-amplify';
 
 import { environment } from '../environments/environment';
@@ -17,8 +17,10 @@ export interface IUser {
 })
 export class CognitoService {
   public authenticationSubject: BehaviorSubject<boolean>;
+  public onLogin$: Subject<boolean> = new Subject<boolean>();
 
   constructor() {
+    this.onLogin$.next(false);
     Amplify.configure({
       Auth: environment.cognito,
     });
@@ -43,6 +45,13 @@ export class CognitoService {
   public signIn(user: IUser): Promise<any> {
     return Auth.signIn(user.email, user.password).then(() => {
       this.authenticationSubject.next(true);
+
+      this.getUser().then((user) => {
+        let userNameCognito = user.attributes.email;
+        let userName = userNameCognito.split('@')[0];
+        localStorage.setItem('username', userName);
+      });
+      this.onLogin$.next(false);
     });
   }
 
@@ -74,15 +83,5 @@ export class CognitoService {
 
   public getAuthenticationSubject(): BehaviorSubject<boolean> {
     return this.authenticationSubject;
-  }
-
-  private onLogin(): void {
-    this.authenticationSubject.next(true);
-
-    this.getUser().then((user) => {
-      let userNameCognito = user.attributes.email;
-      let userName = userNameCognito.split('@')[0];
-      localStorage.setItem('username', userName);
-    });
   }
 }
