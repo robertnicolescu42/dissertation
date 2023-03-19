@@ -1,9 +1,12 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { FileSaverService } from 'ngx-filesaver';
+import { Papa } from 'ngx-papaparse';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Workstation } from '../../../app/types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
+import { ExportConfirmationModalComponent } from './widgets/export-confirmation-modal/export-confirmation-modal.component';
 
 @Component({
   selector: 'app-station-details',
@@ -55,7 +58,9 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
     private workstationGeneratorService: WorkstationGeneratorService,
     private route: ActivatedRoute,
     private router: Router,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
+    private papa: Papa,
+    private fileSaverService: FileSaverService
   ) {}
 
   ngOnInit(): void {
@@ -68,7 +73,6 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
       this.feedbacksData =
         this.workstationGeneratorService.generateFeedbackData();
     } else {
-      console.log(typeof this.workstation);
     }
 
     this.route.queryParams.subscribe((params) => {
@@ -101,6 +105,49 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
 
   navigateToPreviousPage() {
     this.router.navigate(['../../'], { relativeTo: this.route });
+  }
+
+  exportData(): void {
+    if (this.workstation) {
+      const dataToUse = {
+        ...this.workstation,
+      };
+
+      // Define the column headers
+      const headers = [
+        'stationId',
+        'displayName',
+        'equipmentNumber',
+        'isOeeCalculable',
+        'cycleTime',
+        'cycleTimeDelay',
+        'description',
+        'plantIndex',
+        'runningTime',
+        'productionCount',
+        'defectCount',
+      ];
+
+      // Extract the values for each column
+      const rows = [headers];
+      const values = Object.values(dataToUse);
+      const row: any[] = [];
+      values.forEach((value: any) => {
+        if (typeof value === 'object') {
+          const subValues = Object.values(value);
+          row.push(...subValues);
+        } else {
+          row.push(value);
+        }
+      });
+      rows.push(row);
+
+      const csv = this.papa.unparse(rows);
+
+      // use filesaver to save as CSV file
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      this.fileSaverService.save(blob, this.workstation.stationId + '.csv');
+    }
   }
 
   ngOnDestroy(): void {}

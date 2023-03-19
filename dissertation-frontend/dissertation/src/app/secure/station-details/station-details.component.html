@@ -10,6 +10,16 @@
       <small class="text-muted italic">
         - <em>{{ workstation?.description }} in {{ city.country }}</em></small
       >
+      <span class="mx-2 px-2">
+        <button
+          type="button"
+          (click)="exportData()"
+          class="btn btn-block export-button btn-primary fade-in"
+          *ngIf="activeTab !== 'predictive-maintenance'"
+        >
+          Export
+        </button>
+      </span>
     </h4>
     <button
       type="button"
@@ -62,7 +72,7 @@
         </div>
       </div>
 
-      <div *ngIf="activeTab === 'station-details'" class="py-2">
+      <div *ngIf="activeTab === 'station-details'" class="py-2 fade-in">
         <div class="row">
           <div class="col-6">
             <app-status-widget [workstation]="workstation"></app-status-widget>

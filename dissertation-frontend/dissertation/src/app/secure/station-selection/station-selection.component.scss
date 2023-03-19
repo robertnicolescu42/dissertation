@@ -95,3 +95,37 @@
     }
   }
 }
+
+.details-button {
+  transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+}
+
+.details-button:focus {
+  outline: none;
+}
+
+.details-button:active {
+  transform: translateY(2px);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

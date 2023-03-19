@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Amplify, Auth } from 'aws-amplify';
 
 import { environment } from '../environments/environment';
@@ -16,14 +16,19 @@ export interface IUser {
   providedIn: 'root',
 })
 export class CognitoService {
-  private authenticationSubject: BehaviorSubject<any>;
+  public authenticationSubject: BehaviorSubject<boolean>;
+  public onLogin$: Subject<boolean> = new Subject<boolean>();
 
   constructor() {
+    this.onLogin$.next(false);
     Amplify.configure({
       Auth: environment.cognito,
     });
 
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
+    this.isAuthenticated().then((authenticated) => {
+      this.authenticationSubject.next(authenticated);
+    });
   }
 
   public signUp(user: IUser): Promise<any> {
@@ -40,6 +45,7 @@ export class CognitoService {
   public signIn(user: IUser): Promise<any> {
     return Auth.signIn(user.email, user.password).then(() => {
       this.authenticationSubject.next(true);
+      this.onLogin$.next(false);
     });
   }
 
@@ -50,21 +56,13 @@ export class CognitoService {
   }
 
   public isAuthenticated(): Promise<boolean> {
-    if (this.authenticationSubject.value) {
-      return Promise.resolve(true);
-    } else {
-      return this.getUser()
-        .then((user: any) => {
-          if (user) {
-            return true;
-          } else {
-            return false;
-          }
-        })
-        .catch(() => {
-          return false;
-        });
-    }
+    return Auth.currentAuthenticatedUser()
+      .then(() => {
+        return true;
+      })
+      .catch(() => {
+        return false;
+      });
   }
 
   public getUser(): Promise<any> {
@@ -75,5 +73,9 @@ export class CognitoService {
     return Auth.currentUserPoolUser().then((cognitoUser: any) => {
       return Auth.updateUserAttributes(cognitoUser, user);
     });
+  }
+
+  public getAuthenticationSubject(): BehaviorSubject<boolean> {
+    return this.authenticationSubject;
   }
 }

@@ -12,7 +12,6 @@ export class BreadcrumbsComponent implements OnInit {
   constructor(public breadcrumbService: BreadcrumbService) {}
   ngOnInit(): void {
     this.breadcrumbs$ = this.breadcrumbService.breadcrumbs$.pipe(
-      tap((data) => console.log(data)),
       map((breadcrumbs: BreadcrumbDefinition[]) => {
         return breadcrumbs.map(
           (
@@ -29,8 +28,7 @@ export class BreadcrumbsComponent implements OnInit {
             return { label, url };
           }
         );
-      }),
-      tap((data) => console.log(data))
+      })
     );
   }
 }

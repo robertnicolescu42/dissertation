@@ -21,10 +21,7 @@ export class AnomalyObserveSpectogramModalComponent implements OnInit {
 
   constructor(public bsModalRef: BsModalRef) {}
 
-  ngOnInit() {
-    // this.anomaly
-    console.log("🚀 ~ file: anomaly-observe-spectogram-modal.component.ts:27 ~ AnomalyObserveSpectogramModalComponent ~ ngOnInit ~ this.anomaly:", this.anomaly)
-  }
+  ngOnInit() {}
 
   scrollTo(className: string): void {
     const elementList = document.querySelectorAll('.' + className);
