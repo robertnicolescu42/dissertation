@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "dissertation",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authdissertationbd6c3f79",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

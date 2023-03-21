@@ -1,0 +1,26 @@
+<div class="px-2 fade-in">
+  <div class="component-container p-2">
+    <div class="button-group justify-content-center py-2">
+      <button
+        *ngFor="let tab of tabs"
+        class="button"
+        [ngClass]="{ active: tab.id === activeTab }"
+        (click)="activeTab = tab.id"
+        style="width: 15%"
+      >
+        {{ tab.name }}
+      </button>
+    </div>
+  </div>
+
+  <ng-container [ngSwitch]="activeTab">
+    <div *ngSwitchCase="'machine-overview'">
+      <app-predictive-maintenance-machine-overview [workstation]="workstation">
+      </app-predictive-maintenance-machine-overview>
+    </div>
+    <div *ngSwitchCase="'anomaly-overview'">
+      <app-predictive-maintenance-anomaly-overview [workstation]="workstation">
+      </app-predictive-maintenance-anomaly-overview>
+    </div>
+  </ng-container>
+</div>
