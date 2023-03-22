@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AnomalyEntry } from '../../../../../types/predictive-maintenance';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-anomaly-observe-spectogram-modal',
@@ -14,10 +12,6 @@ export class AnomalyObserveSpectogramModalComponent implements OnInit {
     anomalyFileByteStream: '',
     normalFileByteStream: '',
   };
-
-  //Template Arrow icons
-  faArrowDown = faArrowDown;
-  faArrowUp = faArrowUp;
 
   constructor(public bsModalRef: BsModalRef) {}
 

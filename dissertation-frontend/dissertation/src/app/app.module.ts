@@ -41,7 +41,6 @@ import { GenericCardComponent } from './secure/station-details/widgets/generic-c
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { BreadcrumbsComponent } from './secure/breadcrumbs/breadcrumbs.component';
 import { AnomalyObserveSpectogramModalComponent } from './secure/station-details/predictive-maintenance/predictive-maintenance-anomaly-overview/anomaly-observe-spectogram-modal/anomaly-observe-spectogram-modal.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExportConfirmationModalComponent } from './secure/station-details/widgets/export-confirmation-modal/export-confirmation-modal.component';
 import { FileSaverModule } from 'ngx-filesaver';
 
@@ -91,7 +90,6 @@ import { FileSaverModule } from 'ngx-filesaver';
     NgbCollapseModule,
     HttpClientModule,
     BreadcrumbModule,
-    FontAwesomeModule,
     FileSaverModule,
   ],
   providers: [BsModalService],
