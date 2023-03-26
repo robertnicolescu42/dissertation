@@ -1,55 +1,181 @@
-<div class="p-5">
-  <form>
-    <div class="form-outline mb-4">
-      <input type="text" id="form6Example1" class="form-control" />
-      <label class="form-label" for="form6Example1">Plant Index</label>
-    </div>
-    <div class="form-outline mb-4">
-      <input type="text" id="form6Example2" class="form-control" />
-      <label class="form-label" for="form6Example2">Station Id</label>
-    </div>
+<div>
+  <form (submit)="onSubmit()" #workstationForm="ngForm">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-4">
+            <label for="plantIndex" class="form-label">Plant Index</label>
+            <input
+              type="text"
+              id="plantIndex"
+              class="form-control"
+              [(ngModel)]="workstation.plantIndex"
+              name="plantIndex"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="stationId" class="form-label">Station Id</label>
+            <input
+              type="text"
+              id="stationId"
+              class="form-control"
+              [(ngModel)]="workstation.stationId"
+              name="stationId"
+              required
+            />
+          </div>
 
-    <!-- Text input -->
-    <div class="form-outline mb-4">
-      <input type="text" id="form6Example3" class="form-control" />
-      <label class="form-label" for="form6Example3">Display Name</label>
-    </div>
+          <!-- Text input -->
+          <div class="mb-4">
+            <label for="displayName" class="form-label">Display Name</label>
+            <input
+              type="text"
+              id="displayName"
+              class="form-control"
+              [(ngModel)]="workstation.displayName"
+              name="displayName"
+              required
+            />
+          </div>
 
-    <!-- Text input -->
-    <div class="form-outline mb-4">
-      <input type="text" id="form6Example4" class="form-control" />
-      <label class="form-label" for="form6Example4">Description</label>
-    </div>
+          <!-- Text input -->
+          <div class="mb-4">
+            <label for="description" class="form-label">Description</label>
+            <input
+              type="text"
+              id="description"
+              class="form-control"
+              [(ngModel)]="workstation.description"
+              name="description"
+              required
+            />
+          </div>
 
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input type="number" id="form6Example5" class="form-control" />
-      <label class="form-label" for="form6Example5">Cycle Time</label>
-    </div>
+          <!-- Text input -->
+          <div class="mb-4">
+            <label for="equipmentNumber" class="form-label"
+              >Equipment Number</label
+            >
+            <input
+              type="text"
+              id="equipmentNumber"
+              class="form-control"
+              [(ngModel)]="workstation.equipmentNumber"
+              name="equipmentNumber"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <!-- Number input -->
+          <div class="mb-4">
+            <label for="cycleTime" class="form-label">Cycle Time</label>
+            <input
+              type="number"
+              id="cycleTime"
+              class="form-control"
+              [(ngModel)]="workstation.cycleTime"
+              name="cycleTime"
+              required
+              min="0"
+            />
+          </div>
 
-    <!-- Number input -->
-    <div class="form-outline mb-4">
-      <input type="number" id="form6Example6" class="form-control" />
-      <label class="form-label" for="form6Example6">Running Time</label>
-    </div>
+          <!-- Number input -->
+          <div class="mb-4">
+            <label for="cycleTimeDelay" class="form-label"
+              >Cycle Time Delay</label
+            >
+            <input
+              type="number"
+              id="cycleTimeDelay"
+              class="form-control"
+              [(ngModel)]="workstation.cycleTimeDelay"
+              name="cycleTimeDelay"
+              required
+              min="0"
+            />
+          </div>
 
-    <!-- Checkbox -->
-    <div class="form-check d-flex justify-content-center mb-4">
-      <input
-        class="form-check-input me-2"
-        type="checkbox"
-        value=""
-        id="form6Example8"
-        checked
-      />
-      <label class="form-check-label" for="form6Example8">
-        Is OEE Calculable?
-      </label>
-    </div>
+          <!-- Number input -->
+          <div class="mb-4">
+            <label for="runningTime" class="form-label">Running Time</label>
+            <input
+              type="number"
+              id="runningTime"
+              class="form-control"
+              [(ngModel)]="workstation.runningTime"
+              name="runningTime"
+              required
+              min="0"
+            />
+          </div>
 
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">
-      Save workstation
-    </button>
+          <!-- Number input -->
+          <div class="mb-4">
+            <label for="productionCount" class="form-label"
+              >(Usual) Production Count</label
+            >
+            <input
+              type="number"
+              id="productionCount"
+              class="form-control"
+              [(ngModel)]="workstation.productionCount"
+              name="productionCount"
+              required
+              min="0"
+            />
+          </div>
+
+          <!-- Number input -->
+          <div class="mb-4">
+            <label for="defectCount" class="form-label"
+              >(Usual) Defect Count</label
+            >
+            <input
+              type="number"
+              id="defectCount"
+              class="form-control"
+              [(ngModel)]="workstation.defectCount"
+              name="defectCount"
+              required
+              min="0"
+            />
+          </div>
+
+          <!-- Checkbox -->
+          <div class="form-check d-flex justify-content-center mb-4">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              id="isOeeCalculable"
+              [(ngModel)]="workstation.isOeeCalculable"
+              name="isOeeCalculable"
+              required
+            />
+            <label class="form-check-label" for="isOeeCalculable"
+              >Is OEE Calculable?</label
+            >
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button
+          type="submit"
+          class="btn btn-primary btn-block mb-4"
+          [disabled]="
+            !(
+              workstation.plantIndex &&
+              workstation.stationId &&
+              workstation.displayName &&
+              workstation.description
+            )
+          "
+        >
+          Save workstation
+        </button>
+      </div>
+    </div>
   </form>
 </div>

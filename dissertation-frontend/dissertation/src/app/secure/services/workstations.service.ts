@@ -15,4 +15,11 @@ export class WorkstationsService {
       .get<{ body: Workstation[] }>(url + 'workstations')
       .pipe(map((response) => response.body));
   }
+
+  addWorkstation(workstation: Workstation): Observable<Workstation> {
+    let url = environment.getWorkstationsUrl;
+    return this.http
+      .post<{ body: Workstation }>(url + 'workstations', JSON.stringify(workstation))
+      .pipe(map((response) => response.body));
+  }
 }
