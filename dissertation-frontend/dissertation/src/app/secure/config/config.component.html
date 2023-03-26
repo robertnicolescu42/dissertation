@@ -1,8 +1,37 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6"></div>
+  <div class="row mb-3">
+    <div class="input-group my-2">
+      <select class="form-select custom-select" [(ngModel)]="selectedPlant">
+        <option disabled selected>Select a plant</option>
+        <option *ngFor="let plant of plants" [value]="plant">
+          {{ plant.displayName }}
+        </option>
+      </select>
+      <button class="btn btn-primary ms-2" (click)="addPlant()">
+        <i class="bi bi-plus">+</i>
+      </button>
+    </div>
     <div class="col-6">
-      <app-workstation-config></app-workstation-config>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let workstation of workstations"
+          (click)="selectedWorkstation = workstation"
+          [class.active]="selectedWorkstation === workstation"
+          style="cursor: pointer"
+        >
+          {{ workstation.displayName }}
+        </li>
+      </ul>
+      <button class="btn btn-primary mt-3" (click)="addWorkstation()">
+        Add workstation
+      </button>
+    </div>
+    <div class="col-6">
+      <app-workstation-config
+        *ngIf="selectedWorkstation"
+        [workstation]="selectedWorkstation"
+      ></app-workstation-config>
     </div>
   </div>
 </div>

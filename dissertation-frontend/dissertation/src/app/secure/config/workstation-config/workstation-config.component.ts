@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WorkstationsService } from '../../services/workstations.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { WorkstationsService } from '../../services/workstations.service';
 export class WorkstationConfigComponent {
   constructor(private workstationService: WorkstationsService) {}
 
+  @Input()
   workstation = {
     plantIndex: '',
     stationId: '',
