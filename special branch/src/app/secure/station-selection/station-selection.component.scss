@@ -1,0 +1,131 @@
+:host ::ng-deep {
+  .p-paginator {
+    .p-paginator-current {
+      margin-left: auto;
+    }
+  }
+
+  .p-progressbar {
+    height: 0.5rem;
+    background-color: #d8dadc;
+
+    .p-progressbar-value {
+      background-color: #607d8b;
+    }
+  }
+
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .p-calendar .p-datepicker {
+    min-width: 25rem;
+
+    td {
+      font-weight: 400;
+    }
+  }
+
+  .p-datatable.p-datatable-workstations {
+    .p-datatable-header {
+      padding: 1rem;
+      text-align: left;
+      font-size: 1.5rem;
+    }
+
+    .p-paginator {
+      padding: 1rem;
+    }
+
+    .p-datatable-thead > tr > th {
+      text-align: left;
+    }
+
+    .p-datatable-tbody > tr > td {
+      cursor: auto;
+    }
+
+    .p-dropdown-label:not(.p-placeholder) {
+      text-transform: uppercase;
+    }
+  }
+
+  /* Responsive */
+  .p-datatable-workstations .p-datatable-tbody > tr > td .p-column-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  :host ::ng-deep {
+    .p-datatable {
+      &.p-datatable-workstations {
+        .p-datatable-thead > tr > th,
+        .p-datatable-tfoot > tr > td {
+          display: none !important;
+        }
+
+        .p-datatable-tbody > tr {
+          border-bottom: 1px solid var(--layer-2);
+
+          > td {
+            text-align: left;
+            display: block;
+            border: 0 none !important;
+            width: 100% !important;
+            float: left;
+            clear: left;
+            border: 0 none;
+
+            .p-column-title {
+              padding: 0.4rem;
+              min-width: 30%;
+              display: inline-block;
+              margin: -0.4rem 1rem -0.4rem -0.4rem;
+              font-weight: bold;
+            }
+
+            .p-progressbar {
+              margin-top: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.details-button {
+  transition: background-color 0.3s ease;
+}
+
+.details-button:hover {
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+}
+
+.details-button:focus {
+  outline: none;
+}
+
+.details-button:active {
+  transform: translateY(2px);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

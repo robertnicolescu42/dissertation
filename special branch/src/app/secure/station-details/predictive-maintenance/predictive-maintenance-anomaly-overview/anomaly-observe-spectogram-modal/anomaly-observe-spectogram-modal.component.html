@@ -1,0 +1,84 @@
+<div class="modal-header">
+  <h4 class="title pull-left">Anomaly Type: {{ anomaly?.errorMessage }}</h4>
+  <button
+    type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-sub-header">
+  <h4 class="title pull-left">
+    Timestamp: {{ anomaly?.ts | date : "medium" }}
+  </h4>
+</div>
+
+<app-generic-card
+  size="custom"
+  [scrollable]="false"
+  *ngIf="anomaly; else noDataFound"
+  [content]="anomalyModal"
+>
+</app-generic-card>
+
+<ng-template #anomalyModal>
+  <div class="spectogram-container">
+    <div class="spectogram-image-container">
+      <figcaption
+        *ngIf="anomaly.normalFileByteStream"
+        style="text-align: center"
+        class="figura1 py-1"
+      >
+        <a
+          class="scroll-btn"
+          style="cursor: pointer"
+          (click)="scrollTo('figura2')"
+          title="Scroll Down"
+          >Normal Measurement</a
+        >
+      </figcaption>
+      <img
+        *ngIf="anomaly.normalFileByteStream"
+        class="spectogram-image"
+        src="{{ anomaly?.anomalyFileByteStream }}"
+        alt="Normal Spectogram"
+      />
+      <div *ngIf="!anomaly.normalFileByteStream">
+        The Normal Spectogram is not available
+      </div>
+    </div>
+    <div class="spectogram-image-container">
+      <figcaption
+        *ngIf="anomaly?.anomalyFileByteStream"
+        style="text-align: center;"
+        class="figura2 py-1"
+      >
+        <a
+          class="scroll-btn"
+          style="cursor: pointer"
+          (click)="scrollTo('figura1')"
+          title="Scroll Up"
+          >Abnormal Measurement</a
+        >
+      </figcaption>
+      <img
+        *ngIf="anomaly.anomalyFileByteStream"
+        class="spectogram-image"
+        src="{{ anomaly?.normalFileByteStream }}"
+        alt="Abnormal Spectogram"
+      />
+      <div *ngIf="!anomaly.anomalyFileByteStream">
+        The Abnormal Spectogram is not available
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noDataFound>
+  <div class="mt-5 text-center text-muted">
+    <p>No data found</p>
+  </div>
+</ng-template>

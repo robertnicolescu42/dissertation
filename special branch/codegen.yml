@@ -1,0 +1,25 @@
+overwrite: true
+schema:
+  - "**/*.remote.graphql"
+  - "**/*.local.graphql"
+documents:
+  - "src/app/**/*.fragment.graphql"
+  - "src/app/**/*.query.graphql"
+  - "src/app/**/*.mutation.graphql"
+  - "src/app/**/*.feature.graphql"
+  - "src/app/**/*.subscription.graphql"
+generates:
+  src/app/graphql/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular"
+      - "typescript-apollo-client-helpers"
+    config:
+      preResolveTypes: true
+      querySuffix: "QueryService"
+      mutationSuffix: "MutationService"
+      subscriptionSuffix: "SubscriptionService"
+  # ./graphql.schema.json:
+  #   plugins:
+  #     - "introspection"

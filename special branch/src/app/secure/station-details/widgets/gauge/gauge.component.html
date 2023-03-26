@@ -1,0 +1,44 @@
+<div
+  [ngStyle]="{ 'height.px': size }"
+  [ngClass]="{ 'border rounded': isMobile }"
+  class="mx-auto text-center"
+>
+  <!-- *ngIf="size >= gaugeSizeLimit"  -->
+  <div class="gauge-container my-auto">
+    <canvas
+      baseChart
+      [data]="valueArray"
+      [options]="doughnutChartOptions"
+      [legend]="false"
+      ></canvas>
+      <!-- [colors]="chartColors" -->
+      <!-- [chartType]="doughnutChartType" -->
+    <div class="gauge-inner w-100">
+      <!-- <div class="trend" [ngStyle]="{ 'font-size.px': trendFontSize }">
+        <app-trend [value]="value"></app-trend>
+      </div> -->
+      <div class="value">
+        <div [ngStyle]="{ 'font-size.px': valueFontSize }">
+          {{ correctedValue }}
+        </div>
+      </div>
+    </div>
+    <div
+      [ngStyle]="{ 'font-size.px': labelFontSize }"
+      class="label text-muted w-100"
+    >
+      <span>{{ label }}</span>
+    </div>
+  </div>
+
+  <div
+    *ngIf="size < gaugeSizeLimit"
+    class="h-100 d-flex flex-column justify-content-center"
+    [ngStyle]="{ 'font-size.px': valueFontSize }"
+  >
+    <!-- <div class="no-wrap">
+      <fa-icon class="text-muted align-middle" icon="chart-line"> </fa-icon>
+      <span class="mx-1">{{ correctedValue }}</span>
+    </div> -->
+  </div>
+</div>

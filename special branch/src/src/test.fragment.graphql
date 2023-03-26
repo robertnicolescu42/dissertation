@@ -1,0 +1,13 @@
+fragment WorkstationsFields on Workstations {
+  cycleTime
+  cycleTimeDelay
+  defectCount
+  description
+  displayName
+  equipmentNumber
+  isOeeCalculable
+  plantIndex
+  productionCount
+  runningTime
+  stationId
+}

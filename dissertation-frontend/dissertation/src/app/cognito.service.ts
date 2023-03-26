@@ -45,6 +45,9 @@ export class CognitoService {
   public signIn(user: IUser): Promise<any> {
     return Auth.signIn(user.email, user.password).then(() => {
       this.authenticationSubject.next(true);
+      this.getIdToken().then((idToken) => {
+        localStorage.setItem('idToken', idToken); // store the idToken in localStorage
+      });
       this.onLogin$.next(false);
     });
   }
@@ -77,5 +80,17 @@ export class CognitoService {
 
   public getAuthenticationSubject(): BehaviorSubject<boolean> {
     return this.authenticationSubject;
+  }
+
+  public getIdToken(): Promise<string> {
+    return Auth.currentSession().then((session: any) => {
+      return session.getIdToken().getJwtToken();
+    });
+  }
+
+  public getIdTokenFromLocalStorage(): string | null {
+    return localStorage.getItem('idToken')
+      ? localStorage.getItem('idToken')
+      : null;
   }
 }
