@@ -27,7 +27,9 @@ export class WorkstationConfigComponent {
     // this.myService.addWorkstation(this.workstation);
     console.log(this.workstation);
     if (this.workstation) {
-      this.workstationService.addWorkstation(this.workstation);
+      this.workstationService
+        .addWorkstation(this.workstation)
+        .subscribe((res) => console.log(res));
     }
   }
 }
