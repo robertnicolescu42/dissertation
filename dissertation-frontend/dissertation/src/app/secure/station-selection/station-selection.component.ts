@@ -27,7 +27,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
   ngOnInit(): void {
-    let mockData = true;
+    let mockData = false;
 
     if (mockData) {
       this.route.paramMap.subscribe((params) => {
@@ -42,6 +42,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
       });
     } else {
       this.workstationService.getWorkstations().subscribe((workstations) => {
+        console.log("🚀 ~ file: station-selection.component.ts:45 ~ StationSelectionComponent ~ this.workstationService.getWorkstations ~ workstations:", workstations)
         this.workstations = workstations;
         this.filteredWorkstations = this.workstations;
       });

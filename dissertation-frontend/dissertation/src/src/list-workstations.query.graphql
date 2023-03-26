@@ -1,0 +1,6 @@
+query listWorkstations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+ workstations: listWorkstations(filter: TableWorkstationsFilterInput, limit: Int, nextToken: String) { 
+    items: [Workstation]
+    nextToken: String
+ }
+}

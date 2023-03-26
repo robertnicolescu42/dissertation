@@ -29,7 +29,7 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { WorkstationConfigComponent } from './secure/config/workstation-config/workstation-config.component';
 import { GaugeComponent } from './secure/station-details/widgets/gauge/gauge.component';
 import { FeedbacksComponent } from './secure/station-details/feedbacks/feedbacks.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignUpComponent } from './public/sign-up/sign-up.component';
 import { SignInComponent } from './public/sign-in/sign-in.component';
 import { PlantSelectionComponent } from './secure/plant-selection/plant-selection.component';
@@ -44,6 +44,7 @@ import { AnomalyObserveSpectogramModalComponent } from './secure/station-details
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExportConfirmationModalComponent } from './secure/station-details/widgets/export-confirmation-modal/export-confirmation-modal.component';
 import { FileSaverModule } from 'ngx-filesaver';
+import { AuthInterceptor } from './secure/services/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,14 @@ import { FileSaverModule } from 'ngx-filesaver';
     FontAwesomeModule,
     FileSaverModule,
   ],
-  providers: [BsModalService],
+  providers: [
+    BsModalService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
