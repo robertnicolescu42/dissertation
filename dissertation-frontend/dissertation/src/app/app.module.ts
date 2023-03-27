@@ -18,7 +18,7 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StationDetailsComponent } from './secure/station-details/station-details.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { OeeCalculationComponent } from './secure/station-details/widgets/oee-calculation/oee-calculation.component';
@@ -45,6 +45,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExportConfirmationModalComponent } from './secure/station-details/widgets/export-confirmation-modal/export-confirmation-modal.component';
 import { FileSaverModule } from 'ngx-filesaver';
 import { AuthInterceptor } from './secure/services/auth-interceptor';
+import { PlantConfigComponent } from './secure/config/plant-config/plant-config.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AuthInterceptor } from './secure/services/auth-interceptor';
     BreadcrumbsComponent,
     AnomalyObserveSpectogramModalComponent,
     ExportConfirmationModalComponent,
+    PlantConfigComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +96,7 @@ import { AuthInterceptor } from './secure/services/auth-interceptor';
     BreadcrumbModule,
     FontAwesomeModule,
     FileSaverModule,
+    ReactiveFormsModule,
   ],
   providers: [
     BsModalService,

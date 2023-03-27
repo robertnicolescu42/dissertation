@@ -1,0 +1,85 @@
+<div>
+  <form (submit)="onSubmit()" #plantForm="ngForm">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-4">
+            <label for="plantIndex" class="form-label">Plant Index</label>
+            <input
+              type="text"
+              id="plantIndex"
+              class="form-control"
+              [(ngModel)]="plant.plantIndex"
+              name="plantIndex"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="plantName" class="form-label">Plant Name</label>
+            <input
+              type="text"
+              id="plantName"
+              class="form-control"
+              [(ngModel)]="plant.plantName"
+              name="plantName"
+              required
+            />
+          </div>
+
+          <!-- Text input -->
+          <div class="mb-4">
+            <label for="description" class="form-label">Description</label>
+            <input
+              type="text"
+              id="description"
+              class="form-control"
+              [(ngModel)]="plant.description"
+              name="description"
+              required
+            />
+          </div>
+
+          <!-- Text input -->
+          <div class="mb-4">
+            <label for="imageUrl" class="form-label">Image URL</label>
+            <input
+              type="text"
+              id="imageUrl"
+              class="form-control"
+              [(ngModel)]="plant.imageUrl"
+              name="imageUrl"
+              required
+            />
+          </div>
+
+          <!-- Submit button -->
+          <button
+            type="submit"
+            class="btn btn-primary btn-block mb-4"
+            [disabled]="
+              !(plant.plantIndex && plant.plantName && plant.imageUrl)
+            "
+          >
+            Save Plant
+          </button>
+        </div>
+
+        <div class="col-md-6 my-2 py-3" *ngIf="plant.imageUrl">
+          <app-generic-card title="Image preview" [content]="imagePreview">
+          </app-generic-card>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #imagePreview>
+  <div *ngIf="plant.imageUrl">
+    <img
+      [src]="plant.imageUrl"
+      alt="Plant Image Preview"
+      class="img-fluid mx-auto d-block mt-2"
+      style="max-height: 200px"
+    />
+  </div>
+</ng-template>
