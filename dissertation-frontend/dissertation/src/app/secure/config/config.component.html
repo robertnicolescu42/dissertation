@@ -1,34 +1,58 @@
 <app-generic-card title="Config" [content]="mainContent"> </app-generic-card>
-
 <ng-template #mainContent>
   <div class="container">
     <div class="row mb-3">
       <p class="text-muted">Select a plant</p>
       <div class="input-group my-2">
-        <select class="form-select custom-select" [(ngModel)]="selectedPlant">
-          <option *ngFor="let plant of plants" [value]="plant">
-            {{ plant.displayName }}
+        <button
+          class="btn btn-secondary"
+          (click)="editPlant = !editPlant"
+          *ngIf="selectedPlant"
+        >
+          <i class="bi bi-pencil-square">{{ !editPlant ? "Edit" : "Reset" }}</i>
+        </button>
+        <select
+          class="form-select custom-select"
+          (change)="selectPlant($event.target.value)"
+        >
+          <option value="" disabled selected>Select a plant</option>
+          <option *ngFor="let plant of plants" [value]="plant.plantIndex">
+            {{ plant.plantName }}
           </option>
         </select>
         <button class="btn btn-primary ms-2" (click)="addPlant()">
           <i class="bi bi-plus">+</i>
         </button>
       </div>
-      <div class="col-6">
-        <app-generic-card
-          *ngIf="selectedPlant"
-          title="List of workstations"
-          [content]="workstationList"
-        >
-        </app-generic-card>
+
+      <div class="row">
+        <div class="col-6">
+          <app-generic-card
+            *ngIf="selectedPlant && !editPlant"
+            title="List of workstations"
+            [content]="workstationList"
+          >
+          </app-generic-card>
+        </div>
+        <div class="col-6">
+          <app-generic-card
+            title="Config Workstation"
+            [content]="workstationConfig"
+            *ngIf="selectedWorkstation && selectedPlant && !editPlant"
+          >
+          </app-generic-card>
+        </div>
       </div>
-      <div class="col-6">
-        <app-generic-card
-          title="Config Workstation"
-          [content]="workstationConfig"
-          *ngIf="selectedWorkstation"
-        >
-        </app-generic-card>
+      <div class="row">
+        <div class="col-12">
+          <app-generic-card
+            title="Config Plant"
+            [content]="plantConfig"
+            *ngIf="selectedPlant && editPlant"
+            class="w-50"
+          >
+          </app-generic-card>
+        </div>
       </div>
     </div>
   </div>
@@ -41,6 +65,10 @@
     #workstationConfigComponent
   ></app-workstation-config
 ></ng-template>
+
+<ng-template #plantConfig>
+  <app-plant-config [plant]="selectedPlant"></app-plant-config>
+</ng-template>
 
 <ng-template #workstationList>
   <ul class="list-group" style="max-height: 630px; overflow-y: auto">

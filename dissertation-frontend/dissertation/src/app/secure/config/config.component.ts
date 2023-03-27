@@ -8,54 +8,40 @@ import { WorkstationsService } from '../services/workstations.service';
   styleUrls: ['./config.component.scss'],
 })
 export class ConfigComponent implements OnInit {
+  editPlant: boolean = false;
   constructor(private workstationService: WorkstationsService) {}
 
   ngOnInit(): void {
     this.workstationService.getWorkstations().subscribe((res) => {
-      // this.workstations = res;
-      this.workstations = this.workstations.concat(res);
-      // this.workstations = this.workstations.concat(res);
-      // this.workstations = this.workstations.concat(res);
-      // this.workstations = this.workstations.concat(res);
-      // this.workstations = this.workstations.concat(res);
-      // this.workstations = this.workstations.concat(res);
+      this.workstations = res;
     });
   }
 
   plants = [
     {
-      id: 1,
-      displayName: 'Plant A',
-      workstations: [
-        { id: 1, displayName: 'Station A1' },
-        { id: 2, displayName: 'Station A2' },
-        { id: 3, displayName: 'Station A3' },
-      ],
+      plantIndex: 'PLANT_A',
+      plantName: 'Plant A',
+      description: 'This is plant A',
+      imageUrl: 'https://picsum.photos/500/300',
     },
     {
-      id: 2,
-      displayName: 'Plant B',
-      workstations: [
-        { id: 4, displayName: 'Station B1' },
-        { id: 5, displayName: 'Station B2' },
-        { id: 6, displayName: 'Station B3' },
-      ],
+      plantIndex: 'PLANT_B',
+      plantName: 'Plant B',
+      description: 'This is plant B',
+      imageUrl: 'https://picsum.photos/500/400',
     },
     {
-      id: 3,
-      displayName: 'Plant C',
-      workstations: [
-        { id: 7, displayName: 'Station C1' },
-        { id: 8, displayName: 'Station C2' },
-        { id: 9, displayName: 'Station C3' },
-      ],
+      plantIndex: 'PLANT_C',
+      plantName: 'Plant C',
+      description: 'This is plant C',
+      imageUrl: 'https://picsum.photos/500/500',
     },
   ];
 
   workstations: Workstation[] | any[] = [];
 
-  selectedPlant: any = this.plants[0];
-  // selectedPlant: any;
+  // selectedPlant: any = this.plants[0];
+  selectedPlant: any;
   selectedWorkstation: any;
   shouldFadeIn = false;
 
@@ -68,7 +54,7 @@ export class ConfigComponent implements OnInit {
 
     setTimeout(() => {
       this.shouldFadeIn = false;
-    }, 1000); // Set to the same duration as the CSS animation
+    }, 1000);
   }
 
   addWorkstation() {
@@ -87,7 +73,24 @@ export class ConfigComponent implements OnInit {
     };
   }
 
+  selectPlant(plantIndex: any) {
+    let foundPlant = this.plants.find(
+      (plant) => plant.plantIndex === plantIndex
+    );
+    if (foundPlant) {
+      this.selectedPlant = foundPlant;
+      this.selectedWorkstation = null;
+    }
+  }
+
   addPlant() {
     this.selectedWorkstation = null;
+    this.editPlant = true;
+    this.selectedPlant = {
+      plantIndex: '',
+      plantName: '',
+      description: '',
+      imageUrl: '',
+    };
   }
 }
