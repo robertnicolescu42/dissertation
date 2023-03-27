@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Workstation } from '../../types/work-station';
 import { WorkstationsService } from '../services/workstations.service';
 
@@ -12,7 +12,13 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit(): void {
     this.workstationService.getWorkstations().subscribe((res) => {
-      this.workstations = res;
+      // this.workstations = res;
+      this.workstations = this.workstations.concat(res);
+      // this.workstations = this.workstations.concat(res);
+      // this.workstations = this.workstations.concat(res);
+      // this.workstations = this.workstations.concat(res);
+      // this.workstations = this.workstations.concat(res);
+      // this.workstations = this.workstations.concat(res);
     });
   }
 
@@ -48,16 +54,40 @@ export class ConfigComponent implements OnInit {
 
   workstations: Workstation[] | any[] = [];
 
-  selectedPlant: any;
+  selectedPlant: any = this.plants[0];
+  // selectedPlant: any;
   selectedWorkstation: any;
+  shouldFadeIn = false;
+
+  @ViewChild('workstationConfigComponent')
+  workstationConfigComponent!: ElementRef;
 
   selectWorkstation(workstation: any) {
     this.selectedWorkstation = workstation;
+    this.shouldFadeIn = true;
+
+    setTimeout(() => {
+      this.shouldFadeIn = false;
+    }, 1000); // Set to the same duration as the CSS animation
   }
 
   addWorkstation() {
-    this.selectedWorkstation = undefined;
+    this.selectedWorkstation = {
+      plantIndex: '',
+      stationId: '',
+      displayName: '',
+      description: '',
+      cycleTime: 0,
+      runningTime: 0,
+      productionCount: 0,
+      defectCount: 0,
+      isOeeCalculable: false,
+      equipmentNumber: '',
+      cycleTimeDelay: 0,
+    };
   }
 
-  addPlant() {}
+  addPlant() {
+    this.selectedWorkstation = null;
+  }
 }

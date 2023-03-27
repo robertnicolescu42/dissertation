@@ -1,37 +1,59 @@
-<div class="container">
-  <div class="row mb-3">
-    <div class="input-group my-2">
-      <select class="form-select custom-select" [(ngModel)]="selectedPlant">
-        <option disabled selected>Select a plant</option>
-        <option *ngFor="let plant of plants" [value]="plant">
-          {{ plant.displayName }}
-        </option>
-      </select>
-      <button class="btn btn-primary ms-2" (click)="addPlant()">
-        <i class="bi bi-plus">+</i>
-      </button>
-    </div>
-    <div class="col-6">
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let workstation of workstations"
-          (click)="selectedWorkstation = workstation"
-          [class.active]="selectedWorkstation === workstation"
-          style="cursor: pointer"
+<app-generic-card title="Config" [content]="mainContent"> </app-generic-card>
+
+<ng-template #mainContent>
+  <div class="container">
+    <div class="row mb-3">
+      <p class="text-muted">Select a plant</p>
+      <div class="input-group my-2">
+        <select class="form-select custom-select" [(ngModel)]="selectedPlant">
+          <option *ngFor="let plant of plants" [value]="plant">
+            {{ plant.displayName }}
+          </option>
+        </select>
+        <button class="btn btn-primary ms-2" (click)="addPlant()">
+          <i class="bi bi-plus">+</i>
+        </button>
+      </div>
+      <div class="col-6">
+        <app-generic-card
+          *ngIf="selectedPlant"
+          title="List of workstations"
+          [content]="workstationList"
         >
-          {{ workstation.displayName }}
-        </li>
-      </ul>
-      <button class="btn btn-primary mt-3" (click)="addWorkstation()">
-        Add workstation
-      </button>
-    </div>
-    <div class="col-6">
-      <app-workstation-config
-        *ngIf="selectedWorkstation"
-        [workstation]="selectedWorkstation"
-      ></app-workstation-config>
+        </app-generic-card>
+      </div>
+      <div class="col-6">
+        <app-generic-card
+          title="Config Workstation"
+          [content]="workstationConfig"
+          *ngIf="selectedWorkstation"
+        >
+        </app-generic-card>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>
+
+<ng-template #workstationConfig>
+  <app-workstation-config
+    [workstation]="selectedWorkstation"
+    [ngClass]="{ fadein: shouldFadeIn }"
+    #workstationConfigComponent
+  ></app-workstation-config
+></ng-template>
+
+<ng-template #workstationList>
+  <ul class="list-group" style="max-height: 630px; overflow-y: auto">
+    <li
+      class="list-group-item"
+      *ngFor="let workstation of workstations"
+      (click)="selectedWorkstation = workstation"
+      style="cursor: pointer"
+    >
+      {{ workstation.displayName }}
+    </li>
+  </ul>
+  <button class="btn btn-primary mt-3" (click)="addWorkstation()">
+    Add workstation
+  </button>
+</ng-template>
