@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Workstation } from '../../types/work-station';
 import { WorkstationsService } from '../services/workstations.service';
+import { PlantsService } from '../services/plants.service';
 
 @Component({
   selector: 'app-config',
@@ -8,37 +9,28 @@ import { WorkstationsService } from '../services/workstations.service';
   styleUrls: ['./config.component.scss'],
 })
 export class ConfigComponent implements OnInit {
+  plants: any[] = [];
+  workstations: Workstation[] | any[] = [];
   editPlant: boolean = false;
-  constructor(private workstationService: WorkstationsService) {}
+
+  constructor(
+    private workstationService: WorkstationsService,
+    private plantsService: PlantsService
+  ) {}
 
   ngOnInit(): void {
-    this.workstationService.getWorkstations().subscribe((res) => {
+    // this.workstationService.getWorkstations().subscribe((res) => {
+    //   this.workstations = res;
+    // });
+    
+    this.workstationService.getWorkstationsByPlantIndex("PIT").subscribe((res) => {
       this.workstations = res;
     });
+
+    this.plantsService.getPlants().subscribe((res) => {
+      this.plants = res;
+    });
   }
-
-  plants = [
-    {
-      plantIndex: 'PLANT_A',
-      plantName: 'Plant A',
-      description: 'This is plant A',
-      imageUrl: 'https://picsum.photos/500/300',
-    },
-    {
-      plantIndex: 'PLANT_B',
-      plantName: 'Plant B',
-      description: 'This is plant B',
-      imageUrl: 'https://picsum.photos/500/400',
-    },
-    {
-      plantIndex: 'PLANT_C',
-      plantName: 'Plant C',
-      description: 'This is plant C',
-      imageUrl: 'https://picsum.photos/500/500',
-    },
-  ];
-
-  workstations: Workstation[] | any[] = [];
 
   // selectedPlant: any = this.plants[0];
   selectedPlant: any;

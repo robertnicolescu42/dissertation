@@ -5,6 +5,9 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
   try {
+    // Get the plantIndex from the URL path parameter
+    const plantIndex = event.pathParameters.plantIndex;
+
     // Define the parameters for the DynamoDB scan operation
     const params = {
       TableName: "workstations",
@@ -13,7 +16,12 @@ exports.handler = async (event) => {
     // Use the DynamoDB scan operation to retrieve all items from the table
     const result = await dynamodb.scan(params).promise();
 
-    // Return the list of workstations as the response
+    // Filter the results based on the plantIndex attribute
+    const workstations = result.Items.filter(
+      (item) => item.plantIndex === plantIndex
+    );
+
+    // Return the filtered list of workstations as the response
     return {
       statusCode: 200,
       headers: {
@@ -21,7 +29,7 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Headers": "*",
         "Access-Control-Allow-Methods": "OPTIONS,GET",
       },
-      body: result.Items,
+      body: workstations,
     };
   } catch (error) {
     return {
