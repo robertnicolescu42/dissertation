@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { PlantsService } from '../../services/plants.service';
 
 @Component({
   selector: 'app-plant-config',
@@ -6,12 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./plant-config.component.scss'],
 })
 export class PlantConfigComponent {
-  constructor() {}
+  constructor(private plantsService: PlantsService) {}
 
   @Input()
   plant = {
     plantIndex: '',
-    plantName: '',
+    title: '',
     description: '',
     imageUrl: '',
   };
@@ -21,5 +22,14 @@ export class PlantConfigComponent {
   onSubmit() {
     // Do something with the form data
     console.log(this.plant);
+
+    let plant = {
+      plantIndex: this.plant.plantIndex,
+      title: this.plant.title,
+      description: this.plant.description,
+      imageUrl: this.plant.imageUrl,
+    };
+
+    this.plantsService.addPlant(plant).subscribe();
   }
 }

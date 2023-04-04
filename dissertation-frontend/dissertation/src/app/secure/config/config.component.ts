@@ -22,10 +22,10 @@ export class ConfigComponent implements OnInit {
     // this.workstationService.getWorkstations().subscribe((res) => {
     //   this.workstations = res;
     // });
-    
-    this.workstationService.getWorkstationsByPlantIndex("PIT").subscribe((res) => {
-      this.workstations = res;
-    });
+
+    // this.workstationService.getWorkstationsByPlantIndex("PIT").subscribe((res) => {
+    //   this.workstations = res;
+    // });
 
     this.plantsService.getPlants().subscribe((res) => {
       this.plants = res;
@@ -73,6 +73,12 @@ export class ConfigComponent implements OnInit {
       this.selectedPlant = foundPlant;
       this.selectedWorkstation = null;
     }
+
+    this.workstationService
+      .getWorkstationsByPlantIndex(this.selectedPlant.plantIndex)
+      .subscribe((res) => {
+        this.workstations = res;
+      });
   }
 
   addPlant() {
@@ -80,7 +86,7 @@ export class ConfigComponent implements OnInit {
     this.editPlant = true;
     this.selectedPlant = {
       plantIndex: '',
-      plantName: '',
+      title: '',
       description: '',
       imageUrl: '',
     };

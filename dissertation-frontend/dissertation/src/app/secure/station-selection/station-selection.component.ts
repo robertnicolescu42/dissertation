@@ -41,9 +41,15 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
         // Do something with the plantId
       });
     } else {
-      this.workstationService.getWorkstations().subscribe((workstations) => {
-        this.workstations = workstations;
-        this.filteredWorkstations = this.workstations;
+      this.route.paramMap.subscribe((params) => {
+        const plantId = params.get('id');
+        if (plantId)
+          this.workstationService
+            .getWorkstationsByPlantIndex(plantId)
+            .subscribe((workstations) => {
+              this.workstations = workstations;
+              this.filteredWorkstations = this.workstations;
+            });
       });
     }
   }

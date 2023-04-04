@@ -18,7 +18,7 @@ export class WorkstationsService {
 
   getWorkstationsByPlantIndex(plantIndex: string): Observable<Workstation[]> {
     let url =
-      environment.getWorkstationsUrl + `plants/${plantIndex}/workstations`;
+      environment.getWorkstationsUrl + `workstations`;
     const params = new HttpParams().set('plantIndex', plantIndex);
 
     return this.http
