@@ -40,4 +40,10 @@ export class PlantsService {
       .put<{ body: Plant }>(url, JSON.stringify(plant))
       .pipe(map((response) => response.body));
   }
+
+  deletePlant(plantIndex: string): Observable<any> {
+    let url = environment.getWorkstationsUrl + 'plants';
+    url = `${url}?plantIndex=${plantIndex}`;
+    return this.http.delete<any>(url);
+  }
 }
