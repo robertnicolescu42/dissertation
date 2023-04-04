@@ -17,7 +17,6 @@ export class PlantsService {
       .pipe(map((response) => response.body));
   }
 
-  
   // addWorkstation(workstation: Workstation): Observable<Workstation> {
   //   let url = environment.getWorkstationsUrl;
   //   return this.http
@@ -32,6 +31,13 @@ export class PlantsService {
     let url = environment.getWorkstationsUrl + 'plants';
     return this.http
       .post<{ body: Plant }>(url, JSON.stringify(plant))
+      .pipe(map((response) => response.body));
+  }
+
+  editPlant(plant: Plant) {
+    let url = environment.getWorkstationsUrl + 'plants';
+    return this.http
+      .put<{ body: Plant }>(url, JSON.stringify(plant))
       .pipe(map((response) => response.body));
   }
 }

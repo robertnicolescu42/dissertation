@@ -30,6 +30,11 @@ export class PlantConfigComponent {
       imageUrl: this.plant.imageUrl,
     };
 
-    this.plantsService.addPlant(plant).subscribe();
+
+    if (!plant.plantIndex) {
+      this.plantsService.addPlant(plant).subscribe();
+    } else {
+      this.plantsService.editPlant(plant).subscribe();
+    }
   }
 }
