@@ -42,8 +42,9 @@ export class PlantsService {
   }
 
   deletePlant(plantIndex: string): Observable<any> {
-    let url = environment.getWorkstationsUrl + 'plants';
-    url = `${url}?plantIndex=${plantIndex}`;
-    return this.http.delete<any>(url);
+    let url =
+      environment.getWorkstationsUrl + 'plants/' + plantIndex + '/delete';
+
+    return this.http.get(url).pipe(map((response) => response));
   }
 }

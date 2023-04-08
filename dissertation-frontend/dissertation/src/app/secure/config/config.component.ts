@@ -52,7 +52,7 @@ export class ConfigComponent implements OnInit {
 
   addWorkstation() {
     this.selectedWorkstation = {
-      plantIndex: '',
+      plantIndex: this.selectedPlant.plantIndex,
       stationId: '',
       displayName: '',
       description: '',
