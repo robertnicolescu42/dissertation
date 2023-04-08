@@ -70,9 +70,13 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
         this.workstation.plantIndex
       );
 
+      if (!this.city) {
+        this.city =
+          this.workstationGeneratorService.getCityByAbbreviation('DEF');
+      }
+
       this.feedbacksData =
         this.workstationGeneratorService.generateFeedbackData();
-    } else {
     }
 
     this.route.queryParams.subscribe((params) => {

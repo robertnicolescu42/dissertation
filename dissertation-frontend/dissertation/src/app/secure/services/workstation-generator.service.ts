@@ -19,11 +19,13 @@ export class WorkstationGeneratorService {
     { abbreviation: 'SAO', name: 'São Paulo', country: 'Brazil' }, // SAO - São Paulo, Brazil
     { abbreviation: 'IST', name: 'Istanbul', country: 'Turkey' }, // IST - Istanbul, Turkey
     { abbreviation: 'JNB', name: 'Johannesburg', country: 'South Africa' }, // JNB - Johannesburg, South Africa
+    { abbreviation: 'DEF', name: 'Default', country: 'Default Country' }, // 
   ];
 
   getCityByAbbreviation(
     abbreviation: string
   ): { abbreviation: string; name: string; country: string } | undefined {
+    console.log("🚀 ~ file: workstation-generator.service.ts:28 ~ WorkstationGeneratorService ~ abbreviation:", abbreviation)
     // Find the city object with the matching abbreviation, or return undefined if not found
     return this.cities.find((city) => city.abbreviation === abbreviation);
   }
