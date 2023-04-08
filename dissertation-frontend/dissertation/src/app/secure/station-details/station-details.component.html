@@ -5,10 +5,10 @@
         role="button"
         class="text-primary"
         (click)="navigateToPreviousPage()"
-        >{{ city.name }}</span
+        >{{ city?.name }}</span
       >/{{ workstation?.stationId }}
       <small class="text-muted italic">
-        - <em>{{ workstation?.description }} in {{ city.country }}</em></small
+        - <em>{{ workstation?.description }} in {{ city?.country }}</em></small
       >
       <span class="mx-2 px-2">
         <button

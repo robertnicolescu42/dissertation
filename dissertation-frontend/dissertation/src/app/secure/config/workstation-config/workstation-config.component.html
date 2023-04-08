@@ -12,6 +12,7 @@
               [(ngModel)]="workstation.plantIndex"
               name="plantIndex"
               required
+              disabled
             />
           </div>
           <div class="mb-4">
@@ -70,7 +71,7 @@
         <div class="col-6">
           <!-- Number input -->
           <div class="mb-4">
-            <label for="cycleTime" class="form-label">Cycle Time</label>
+            <label for="cycleTime" class="form-label">Cycle Time (s)</label>
             <input
               type="number"
               id="cycleTime"
@@ -85,7 +86,7 @@
           <!-- Number input -->
           <div class="mb-4">
             <label for="cycleTimeDelay" class="form-label"
-              >Cycle Time Delay</label
+              >Cycle Time Delay (s)</label
             >
             <input
               type="number"
@@ -100,7 +101,7 @@
 
           <!-- Number input -->
           <div class="mb-4">
-            <label for="runningTime" class="form-label">Running Time</label>
+            <label for="runningTime" class="form-label">Running Time (s)</label>
             <input
               type="number"
               id="runningTime"

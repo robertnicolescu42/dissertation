@@ -12,6 +12,7 @@ export class ConfigComponent implements OnInit {
   plants: any[] = [];
   workstations: Workstation[] | any[] = [];
   editPlant: boolean = false;
+  newPlant: boolean = false;
 
   constructor(
     private workstationService: WorkstationsService,
@@ -51,7 +52,7 @@ export class ConfigComponent implements OnInit {
 
   addWorkstation() {
     this.selectedWorkstation = {
-      plantIndex: '',
+      plantIndex: this.selectedPlant.plantIndex,
       stationId: '',
       displayName: '',
       description: '',
@@ -82,8 +83,10 @@ export class ConfigComponent implements OnInit {
   }
 
   addPlant() {
+    console.log(this.selectedPlant);
     this.selectedWorkstation = null;
-    this.editPlant = true;
+    this.editPlant = false;
+    this.newPlant = true;
     this.selectedPlant = {
       plantIndex: '',
       title: '',

@@ -18,12 +18,9 @@ export class WorkstationsService {
 
   getWorkstationsByPlantIndex(plantIndex: string): Observable<Workstation[]> {
     let url =
-      environment.getWorkstationsUrl + `workstations`;
-    const params = new HttpParams().set('plantIndex', plantIndex);
+      environment.getWorkstationsUrl + 'plants/' + plantIndex + '/workstations';
 
-    return this.http
-      .get<{ body: Workstation[] }>(url, { params })
-      .pipe(map((response) => response.body));
+    return this.http.get<Workstation[]>(url).pipe(map((response) => response));
   }
 
   addWorkstation(workstation: Workstation): Observable<Workstation> {

@@ -17,7 +17,6 @@ export class PlantsService {
       .pipe(map((response) => response.body));
   }
 
-  
   // addWorkstation(workstation: Workstation): Observable<Workstation> {
   //   let url = environment.getWorkstationsUrl;
   //   return this.http
@@ -33,5 +32,19 @@ export class PlantsService {
     return this.http
       .post<{ body: Plant }>(url, JSON.stringify(plant))
       .pipe(map((response) => response.body));
+  }
+
+  editPlant(plant: Plant) {
+    let url = environment.getWorkstationsUrl + 'plants';
+    return this.http
+      .put<{ body: Plant }>(url, JSON.stringify(plant))
+      .pipe(map((response) => response.body));
+  }
+
+  deletePlant(plantIndex: string): Observable<any> {
+    let url =
+      environment.getWorkstationsUrl + 'plants/' + plantIndex + '/delete';
+
+    return this.http.get(url).pipe(map((response) => response));
   }
 }

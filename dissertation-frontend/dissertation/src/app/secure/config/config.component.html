@@ -28,7 +28,7 @@
       <div class="row">
         <div class="col-6">
           <app-generic-card
-            *ngIf="selectedPlant && !editPlant"
+            *ngIf="selectedPlant && !editPlant && !newPlant"
             title="List of workstations"
             [content]="workstationList"
           >
@@ -38,7 +38,9 @@
           <app-generic-card
             title="Config Workstation"
             [content]="workstationConfig"
-            *ngIf="selectedWorkstation && selectedPlant && !editPlant"
+            *ngIf="
+              selectedWorkstation && selectedPlant && !editPlant && !newPlant
+            "
           >
           </app-generic-card>
         </div>
@@ -48,7 +50,7 @@
           <app-generic-card
             title="Config Plant"
             [content]="plantConfig"
-            *ngIf="selectedPlant && editPlant"
+            *ngIf="selectedPlant && (editPlant || newPlant)"
             class="w-50"
           >
           </app-generic-card>
@@ -81,6 +83,17 @@
       {{ workstation.displayName }}
     </li>
   </ul>
+  <div>
+    <p>
+      <em>
+        There {{ workstations.length === 1 ? "is" : "are" }} currently
+        {{ workstations.length }} configured
+        {{ workstations.length === 1 ? "workstation" : "workstations" }} in this
+        plant.
+      </em>
+    </p>
+  </div>
+
   <button class="btn btn-primary mt-3" (click)="addWorkstation()">
     Add workstation
   </button>

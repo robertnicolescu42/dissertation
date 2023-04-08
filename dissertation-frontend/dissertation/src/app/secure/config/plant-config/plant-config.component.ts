@@ -17,6 +17,9 @@ export class PlantConfigComponent {
     imageUrl: '',
   };
 
+  @Input()
+  newPlant: boolean = true;
+
   createForm() {}
 
   onSubmit() {
@@ -30,6 +33,14 @@ export class PlantConfigComponent {
       imageUrl: this.plant.imageUrl,
     };
 
-    this.plantsService.addPlant(plant).subscribe();
+    if (this.newPlant) {
+      this.plantsService.addPlant(plant).subscribe();
+    } else {
+      this.plantsService.editPlant(plant).subscribe();
+    }
+  }
+
+  deletePlant() {
+    this.plantsService.deletePlant(this.plant.plantIndex).subscribe();
   }
 }
