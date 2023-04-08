@@ -24,6 +24,7 @@ export class WorkstationConfigComponent {
     cycleTimeDelay: 0,
   };
 
+
   onSubmit(): void {
     // this.myService.addWorkstation(this.workstation);
     console.log(this.workstation);
