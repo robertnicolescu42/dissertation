@@ -9,11 +9,12 @@ table = dynamodb.Table(table_name)
 
 def handler(event, context):
     try:
-        plant_index = event['plantIndex']
+        plant_index = event['pathParameters'].get('plantIndex', '')
     except:
         return {
             'statusCode': 400,
-            'body': json.dumps({'message': 'Missing plantIndex parameter'})
+            'body': json.dumps({'message': 'Missing plantIndex parameter'}),
+            # 'event': event
         }
 
     try:
@@ -38,7 +39,8 @@ def handler(event, context):
         'headers': {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Headers': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,GET'
+            'Access-Control-Allow-Methods': 'OPTIONS,GET',
+            'Access-Control-Allow-Origin': '*',
         },
-        'body': items
+        'body': json.dumps({'items': items})
     }
