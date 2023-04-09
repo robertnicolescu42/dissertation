@@ -36,7 +36,7 @@
         </div>
         <div class="col-6">
           <app-generic-card
-            title="Config Workstation"
+            title="Config Workstation: {{ selectedWorkstation.displayName }}"
             [content]="workstationConfig"
             *ngIf="
               selectedWorkstation && selectedPlant && !editPlant && !newPlant
@@ -65,6 +65,7 @@
     [workstation]="selectedWorkstation"
     [ngClass]="{ fadein: shouldFadeIn }"
     #workstationConfigComponent
+    [isNewWorkstation]="selectedWorkstation.stationId"
   ></app-workstation-config
 ></ng-template>
 

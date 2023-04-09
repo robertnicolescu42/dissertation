@@ -24,6 +24,8 @@ export class WorkstationConfigComponent {
     cycleTimeDelay: 0,
   };
 
+  @Input()
+  isNewWorkstation: boolean = false;
 
   onSubmit(): void {
     // this.myService.addWorkstation(this.workstation);
@@ -32,6 +34,17 @@ export class WorkstationConfigComponent {
       this.workstationService
         .addWorkstation(this.workstation)
         .subscribe((res) => console.log(res));
+    }
+  }
+
+  deleteWorkstation() {
+    if (this.workstation) {
+      this.workstationService
+        .deleteWorkstation(
+          this.workstation.plantIndex,
+          this.workstation.stationId
+        )
+        .subscribe((res: any) => console.log(res));
     }
   }
 }
