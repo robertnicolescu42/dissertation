@@ -46,6 +46,8 @@ import { ExportConfirmationModalComponent } from './secure/station-details/widge
 import { FileSaverModule } from 'ngx-filesaver';
 import { AuthInterceptor } from './secure/services/auth-interceptor';
 import { PlantConfigComponent } from './secure/config/plant-config/plant-config.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import { PlantConfigComponent } from './secure/config/plant-config/plant-config.
     NgChartsModule,
     CalendarModule,
     SliderModule,
+    BrowserAnimationsModule,
     DialogModule,
     MultiSelectModule,
     ContextMenuModule,
@@ -97,6 +100,9 @@ import { PlantConfigComponent } from './secure/config/plant-config/plant-config.
     FontAwesomeModule,
     FileSaverModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
   ],
   providers: [
     BsModalService,

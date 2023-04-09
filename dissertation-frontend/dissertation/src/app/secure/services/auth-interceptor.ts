@@ -4,15 +4,19 @@ import {
   HttpHandler,
   HttpRequest,
   HttpEvent,
+  HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { from } from 'rxjs';
-import { mergeMap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 import { CognitoService } from '../../cognito.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private cognitoService: CognitoService) {}
+  constructor(
+    private toastr: ToastrService,
+    private cognitoService: CognitoService
+  ) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -20,15 +24,22 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const idToken = this.cognitoService.getIdTokenFromLocalStorage();
     if (!idToken) {
-      return next.handle(req); // no idToken in localStorage, so proceed with the original request
+      return next.handle(req);
     }
     const authReq = req.clone({
-      headers: req.headers
-        // .set('Authorization', `Bearer ${idToken}`)
-        .set('Authorization', `${idToken}`)
-        // .set('Content-Type', 'application/json')
-        // .set('Access-Control-Allow-Origin', 'http://localhost:4200/'),
+      headers: req.headers.set('Authorization', `${idToken}`),
     });
-    return next.handle(authReq);
+    return next.handle(authReq).pipe(
+      catchError((error: HttpErrorResponse) => {
+        const errorMessage =
+          error.error instanceof ErrorEvent
+            ? `Error: ${error.error.message}`
+            : `Error Code: ${error.status}\nMessage: ${error.message}`;
+        this.toastr.error(errorMessage, 'Error', {
+          positionClass: 'toast-bottom-right',
+        });
+        return throwError(errorMessage);
+      })
+    );
   }
 }
