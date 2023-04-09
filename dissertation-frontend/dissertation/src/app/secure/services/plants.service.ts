@@ -12,14 +12,14 @@ export class PlantsService {
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   getPlants(): Observable<any> {
-    let url = environment.getWorkstationsUrl + 'plants';
+    let url = environment.baseUrl + 'plants';
     return this.http
       .get<{ body: any[] }>(url)
       .pipe(map((response) => response.body));
   }
 
   addPlant(plant: Plant) {
-    let url = environment.getWorkstationsUrl + 'plants';
+    let url = environment.baseUrl + 'plants';
     return this.http.post<{ body: Plant }>(url, JSON.stringify(plant)).pipe(
       map((response) => {
         this.toastr.success('Plant successfully added.');
@@ -29,7 +29,7 @@ export class PlantsService {
   }
 
   editPlant(plant: Plant) {
-    let url = environment.getWorkstationsUrl + 'plants';
+    let url = environment.baseUrl + 'plants';
     return this.http.put<{ body: Plant }>(url, JSON.stringify(plant)).pipe(
       map((response) => {
         this.toastr.success('Plant successfully edited.');
@@ -40,7 +40,7 @@ export class PlantsService {
 
   deletePlant(plantIndex: string): Observable<any> {
     let url =
-      environment.getWorkstationsUrl + 'plants/' + plantIndex + '/delete';
+      environment.baseUrl + 'plants/' + plantIndex + '/delete';
 
     return this.http.get(url).pipe(
       map((response) => {
