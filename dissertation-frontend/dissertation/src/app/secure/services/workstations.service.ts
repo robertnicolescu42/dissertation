@@ -12,7 +12,7 @@ export class WorkstationsService {
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   getWorkstations(): Observable<Workstation[]> {
-    let url = environment.getWorkstationsUrl;
+    let url = environment.baseUrl;
     return this.http
       .get<{ body: Workstation[] }>(url + 'workstations')
       .pipe(map((response) => response.body));
@@ -20,13 +20,13 @@ export class WorkstationsService {
 
   getWorkstationsByPlantIndex(plantIndex: string): Observable<Workstation[]> {
     let url =
-      environment.getWorkstationsUrl + 'plants/' + plantIndex + '/workstations';
+      environment.baseUrl + 'plants/' + plantIndex + '/workstations';
 
     return this.http.get<Workstation[]>(url).pipe(map((response) => response));
   }
 
   addWorkstation(workstation: Workstation): Observable<Workstation> {
-    let url = environment.getWorkstationsUrl;
+    let url = environment.baseUrl;
     return this.http
       .post<{ body: Workstation }>(
         url + 'workstations',
@@ -42,7 +42,7 @@ export class WorkstationsService {
 
   deleteWorkstation(plantIndex: string, stationId: string): any {
     let url =
-      environment.getWorkstationsUrl +
+      environment.baseUrl +
       'plants/' +
       plantIndex +
       '/' +
