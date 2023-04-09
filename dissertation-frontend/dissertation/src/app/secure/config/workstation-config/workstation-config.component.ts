@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { WorkstationsService } from '../../services/workstations.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-workstation-config',
