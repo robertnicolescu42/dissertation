@@ -162,20 +162,30 @@
         </div>
 
         <!-- Submit button -->
-        <button
-          type="submit"
-          class="btn btn-primary btn-block mb-4"
-          [disabled]="
-            !(
-              workstation.plantIndex &&
-              workstation.stationId &&
-              workstation.displayName &&
-              workstation.description
-            )
-          "
-        >
-          Save workstation
-        </button>
+        <div class="row">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block mb-4"
+            [disabled]="
+              !(
+                workstation.plantIndex &&
+                workstation.stationId &&
+                workstation.displayName &&
+                workstation.description
+              )
+            "
+          >
+            Save workstation
+          </button>
+          <button
+            type="reset"
+            *ngIf="isNewWorkstation"
+            (click)="deleteWorkstation()"
+            class="btn btn-danger btn-block"
+          >
+            Delete workstation
+          </button>
+        </div>
       </div>
     </div>
   </form>

@@ -19,13 +19,12 @@ export class WorkstationGeneratorService {
     { abbreviation: 'SAO', name: 'São Paulo', country: 'Brazil' }, // SAO - São Paulo, Brazil
     { abbreviation: 'IST', name: 'Istanbul', country: 'Turkey' }, // IST - Istanbul, Turkey
     { abbreviation: 'JNB', name: 'Johannesburg', country: 'South Africa' }, // JNB - Johannesburg, South Africa
-    { abbreviation: 'DEF', name: 'Default', country: 'Default Country' }, // 
+    { abbreviation: 'DEF', name: 'Default', country: 'Default Country' }, // DEF - Default, Default Country
   ];
 
   getCityByAbbreviation(
     abbreviation: string
   ): { abbreviation: string; name: string; country: string } | undefined {
-    console.log("🚀 ~ file: workstation-generator.service.ts:28 ~ WorkstationGeneratorService ~ abbreviation:", abbreviation)
     // Find the city object with the matching abbreviation, or return undefined if not found
     return this.cities.find((city) => city.abbreviation === abbreviation);
   }
@@ -157,7 +156,7 @@ export class WorkstationGeneratorService {
   }
 
   // OEE(Overall Equipment Effectiveness) is the gold standard for
-  // measuring manufacturing productivity.Simply put – it identifies
+  // measuring manufacturing productivity. Simply put – it identifies
   // the percentage of manufacturing time that is truly productive.
   // An OEE score of 100 % means you are manufacturing only Good Parts,
   // as fast as possible, with no Stop Time. In the language of OEE that

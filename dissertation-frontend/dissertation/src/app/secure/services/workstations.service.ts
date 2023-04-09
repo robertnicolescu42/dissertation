@@ -32,4 +32,16 @@ export class WorkstationsService {
       )
       .pipe(map((response) => response.body));
   }
+
+  deleteWorkstation(plantIndex: string, stationId: string): any {
+    let url =
+      environment.getWorkstationsUrl +
+      'plants/' +
+      plantIndex +
+      '/' +
+      stationId +
+      '/delete';
+
+    return this.http.get(url).pipe(map((response) => response));
+  }
 }
