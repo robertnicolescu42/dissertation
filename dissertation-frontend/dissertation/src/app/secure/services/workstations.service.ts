@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Workstation } from '../../types/work-station';
 import { environment } from '../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
+
 @Injectable({
   providedIn: 'root',
 })
 export class WorkstationsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   getWorkstations(): Observable<Workstation[]> {
     let url = environment.getWorkstationsUrl;
@@ -30,7 +32,12 @@ export class WorkstationsService {
         url + 'workstations',
         JSON.stringify(workstation)
       )
-      .pipe(map((response) => response.body));
+      .pipe(
+        map((response) => {
+          this.toastr.success('Workstation successfully added.');
+          return response.body;
+        })
+      );
   }
 
   deleteWorkstation(plantIndex: string, stationId: string): any {
@@ -42,6 +49,11 @@ export class WorkstationsService {
       stationId +
       '/delete';
 
-    return this.http.get(url).pipe(map((response) => response));
+    return this.http.get(url).pipe(
+      map((response) => {
+        this.toastr.success('Workstation successfully deleted.');
+        return response;
+      })
+    );
   }
 }
