@@ -62,15 +62,23 @@
 
 <ng-template #workstationConfig>
   <app-workstation-config
+    #workstationConfigComponent
     [workstation]="selectedWorkstation"
     [ngClass]="{ fadein: shouldFadeIn }"
-    #workstationConfigComponent
-    [isNewWorkstation]="selectedWorkstation.stationId"
+    [isNewWorkstation]="isNewWorkstation"
+    (workstationAdded)="onWorkstationAdded($event)"
+    (workstationUpdated)="onWorkstationUpdated($event)"
+    (workstationDeleted)="onWorkstationDeleted($event)"
   ></app-workstation-config
 ></ng-template>
 
 <ng-template #plantConfig>
-  <app-plant-config [plant]="selectedPlant"></app-plant-config>
+  <app-plant-config
+    [plant]="selectedPlant"
+    [newPlant]="editPlant"
+    (plantAdded)="onPlantAdded($event)"
+    (plantDeleted)="onPlantDeleted($event)"
+  ></app-plant-config>
 </ng-template>
 
 <ng-template #workstationList>

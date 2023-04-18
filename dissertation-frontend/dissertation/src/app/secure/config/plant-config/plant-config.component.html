@@ -67,7 +67,7 @@
             class="btn btn-primary btn-block mb-4"
             [disabled]="!(plant.plantIndex && plant.title && plant.imageUrl)"
           >
-            Save Plant
+            {{ !newPlant ? "Save" : "Update" }} Plant
           </button>
         </div>
 

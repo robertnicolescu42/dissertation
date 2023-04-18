@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WorkstationsService } from '../../services/workstations.service';
 import { FormControl } from '@angular/forms';
+import { Workstation } from '../../../types/work-station';
 
 @Component({
   selector: 'app-workstation-config',
@@ -8,7 +9,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./workstation-config.component.scss'],
 })
 export class WorkstationConfigComponent {
-  constructor(private workstationService: WorkstationsService) {}
+  originalWorkstation: Workstation;
+
+  constructor(private workstationService: WorkstationsService) {
+    this.originalWorkstation = JSON.parse(JSON.stringify(this.workstation));
+  }
 
   @Input()
   workstation = {
@@ -28,14 +33,28 @@ export class WorkstationConfigComponent {
   @Input()
   isNewWorkstation: boolean = false;
 
+  @Output() workstationAdded = new EventEmitter<Workstation>();
+  @Output() workstationUpdated = new EventEmitter<Workstation>();
+  @Output() workstationDeleted = new EventEmitter<Workstation>();
+
   onSubmit(): void {
-    // this.myService.addWorkstation(this.workstation);
     console.log(this.workstation);
     if (this.workstation) {
       this.workstationService
         .addWorkstation(this.workstation)
         .subscribe((res) => console.log(res));
     }
+
+    this.workstationAdded.emit(this.workstation);
+  }
+
+  updateWorkstation(): void {
+    if (this.workstation) {
+      this.workstationService
+        .updateWorkstation(this.workstation)
+        .subscribe((res: any) => console.log(res));
+    }
+    this.workstationUpdated.emit(this.workstation);
   }
 
   deleteWorkstation() {
@@ -47,5 +66,10 @@ export class WorkstationConfigComponent {
         )
         .subscribe((res: any) => console.log(res));
     }
+    this.workstationDeleted.emit(this.workstation);
+  }
+
+  resetForm(): void {
+    this.workstation = JSON.parse(JSON.stringify(this.originalWorkstation));
   }
 }
