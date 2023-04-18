@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Workstation } from '../../types/work-station';
 import { WorkstationsService } from '../services/workstations.service';
 import { PlantsService } from '../services/plants.service';
+import { Plant } from '../../types/plant';
 
 @Component({
   selector: 'app-config',
@@ -33,10 +34,11 @@ export class ConfigComponent implements OnInit {
     });
   }
 
-  // selectedPlant: any = this.plants[0];
-  selectedPlant: any;
+  selectedPlant: any = this.plants[0];
+  // selectedPlant: any;
   selectedWorkstation: any;
   shouldFadeIn = false;
+  isNewWorkstation: boolean = false;
 
   @ViewChild('workstationConfigComponent')
   workstationConfigComponent!: ElementRef;
@@ -44,7 +46,7 @@ export class ConfigComponent implements OnInit {
   selectWorkstation(workstation: any) {
     this.selectedWorkstation = workstation;
     this.shouldFadeIn = true;
-
+    this.isNewWorkstation = false;
     setTimeout(() => {
       this.shouldFadeIn = false;
     }, 1000);
@@ -64,6 +66,8 @@ export class ConfigComponent implements OnInit {
       equipmentNumber: '',
       cycleTimeDelay: 0,
     };
+
+    this.isNewWorkstation = true;
   }
 
   selectPlant(plantIndex: any) {
@@ -94,5 +98,41 @@ export class ConfigComponent implements OnInit {
       description: '',
       imageUrl: '',
     };
+  }
+
+  onPlantAdded(plant: Plant) {
+    this.plants.push(plant);
+
+    this.selectedPlant = this.plants[this.plants.length - 1];
+    this.selectPlant(this.plants[this.plants.length - 1]);
+  }
+
+  onPlantDeleted(plant: Plant) {
+    this.plants = this.plants.filter((p) => p.plantIndex !== plant.plantIndex);
+    this.selectedPlant = this.plants[0];
+    this.selectPlant(this.plants[0]);
+  }
+
+  onWorkstationAdded(workstation: Workstation) {
+    this.workstations.push(workstation);
+    this.selectWorkstation(workstation);
+  }
+
+  onWorkstationUpdated(workstation: Workstation) {
+    // update workstation in workstations array
+    this.workstations = this.workstations.map((w) => {
+      if (w.stationId === workstation.stationId) {
+        return workstation;
+      }
+      return w;
+    });
+    this.selectWorkstation(workstation);
+  }
+
+  onWorkstationDeleted(workstation: Workstation) {
+    this.workstations = this.workstations.filter(
+      (w) => w.stationId !== workstation.stationId
+    );
+    this.selectedWorkstation = null;
   }
 }

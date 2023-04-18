@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PlantsService } from '../../services/plants.service';
+import { Plant } from '../../../types/plant';
 
 @Component({
   selector: 'app-plant-config',
@@ -7,12 +8,10 @@ import { PlantsService } from '../../services/plants.service';
   styleUrls: ['./plant-config.component.scss'],
 })
 export class PlantConfigComponent {
-  constructor(private plantsService: PlantsService) {
-    console.log(
-      '🚀 ~ file: plant-config.component.ts:37 ~ PlantConfigComponent ~ onSubmit ~ this.newPlant:',
-      this.newPlant
-    );
-  }
+  constructor(private plantsService: PlantsService) {}
+
+  @Output() plantAdded = new EventEmitter<Plant>();
+  @Output() plantDeleted = new EventEmitter<Plant>();
 
   @Input()
   plant = {
@@ -28,9 +27,6 @@ export class PlantConfigComponent {
   createForm() {}
 
   onSubmit() {
-    // Do something with the form data
-    console.log(this.plant);
-
     let plant = {
       plantIndex: this.plant.plantIndex,
       title: this.plant.title,
@@ -40,12 +36,13 @@ export class PlantConfigComponent {
 
     if (!this.newPlant) {
       this.plantsService.addPlant(plant).subscribe();
+      this.plantAdded.emit(plant);
     } else {
       this.plantsService.editPlant(plant).subscribe();
     }
   }
 
   deletePlant() {
-    this.plantsService.deletePlant(this.plant.plantIndex).subscribe();
+    this.plantDeleted.emit(this.plant);
   }
 }
