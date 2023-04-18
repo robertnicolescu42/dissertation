@@ -7,7 +7,12 @@ import { PlantsService } from '../../services/plants.service';
   styleUrls: ['./plant-config.component.scss'],
 })
 export class PlantConfigComponent {
-  constructor(private plantsService: PlantsService) {}
+  constructor(private plantsService: PlantsService) {
+    console.log(
+      '🚀 ~ file: plant-config.component.ts:37 ~ PlantConfigComponent ~ onSubmit ~ this.newPlant:',
+      this.newPlant
+    );
+  }
 
   @Input()
   plant = {
@@ -18,7 +23,7 @@ export class PlantConfigComponent {
   };
 
   @Input()
-  newPlant: boolean = true;
+  newPlant: boolean = false;
 
   createForm() {}
 
@@ -33,7 +38,7 @@ export class PlantConfigComponent {
       imageUrl: this.plant.imageUrl,
     };
 
-    if (this.newPlant) {
+    if (!this.newPlant) {
       this.plantsService.addPlant(plant).subscribe();
     } else {
       this.plantsService.editPlant(plant).subscribe();

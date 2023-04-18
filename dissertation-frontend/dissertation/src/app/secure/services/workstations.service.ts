@@ -40,10 +40,6 @@ export class WorkstationsService {
   }
 
   updateWorkstation(workstation: Workstation): Observable<Workstation> {
-    console.log(
-      '🚀 ~ file: workstations.service.ts:44 ~ WorkstationsService ~ updateWorkstation ~ workstation:',
-      workstation
-    );
     let url =
       environment.baseUrl +
       'plants/' +

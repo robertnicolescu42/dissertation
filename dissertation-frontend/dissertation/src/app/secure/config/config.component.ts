@@ -73,6 +73,7 @@ export class ConfigComponent implements OnInit {
     if (foundPlant) {
       this.selectedPlant = foundPlant;
       this.selectedWorkstation = null;
+      this.newPlant = false;
     }
 
     this.workstationService
