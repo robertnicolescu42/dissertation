@@ -1,5 +1,8 @@
 <div>
-  <form (submit)="onSubmit()" #workstationForm="ngForm">
+  <form
+    (submit)="!isNewWorkstation ? onSubmit() : updateWorkstation()"
+    #workstationForm="ngForm"
+  >
     <div class="container-fluid">
       <div class="row">
         <div class="col-6">
@@ -175,7 +178,7 @@
               )
             "
           >
-            Save workstation
+            {{ !isNewWorkstation ? "Save" : "Update" }} workstation
           </button>
           <button
             type="reset"

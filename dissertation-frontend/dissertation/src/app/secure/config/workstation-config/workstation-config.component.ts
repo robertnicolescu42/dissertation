@@ -29,12 +29,19 @@ export class WorkstationConfigComponent {
   isNewWorkstation: boolean = false;
 
   onSubmit(): void {
-    // this.myService.addWorkstation(this.workstation);
     console.log(this.workstation);
     if (this.workstation) {
       this.workstationService
         .addWorkstation(this.workstation)
         .subscribe((res) => console.log(res));
+    }
+  }
+
+  updateWorkstation(): void {
+    if (this.workstation) {
+      this.workstationService
+        .updateWorkstation(this.workstation)
+        .subscribe((res: any) => console.log(res));
     }
   }
 
