@@ -34,8 +34,8 @@ export class ConfigComponent implements OnInit {
     });
   }
 
-  selectedPlant: any = this.plants[0];
-  // selectedPlant: any;
+  // selectedPlant: any = this.plants[0];
+  selectedPlant: any;
   selectedWorkstation: any;
   shouldFadeIn = false;
   isNewWorkstation: boolean = false;
