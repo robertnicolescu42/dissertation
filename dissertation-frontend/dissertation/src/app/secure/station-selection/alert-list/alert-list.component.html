@@ -72,14 +72,20 @@
         </div>
       </div>
 
-      <!-- <div class="text-center mt-5 animation-fade-in"
-      style="cursor: default">
-      No incoming alerts
-    </div> -->
+      <div
+        *ngIf="alertGroups.length === 0"
+        class="text-center mt-5 animation-fade-in"
+        style="cursor: default"
+      >
+        No incoming alerts
+      </div>
 
       <!-- <ng-container *ngIf="!collapsed && !isLoading; else loadingMessage"> -->
       <ng-container>
-        <div class="ml-2 mr-n1 h-100 hide-horizontal-scrollbar">
+        <div
+          class="ml-2 mr-n1 h-100 hide-horizontal-scrollbar"
+          *ngIf="alertGroups.length"
+        >
           <!-- @groupList -->
           <div
             class="mb-2"

@@ -129,3 +129,27 @@
     opacity: 1;
   }
 }
+
+/* CSS for mobile phones */
+@media (max-width: 767px) {
+  .row.my-2.mx-2 {
+    flex-wrap: wrap;
+  }
+  .col-2,
+  .col-10 {
+    width: 100%;
+  }
+  .table-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .p-column-filter {
+    width: 100%;
+  }
+  .p-datatable-workstations th,
+  .p-datatable-workstations td {
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
