@@ -48,6 +48,8 @@ import { AuthInterceptor } from './secure/services/auth-interceptor';
 import { PlantConfigComponent } from './secure/config/plant-config/plant-config.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertListComponent } from './secure/station-selection/alert-list/alert-list.component';
+import { AlertGroupCardComponent } from './secure/station-selection/alert-list/alert-group-card/alert-group-card.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AnomalyObserveSpectogramModalComponent,
     ExportConfirmationModalComponent,
     PlantConfigComponent,
+    AlertListComponent,
+    AlertGroupCardComponent,
   ],
   imports: [
     BrowserModule,

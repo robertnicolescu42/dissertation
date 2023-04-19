@@ -1,0 +1,131 @@
+$slide-in-duration: 0s;
+$slide-in-delay: 0s;
+$slide-out-duration: 0s;
+$slide-out-delay: 0s;
+
+$notification-fade-duration: 0.8s;
+
+.collapsible-list {
+  height: 792px;
+  width: 64px;
+
+  &.list-collapsed {
+    width: 64px;
+  }
+  &.list-expanded {
+    width: 300px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  color: white;
+}
+
+.icon-wrapper {
+  position: relative;
+  height: 64px;
+  margin-top: 10px;
+}
+
+.notification-icon {
+  font-size: 32px;
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  vertical-align: middle;
+}
+.notification-badge {
+  overflow: visible;
+  color: white;
+  font-weight: normal !important;
+  margin: 0;
+  width: 32px;
+  position: absolute;
+  top: -9px;
+  right: 0px;
+}
+
+.alert-title {
+  visibility: hidden;
+  display: inline;
+  overflow: hidden;
+  opacity: 0;
+
+  animation: fade-in-title $notification-fade-duration ease-in-out
+    $slide-out-duration both;
+}
+
+@keyframes fade-in-title {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.alert-icon {
+  font-size: 80%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
+
+.filter-button {
+  position: absolute;
+  top: 18px;
+  right: 46px;
+  color: white;
+  font-size: 12px;
+}
+
+.filter-active {
+  height: 0.5rem;
+  width: 0.5rem;
+  top: -4px;
+  right: -4px;
+}
+
+.card-alert:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.4);
+  transform: scale(1.01);
+  margin-bottom: 10%;
+  border-radius: 25px;
+}
+
+.card-alert {
+  transition: all 0.3s ease;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+.hide-horizontal-scrollbar {
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  padding: 5%;
+}

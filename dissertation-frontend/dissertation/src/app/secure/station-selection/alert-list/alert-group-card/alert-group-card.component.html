@@ -1,0 +1,19 @@
+<div class="m-1">
+  <div class="card pointer">
+    <div class="card-header bg-primary text-white">
+      <h5 class="card-title">
+        {{ alertGroup?.severity }} - {{ alertGroup?.code }}
+      </h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <b>{{ alertGroup?.message }}</b>
+      </p>
+      <p class="card-text">{{ alertGroup?.stationId }}</p>
+      <hr />
+      <p class="card-text">
+        {{ alertGroup?.timestamp | date : "dd/MM/yyyy HH:mm:ss" }}
+      </p>
+    </div>
+  </div>
+</div>
