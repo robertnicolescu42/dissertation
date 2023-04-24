@@ -1,163 +1,174 @@
-<div class="fade-in">
-  <p-table
-    #dt
-    [value]="filteredWorkstations"
-    dataKey="stationId"
-    styleClass="p-datatable-workstations"
-    [rowHover]="true"
-    [rows]="isCollapsed ? 11 : 10"
-    [showCurrentPageReport]="true"
-    [rowsPerPageOptions]="[11, 25, 50]"
-    [paginator]="true"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [filterDelay]="0"
-    [globalFilterFields]="[
-      'displayName',
-      'description',
-      'isOeeCalculable',
-      'runningTime'
-    ]"
-  >
-    <ng-template pTemplate="caption">
-      <div class="table-header">
-        List of Workstations
-        <span class="p-input-icon-left">
-          <i class="pi pi-search"></i>
-          <input
-            pInputText
-            type="text"
-            (input)="dt.filterGlobal($event.target.value, 'contains')"
-            placeholder="Global Search"
-          />
-        </span>
-      </div>
-    </ng-template>
-    <ng-template pTemplate="header">
-      <tr>
-        <th class="col-md-3" pSortableColumn="displayName">
-          Display Name <p-sortIcon field="displayName"></p-sortIcon>
-        </th>
-        <th class="col-md-3" pSortableColumn="isOeeCalculable">
-          Is OEE Available <p-sortIcon field="isOeeCalculable"></p-sortIcon>
-        </th>
-        <th class="col-md-3" pSortableColumn="description">
-          Description <p-sortIcon field="description"></p-sortIcon>
-        </th>
-        <th class="col-md-3" pSortableColumn="runningTime">
-          Running Time (m:s)<p-sortIcon field="runningTime"></p-sortIcon>
-        </th>
-        <th class="col-md-3">
-          <button
-            type="button"
-            class="btn btn-outline-primary"
-            (click)="collapse.toggle()"
-            [attr.aria-expanded]="!isCollapsed"
-            aria-controls="collapseExample"
-          >
-            Toggle filter
-          </button>
-        </th>
-      </tr>
-      <tr
-        #collapse="ngbCollapse"
-        [(ngbCollapse)]="isCollapsed"
-        style="overflow-y: auto"
+<div class="row my-2 mx-2">
+  <div class="col-2">
+    <app-alert-list></app-alert-list>
+  </div>
+  <div class="col-10">
+    <div class="fade-in">
+      <p-table
+        #dt
+        [value]="filteredWorkstations"
+        dataKey="stationId"
+        styleClass="p-datatable-workstations"
+        [rowHover]="true"
+        [rows]="isCollapsed ? 11 : 10"
+        [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[11, 25, 50]"
+        [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [filterDelay]="0"
+        [globalFilterFields]="[
+          'displayName',
+          'description',
+          'isOeeCalculable',
+          'runningTime'
+        ]"
       >
-        <th>
-          <input
-            pInputText
-            type="text"
-            (input)="
-              dt.filter($event.target.value, 'displayName', 'startsWith')
-            "
-            placeholder="Search by Display Name"
-            class="p-column-filter"
-            style="padding: 2px"
-          />
-        </th>
-        <th></th>
-        <th>
-          <input
-            pInputText
-            type="text"
-            (input)="dt.filter($event.target.value, 'description', 'contains')"
-            placeholder="Search by Description"
-            class="p-column-filter"
-            style="padding: 2px"
-          />
-        </th>
-        <th>
-          <input
-            pInputText
-            type="number"
-            [(ngModel)]="greaterThanRunningTime"
-            (input)="greaterThanRunningTime = $event.target.value"
-            placeholder="  >="
-            class="p-column-filter"
-            style="padding: 2px; width: 10%"
-          />
-          <input
-            pInputText
-            type="number"
-            [(ngModel)]="smallerThanRunningTime"
-            (input)="smallerThanRunningTime = $event.target.value"
-            placeholder="  <="
-            class="p-column-filter"
-            style="padding: 2px; width: 10%"
-          />
-          <button
-            type="button"
-            class="btn btn-primary mx-1 py-1"
-            title="Filter"
-            (click)="filterByRunningTime()"
-          >
-            Filter (s)
-          </button>
-          <button
-            type="button"
-            class="btn btn-secondary mx-1 py-1"
-            title="Filter"
-            (click)="resetRunningTimeFilter()"
-          >
-            Reset
-          </button>
-        </th>
-        <th></th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-workstation>
-      <tr class="p-selectable-row">
-        <td>
-          <span class="p-column-title">Display Name</span>
-          {{ workstation.plantIndex }}/{{ workstation.displayName }}
-        </td>
-        <td>
-          <span class="p-column-title">Is OEE Calculable</span>
-          <div
-            class="badge"
-            [ngClass]="workstation.isOeeCalculable ? 'bg-success' : 'bg-danger'"
-          >
-            {{ workstation.isOeeCalculable ? "Yes" : "No" }}
+        <ng-template pTemplate="caption">
+          <div class="table-header">
+            List of Workstations
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="dt.filterGlobal($event.target.value, 'contains')"
+                placeholder="Global Search"
+              />
+            </span>
           </div>
-        </td>
-        <td>
-          <span class="p-column-title">Description</span>
-          {{ workstation.description }}
-        </td>
-        <td>
-          <span class="p-column-title">Running Time (s)</span>
-          {{ workstation.runningTime * 1000 | date : "mm:ss" : "UTC" }}
-        </td>
-        <td>
-          <button
-            type="button"
-            class="btn btn-primary btn-sm mx-1 py-1 details-button"
-            (click)="showStationDetails(workstation)"
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="col-md-3" pSortableColumn="displayName">
+              Display Name <p-sortIcon field="displayName"></p-sortIcon>
+            </th>
+            <th class="col-md-3" pSortableColumn="isOeeCalculable">
+              Is OEE Available <p-sortIcon field="isOeeCalculable"></p-sortIcon>
+            </th>
+            <th class="col-md-3" pSortableColumn="description">
+              Description <p-sortIcon field="description"></p-sortIcon>
+            </th>
+            <th class="col-md-3" pSortableColumn="runningTime">
+              Running Time (m:s)<p-sortIcon field="runningTime"></p-sortIcon>
+            </th>
+            <th class="col-md-3">
+              <button
+                type="button"
+                class="btn btn-outline-primary"
+                (click)="collapse.toggle()"
+                [attr.aria-expanded]="!isCollapsed"
+                aria-controls="collapseExample"
+              >
+                Toggle filter
+              </button>
+            </th>
+          </tr>
+          <tr
+            #collapse="ngbCollapse"
+            [(ngbCollapse)]="isCollapsed"
+            style="overflow-y: auto"
           >
-            Details
-          </button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+            <th>
+              <input
+                pInputText
+                type="text"
+                (input)="
+                  dt.filter($event.target.value, 'displayName', 'startsWith')
+                "
+                placeholder="Search by Display Name"
+                class="p-column-filter"
+                style="padding: 2px"
+              />
+            </th>
+            <th></th>
+            <th>
+              <input
+                pInputText
+                type="text"
+                (input)="
+                  dt.filter($event.target.value, 'description', 'contains')
+                "
+                placeholder="Search by Description"
+                class="p-column-filter"
+                style="padding: 2px"
+              />
+            </th>
+            <th>
+              <input
+                pInputText
+                type="number"
+                [(ngModel)]="greaterThanRunningTime"
+                (input)="greaterThanRunningTime = $event.target.value"
+                placeholder="  >="
+                class="p-column-filter"
+                style="padding: 2px; width: 10%"
+              />
+              <input
+                pInputText
+                type="number"
+                [(ngModel)]="smallerThanRunningTime"
+                (input)="smallerThanRunningTime = $event.target.value"
+                placeholder="  <="
+                class="p-column-filter"
+                style="padding: 2px; width: 10%"
+              />
+              <button
+                type="button"
+                class="btn btn-primary mx-1 py-1"
+                title="Filter"
+                (click)="filterByRunningTime()"
+              >
+                Filter (s)
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary mx-1 py-1"
+                title="Filter"
+                (click)="resetRunningTimeFilter()"
+              >
+                Reset
+              </button>
+            </th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-workstation>
+          <tr class="p-selectable-row">
+            <td>
+              <span class="p-column-title">Display Name</span>
+              {{ workstation.plantIndex }}/{{ workstation.displayName }}
+            </td>
+            <td>
+              <span class="p-column-title">Is OEE Calculable</span>
+              <div
+                class="badge"
+                [ngClass]="
+                  workstation.isOeeCalculable ? 'bg-success' : 'bg-danger'
+                "
+              >
+                {{ workstation.isOeeCalculable ? "Yes" : "No" }}
+              </div>
+            </td>
+            <td>
+              <span class="p-column-title">Description</span>
+              {{ workstation.description }}
+            </td>
+            <td>
+              <span class="p-column-title">Running Time (s)</span>
+              {{ workstation.runningTime * 1000 | date : "mm:ss" : "UTC" }}
+            </td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary btn-sm mx-1 py-1 details-button"
+                (click)="showStationDetails(workstation)"
+              >
+                Details
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
 </div>

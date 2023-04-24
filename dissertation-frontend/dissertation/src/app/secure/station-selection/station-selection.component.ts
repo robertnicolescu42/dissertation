@@ -4,7 +4,6 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Workstation } from '../../types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
 import { WorkstationsService } from '../services/workstations.service';
-import { StationDetailsComponent } from '../station-details/station-details.component';
 
 @Component({
   selector: 'app-station-selection',
@@ -27,7 +26,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
   ngOnInit(): void {
-    let mockData = false;
+    let mockData = true;
 
     if (mockData) {
       this.route.paramMap.subscribe((params) => {

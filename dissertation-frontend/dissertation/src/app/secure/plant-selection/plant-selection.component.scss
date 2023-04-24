@@ -74,3 +74,40 @@
     opacity: 1;
   }
 }
+
+/* CSS for Mobile Phones */
+
+/* Set the width of the card image to 100% for mobile phones */
+.card-plant-img-top {
+  width: 100%;
+  height: auto;
+}
+
+/* Adjust the font size of card title and description for mobile phones */
+.card-plant-title,
+.card-plant-text {
+  font-size: 16px;
+}
+
+/* Add margin to the top of the card title for mobile phones */
+.card-plant-title {
+  margin-top: 8px;
+}
+
+/* Add padding to the card body for mobile phones */
+.card-plant-body {
+  padding: 10px;
+}
+
+/* Adjust the number of columns for mobile phones */
+.row-cols-md-5 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Adjust margin between cards for mobile phones */
+.row .col.mb-4 {
+  margin-bottom: 16px;
+}

@@ -74,17 +74,17 @@
 
       <div *ngIf="activeTab === 'station-details'" class="py-2 fade-in">
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <app-status-widget [workstation]="workstation"></app-status-widget>
           </div>
-          <div class="col-6" *ngIf="workstation?.isOeeCalculable; else noOEE">
+          <div class="col-sm-6" *ngIf="workstation?.isOeeCalculable; else noOEE">
             <app-generic-card title="OEE Chart" [content]="oeeChart">
             </app-generic-card>
           </div>
           <hr />
           <div class="my-2 row">
-            <div class="row col-12">
-              <div class="col-3">
+            <div class="row col-sm-12">
+              <div class="col-sm-3">
                 <app-feedbacks
                   [title]="'Feedbacks'"
                   [total]="feedbacksData?.completeFeedbacks.total"
@@ -94,7 +94,7 @@
                   [rate]="feedbacksData?.completeFeedbacks.rate"
                 ></app-feedbacks>
               </div>
-              <div class="col-3">
+              <div class="col-sm-3">
                 <app-feedbacks
                   [title]="'OK Feedbacks'"
                   [feedbackType]="'SCRAP'"
@@ -105,7 +105,7 @@
                   [rate]="feedbacksData?.okFeedbacks.rate"
                 ></app-feedbacks>
               </div>
-              <div class="col-3 px-4">
+              <div class="col-sm-3 px-4">
                 <app-feedbacks
                   [title]="'NOK Feedbacks'"
                   [feedbackType]="'SCRAP'"
@@ -116,7 +116,7 @@
                   [rate]="feedbacksData?.nokFeedbacks.rate"
                 ></app-feedbacks>
               </div>
-              <div class="col-3 px-1">
+              <div class="col-sm-3 px-1">
                 <app-feedbacks
                   [title]="'SCRAP Feedbacks'"
                   [feedbackType]="'SCRAP'"
