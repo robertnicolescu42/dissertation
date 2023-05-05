@@ -25,6 +25,7 @@ This project aims to provide a web-based tool for data visualization in the auto
 - AWS - DynamoDB
 - AWS - API Gateway
 - AWS - Cognito
+- ExpressJS
 
 # Usage
 To use this tool, simply access the web application from any device with a web browser. Users will be able to view and interact with data visualizations in real-time, allowing for quick identification and resolution of any issues that may arise in the production process. Users can also evaluate the performance of different parts or components and make informed decisions on how to optimize the production line.
