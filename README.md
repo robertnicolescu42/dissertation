@@ -1,7 +1,5 @@
-# DataVisualization
-Web-based Data Visualization Tool for Automotive Manufacturing Industry
+# DataVisualization Overview
 
-# Overview
 This project aims to provide a web-based tool for data visualization in the automotive manufacturing industry. The tool will utilize modern web technologies such as HTML, CSS, and JavaScript to create interactive and dynamic visualizations, allowing manufacturers and engineers to easily view and interact with data from any location.
 
 # Key Benefits
