@@ -8,6 +8,7 @@ import {
   stagger,
   animateChild,
 } from '@angular/animations';
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-alert-list',
@@ -86,6 +87,9 @@ import {
 export class AlertListComponent implements OnInit {
   private _collapsed = false;
 
+  @Input()
+  plantIndex: string | undefined = '';
+
   alertGroups: any[] = [
     {
       alertGroupId: '1',
@@ -115,6 +119,17 @@ export class AlertListComponent implements OnInit {
       timestamp: '2023-04-19T12:00:00',
     },
   ];
+  public messages: any[] = [];
+
+  constructor(private alertService: AlertService) {
+    this.alertService.connect().subscribe((message) => {
+      this.messages.push(message);
+
+      if (message.plantIndex === this.plantIndex) {
+        this.alertGroups.push(message);
+      }
+    });
+  }
 
   infoCount: number | undefined;
   warningCount: number | undefined;

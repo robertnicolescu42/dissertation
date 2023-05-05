@@ -17,6 +17,7 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
   greaterThanRunningTime: number = 0;
   smallerThanRunningTime: number = 0;
   modalRef: BsModalRef | undefined;
+  currentPlantIndex: string = "";
 
   constructor(
     private workstationGeneratorService: WorkstationGeneratorService,
@@ -26,11 +27,13 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
   ngOnInit(): void {
-    let mockData = true;
+    let mockData = false;
 
     if (mockData) {
       this.route.paramMap.subscribe((params) => {
         const plantId = params.get('id');
+        this.currentPlantIndex = plantId ? plantId : '';
+
         this.workstations =
           this.workstationGeneratorService.generateWorkstations(
             100,
@@ -42,6 +45,8 @@ export class StationSelectionComponent implements OnInit, OnDestroy {
     } else {
       this.route.paramMap.subscribe((params) => {
         const plantId = params.get('id');
+        this.currentPlantIndex = plantId ? plantId : '';
+
         if (plantId)
           this.workstationService
             .getWorkstationsByPlantIndex(plantId)
