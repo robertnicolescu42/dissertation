@@ -89,7 +89,7 @@
           <!-- @groupList -->
           <div
             class="mb-2"
-            *ngFor="let alertGroup of alertGroups; trackBy: trackByFn"
+            *ngFor="let alertGroup of alertGroups.reverse(); trackBy: trackByFn"
           >
             <!-- @groupItems -->
             <div class="m-1">

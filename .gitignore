@@ -1,4 +1,5 @@
 dissertation-frontend/dissertation/src/environments/environment.ts
+dissertation-backend/node_modules
 predictive help/mock.txt
 predictive help/predictive/service/predictive-maintenance.service.ts
 predictive help/predictive/station-view-predictive-maintenance/station-view-predictive-maintenance.component.html
