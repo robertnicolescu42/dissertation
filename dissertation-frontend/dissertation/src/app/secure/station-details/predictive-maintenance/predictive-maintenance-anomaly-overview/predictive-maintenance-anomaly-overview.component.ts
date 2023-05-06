@@ -23,7 +23,7 @@ export class PredictiveMaintenanceAnomalyOverviewComponent
 {
   bsModalRef!: BsModalRef;
   subscriptions: Subscription = new Subscription();
-  anomalyData: AnomalyEntry[] | undefined;
+  // anomalyData: AnomalyEntry[] | undefined;
 
   private _isAnomalyDataLoading$: BehaviorSubject<boolean>;
 
@@ -56,9 +56,9 @@ export class PredictiveMaintenanceAnomalyOverviewComponent
   }
 
   ngOnInit(): void {
-    this.anomalyData$.subscribe((data) => {
-      this.anomalyData = data;
-    });
+    // this.anomalyData$.subscribe((data) => {
+    //   this.anomalyData = data;
+    // });
   }
 
   openObserveSpectogramDialog(anomaly: AnomalyEntry) {
