@@ -5,7 +5,6 @@ This project aims to provide a web-based tool for data visualization in the auto
 # Key Benefits
 - Accessible from any device
 - Cost-effective and efficient
-- Improved collaboration
 - Real-time data visualization
 - Advanced visualization techniques
 
