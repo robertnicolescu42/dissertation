@@ -22,6 +22,7 @@ This project aims to provide a web-based tool for data visualization in the auto
 - AWS - DynamoDB
 - AWS - API Gateway
 - AWS - Cognito
+- AWS - S3 Bucket
 - ExpressJS (for a websocket, acts like a physical machine that sends data)
 
 # Usage
