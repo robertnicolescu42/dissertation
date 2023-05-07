@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Component, Input } from '@angular/core';
 import { AlertGroup } from '../../../../types/alert-group';
 
 @Component({

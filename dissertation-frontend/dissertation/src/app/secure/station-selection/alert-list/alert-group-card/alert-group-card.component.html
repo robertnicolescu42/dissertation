@@ -1,7 +1,15 @@
 <div class="m-1">
   <div class="card pointer">
     <div class="card-header bg-primary text-white">
-      <h5 class="card-title">
+      <fa-icon
+        [ngClass]="{
+          'fa-solid fa-circle-xmark': alertGroup?.severity === 'ERROR',
+          'fa-solid fa-circle-info': alertGroup?.severity === 'INFO',
+          'fas fa-triangle-exclamation': alertGroup?.severity === 'WARNING'
+        }"
+        style="display: inline-block"
+      ></fa-icon>
+      <h5 class="card-title" style="display: inline-block; margin-left: 5px">
         {{ alertGroup?.severity }} - {{ alertGroup?.code }}
       </h5>
     </div>

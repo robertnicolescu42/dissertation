@@ -9,6 +9,8 @@ import {
   animateChild,
 } from '@angular/animations';
 import { AlertService } from '../../services/alert.service';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-alert-list',
@@ -91,37 +93,41 @@ export class AlertListComponent implements OnInit {
   plantIndex: string | undefined = '';
 
   alertGroups: any[] = [
-    // {
-    //   alertGroupId: '1',
-    //   plantIndex: 'A',
-    //   stationId: 'Station 1',
-    //   severity: 'WARNING',
-    //   code: '123',
-    //   message: 'Alert 1',
-    //   timestamp: '2023-04-19T10:30:00',
-    // },
-    // {
-    //   alertGroupId: '2',
-    //   plantIndex: 'B',
-    //   stationId: 'Station 2',
-    //   severity: 'INFO',
-    //   code: '456',
-    //   message: 'Alert 2',
-    //   timestamp: '2023-04-19T11:15:00',
-    // },
-    // {
-    //   alertGroupId: '3',
-    //   plantIndex: 'C',
-    //   stationId: 'Station 3',
-    //   severity: 'ERROR',
-    //   code: '789',
-    //   message: 'Alert 3',
-    //   timestamp: '2023-04-19T12:00:00',
-    // },
+    {
+      alertGroupId: '1',
+      plantIndex: 'A',
+      stationId: 'Station 1',
+      severity: 'WARNING',
+      code: '123',
+      message: 'Alert 1',
+      timestamp: '2023-04-19T10:30:00',
+    },
+    {
+      alertGroupId: '2',
+      plantIndex: 'B',
+      stationId: 'Station 2',
+      severity: 'INFO',
+      code: '456',
+      message: 'Alert 2',
+      timestamp: '2023-04-19T11:15:00',
+    },
+    {
+      alertGroupId: '3',
+      plantIndex: 'C',
+      stationId: 'Station 3',
+      severity: 'ERROR',
+      code: '789',
+      message: 'Alert 3',
+      timestamp: '2023-04-19T12:00:00',
+    },
   ];
   public messages: any[] = [];
 
-  constructor(private alertService: AlertService) {
+  
+  timesCircleIcon = faTimesCircle;
+
+  constructor(private alertService: AlertService, library: FaIconLibrary) {
+    library.addIcons(faTimesCircle);
     this.alertService.connect().subscribe((message) => {
       this.messages.push(message);
 
@@ -129,6 +135,7 @@ export class AlertListComponent implements OnInit {
         this.alertGroups.push(message);
       }
     });
+
   }
 
   infoCount: number | undefined;
