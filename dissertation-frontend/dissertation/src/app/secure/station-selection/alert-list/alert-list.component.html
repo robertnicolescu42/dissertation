@@ -8,7 +8,7 @@
     }"
   >
     <div class="d-flex flex-column h-100">
-      <div class="text-center mt-3 pointer" (click)="toggleCollapse()">
+      <div class="text-center mt-3 pointer">
         <div *ngIf="!collapsed" class="ml-3 alert-title display-6">
           <span>Alerts</span>
         </div>
@@ -17,7 +17,6 @@
       <hr class="ml-2 mr-n1 bg-white" />
       <div
         class="alert-notification d-flex flex-column text-center pointer"
-        (click)="toggleCollapse()"
         @notificationList
         *ngIf="collapsed"
       >
