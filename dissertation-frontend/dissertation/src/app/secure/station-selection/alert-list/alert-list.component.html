@@ -4,28 +4,11 @@
   <div
     class="bg-white rounded text-black collapsible-list"
     [ngClass]="{
-      'list-collapsed': collapsed,
       'list-expanded': !collapsed
     }"
   >
-    <!-- <button
-      *ngIf="!collapsed"
-      type="button"
-      class="close close-button"
-      aria-label="Close"
-      (click)="toggleCollapse()"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button> -->
-
     <div class="d-flex flex-column h-100">
       <div class="text-center mt-3 pointer" (click)="toggleCollapse()">
-        <!-- <fa-icon
-        icon="exclamation-triangle"
-        class="alert-icon"
-        size="2x"
-      ></fa-icon> -->
-
         <div *ngIf="!collapsed" class="ml-3 alert-title display-6">
           <span>Alerts</span>
         </div>
@@ -50,7 +33,10 @@
         </div>
 
         <div class="icon-wrapper" @notificationItems>
-          <!-- <fa-icon icon="exclamation-circle" class="notification-icon"></fa-icon> -->
+          <fa-icon
+            icon="exclamation-circle"
+            class="notification-icon"
+          ></fa-icon>
           <div class="notification-badge" [@notificationBadge]="warningCount">
             <span
               class="badge badge-danger badge-pill text-center font-weight-normal"
@@ -61,7 +47,7 @@
         </div>
 
         <div class="icon-wrapper" @notificationItems>
-          <!-- <fa-icon icon="info-circle" class="notification-icon"></fa-icon> -->
+          <fa-icon icon="info-circle" class="notification-icon"></fa-icon>
           <div class="notification-badge" [@notificationBadge]="infoCount">
             <span
               class="badge badge-danger badge-pill text-center font-weight-normal"

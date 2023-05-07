@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, shareReplay } from 'rxjs';
 import {
   AnomalyEntry,
   RulInfoDataEntry,
@@ -158,6 +158,6 @@ export class PredictiveMaintenanceService {
       });
     }
 
-    return of(data);
+    return of(data).pipe(shareReplay(1));
   }
 }
