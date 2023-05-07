@@ -88,7 +88,6 @@ export class ConfigComponent implements OnInit {
   }
 
   addPlant() {
-    console.log(this.selectedPlant);
     this.selectedWorkstation = null;
     this.editPlant = false;
     this.newPlant = true;

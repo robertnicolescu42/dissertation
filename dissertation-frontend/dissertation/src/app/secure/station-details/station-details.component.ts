@@ -78,7 +78,6 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
       }
 
       // this.feedbacksData = this.workstationGeneratorService.generateFeedbackData();
-      // console.log("🚀 ~ file: station-details.component.ts:81 ~ StationDetailsComponent ~ ngOnInit ~ this.feedbacksData:", this.feedbacksData)
       this.feedbacksService
         .getFeedbacks(this.workstation.plantIndex, this.workstation.stationId)
         .then((data) => {

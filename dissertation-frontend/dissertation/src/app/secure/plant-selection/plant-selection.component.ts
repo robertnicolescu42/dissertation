@@ -40,7 +40,6 @@ export class PlantSelectionComponent implements OnInit {
   }
   ngOnInit(): void {
     this.plantsService.getPlants().subscribe((res) => {
-      console.log(res);
       this.plants = res;
     });
   }
