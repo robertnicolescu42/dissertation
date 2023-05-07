@@ -38,7 +38,6 @@ export class WorkstationConfigComponent {
   @Output() workstationDeleted = new EventEmitter<Workstation>();
 
   onSubmit(): void {
-    console.log(this.workstation);
     if (this.workstation) {
       this.workstationService
         .addWorkstation(this.workstation)

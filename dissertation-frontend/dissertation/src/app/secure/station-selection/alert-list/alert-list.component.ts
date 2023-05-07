@@ -9,8 +9,6 @@ import {
   animateChild,
 } from '@angular/animations';
 import { AlertService } from '../../services/alert.service';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-alert-list',
@@ -123,11 +121,7 @@ export class AlertListComponent implements OnInit {
   ];
   public messages: any[] = [];
 
-  
-  timesCircleIcon = faTimesCircle;
-
-  constructor(private alertService: AlertService, library: FaIconLibrary) {
-    library.addIcons(faTimesCircle);
+  constructor(private alertService: AlertService) {
     this.alertService.connect().subscribe((message) => {
       this.messages.push(message);
 
@@ -135,7 +129,6 @@ export class AlertListComponent implements OnInit {
         this.alertGroups.push(message);
       }
     });
-
   }
 
   infoCount: number | undefined;
