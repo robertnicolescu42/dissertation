@@ -7,6 +7,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 import { Workstation } from '../../../app/types/work-station';
 import { WorkstationGeneratorService } from '../services/workstation-generator.service';
 import { ExportConfirmationModalComponent } from './widgets/export-confirmation-modal/export-confirmation-modal.component';
+import { FeedbacksService } from '../services/feedbacks.service';
 
 @Component({
   selector: 'app-station-details',
@@ -60,7 +61,8 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
     private router: Router,
     private breadcrumbService: BreadcrumbService,
     private papa: Papa,
-    private fileSaverService: FileSaverService
+    private fileSaverService: FileSaverService,
+    private feedbacksService: FeedbacksService
   ) {}
 
   ngOnInit(): void {
@@ -75,8 +77,13 @@ export class StationDetailsComponent implements OnInit, OnDestroy {
           this.workstationGeneratorService.getCityByAbbreviation('DEF');
       }
 
-      this.feedbacksData =
-        this.workstationGeneratorService.generateFeedbackData();
+      // this.feedbacksData = this.workstationGeneratorService.generateFeedbackData();
+      // console.log("🚀 ~ file: station-details.component.ts:81 ~ StationDetailsComponent ~ ngOnInit ~ this.feedbacksData:", this.feedbacksData)
+      this.feedbacksService
+        .getFeedbacks(this.workstation.plantIndex, this.workstation.stationId)
+        .then((data) => {
+          this.feedbacksData = data;
+        });
     }
 
     this.route.queryParams.subscribe((params) => {

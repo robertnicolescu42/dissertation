@@ -77,13 +77,16 @@
           <div class="col-sm-6">
             <app-status-widget [workstation]="workstation"></app-status-widget>
           </div>
-          <div class="col-sm-6" *ngIf="workstation?.isOeeCalculable; else noOEE">
+          <div
+            class="col-sm-6"
+            *ngIf="workstation?.isOeeCalculable; else noOEE"
+          >
             <app-generic-card title="OEE Chart" [content]="oeeChart">
             </app-generic-card>
           </div>
           <hr />
           <div class="my-2 row">
-            <div class="row col-sm-12">
+            <div class="row col-sm-12" *ngIf="feedbacksData; else noFeedbacks">
               <div class="col-sm-3">
                 <app-feedbacks
                   [title]="'Feedbacks'"
@@ -166,4 +169,17 @@
 
 <ng-template #oeeChart>
   <app-oee-calculation [workstation]="workstation"></app-oee-calculation>
+</ng-template>
+
+<ng-template #noFeedbacks>
+  <div class="card-text card-body">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">No Feedback Data</h5>
+        <p class="card-text">
+          There is currently no feedback data for this station.
+        </p>
+      </div>
+    </div>
+  </div>
 </ng-template>
