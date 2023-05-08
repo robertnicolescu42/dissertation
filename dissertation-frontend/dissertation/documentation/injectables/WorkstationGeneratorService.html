@@ -1,0 +1,1036 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>dissertation documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">dissertation documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >WorkstationGeneratorService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/secure/services/workstation-generator.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cities" >cities</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#calculateOEE" >calculateOEE</a>
+                            </li>
+                            <li>
+                                <a href="#generateFeedbackData" >generateFeedbackData</a>
+                            </li>
+                            <li>
+                                <a href="#generatePartialFeedbacksData" >generatePartialFeedbacksData</a>
+                            </li>
+                            <li>
+                                <a href="#generateWorkstation" >generateWorkstation</a>
+                            </li>
+                            <li>
+                                <a href="#generateWorkstationNameAndDescription" >generateWorkstationNameAndDescription</a>
+                            </li>
+                            <li>
+                                <a href="#generateWorkstations" >generateWorkstations</a>
+                            </li>
+                            <li>
+                                <a href="#getCityByAbbreviation" >getCityByAbbreviation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:8</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateOEE"></a>
+                    <span class="name">
+                        <span ><b>calculateOEE</b></span>
+                        <a href="#calculateOEE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculateOEE(workstation: <a href="../interfaces/Workstation.html" target="_self">Workstation</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Calculates the OEE for a given workstation based on its properties</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>workstation</td>
+                                    <td>
+                                                <code><a href="../interfaces/Workstation.html" target="_self" >Workstation</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The workstation object to calculate OEE for</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/OEE.html" target="_self" >OEE</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>An object containing the availability, performance, and quality</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateFeedbackData"></a>
+                    <span class="name">
+                        <span ><b>generateFeedbackData</b></span>
+                        <a href="#generateFeedbackData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateFeedbackData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="262"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:262</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{ okFeedbacks: { title: string; total: number; lastResult: boolean; lastId: string; lastTime: any; rate: number; }; nokFeedbacks: { title: string; total: number; lastResult: boolean; lastId: string; lastTime: any; rate: number; }; scrapFeedbacks: { ...; }; completeFeedbacks: { ...; }; }</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generatePartialFeedbacksData"></a>
+                    <span class="name">
+                        <span ><b>generatePartialFeedbacksData</b></span>
+                        <a href="#generatePartialFeedbacksData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generatePartialFeedbacksData()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateWorkstation"></a>
+                    <span class="name">
+                        <span ><b>generateWorkstation</b></span>
+                        <a href="#generateWorkstation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateWorkstation(plantId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>plantId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Workstation.html" target="_self" >Workstation</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateWorkstationNameAndDescription"></a>
+                    <span class="name">
+                        <span ><b>generateWorkstationNameAndDescription</b></span>
+                        <a href="#generateWorkstationNameAndDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateWorkstationNameAndDescription()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateWorkstations"></a>
+                    <span class="name">
+                        <span ><b>generateWorkstations</b></span>
+                        <a href="#generateWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generateWorkstations(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, plantId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>number</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>plantId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Workstation.html" target="_self" >Workstation[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCityByAbbreviation"></a>
+                    <span class="name">
+                        <span ><b>getCityByAbbreviation</b></span>
+                        <a href="#getCityByAbbreviation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCityByAbbreviation(abbreviation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>abbreviation</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type | undefined</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cities"></a>
+                    <span class="name">
+                        <span ><b>cities</b></span>
+                        <a href="#cities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { abbreviation: &#x27;NYC&#x27;, name: &#x27;New York City&#x27;, country: &#x27;United States&#x27; }, // NYC - New York City, United States
+    { abbreviation: &#x27;LON&#x27;, name: &#x27;London&#x27;, country: &#x27;United Kingdom&#x27; }, // LON - London, United Kingdom
+    { abbreviation: &#x27;PAR&#x27;, name: &#x27;Paris&#x27;, country: &#x27;France&#x27; }, // PAR - Paris, France
+    { abbreviation: &#x27;TOK&#x27;, name: &#x27;Tokyo&#x27;, country: &#x27;Japan&#x27; }, // TOK - Tokyo, Japan
+    { abbreviation: &#x27;BJJ&#x27;, name: &#x27;Beijing&#x27;, country: &#x27;China&#x27; }, // BJJ - Beijing, China
+    { abbreviation: &#x27;PIT&#x27;, name: &#x27;Pitesti&#x27;, country: &#x27;Romania&#x27; }, // PIT - Pitești, România
+    { abbreviation: &#x27;CAI&#x27;, name: &#x27;Cairo&#x27;, country: &#x27;Egypt&#x27; }, // CAI - Cairo, Egypt
+    { abbreviation: &#x27;SAO&#x27;, name: &#x27;São Paulo&#x27;, country: &#x27;Brazil&#x27; }, // SAO - São Paulo, Brazil
+    { abbreviation: &#x27;IST&#x27;, name: &#x27;Istanbul&#x27;, country: &#x27;Turkey&#x27; }, // IST - Istanbul, Turkey
+    { abbreviation: &#x27;JNB&#x27;, name: &#x27;Johannesburg&#x27;, country: &#x27;South Africa&#x27; }, // JNB - Johannesburg, South Africa
+    { abbreviation: &#x27;DEF&#x27;, name: &#x27;Default&#x27;, country: &#x27;Default Country&#x27; }, // DEF - Default, Default Country
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/secure/services/workstation-generator.service.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Workstation } from &#x27;../../types/work-station&#x27;;
+import { OEE } from &#x27;../../types/oee&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class WorkstationGeneratorService {
+  constructor() {}
+
+  cities: { abbreviation: string; name: string; country: string }[] &#x3D; [
+    { abbreviation: &#x27;NYC&#x27;, name: &#x27;New York City&#x27;, country: &#x27;United States&#x27; }, // NYC - New York City, United States
+    { abbreviation: &#x27;LON&#x27;, name: &#x27;London&#x27;, country: &#x27;United Kingdom&#x27; }, // LON - London, United Kingdom
+    { abbreviation: &#x27;PAR&#x27;, name: &#x27;Paris&#x27;, country: &#x27;France&#x27; }, // PAR - Paris, France
+    { abbreviation: &#x27;TOK&#x27;, name: &#x27;Tokyo&#x27;, country: &#x27;Japan&#x27; }, // TOK - Tokyo, Japan
+    { abbreviation: &#x27;BJJ&#x27;, name: &#x27;Beijing&#x27;, country: &#x27;China&#x27; }, // BJJ - Beijing, China
+    { abbreviation: &#x27;PIT&#x27;, name: &#x27;Pitesti&#x27;, country: &#x27;Romania&#x27; }, // PIT - Pitești, România
+    { abbreviation: &#x27;CAI&#x27;, name: &#x27;Cairo&#x27;, country: &#x27;Egypt&#x27; }, // CAI - Cairo, Egypt
+    { abbreviation: &#x27;SAO&#x27;, name: &#x27;São Paulo&#x27;, country: &#x27;Brazil&#x27; }, // SAO - São Paulo, Brazil
+    { abbreviation: &#x27;IST&#x27;, name: &#x27;Istanbul&#x27;, country: &#x27;Turkey&#x27; }, // IST - Istanbul, Turkey
+    { abbreviation: &#x27;JNB&#x27;, name: &#x27;Johannesburg&#x27;, country: &#x27;South Africa&#x27; }, // JNB - Johannesburg, South Africa
+    { abbreviation: &#x27;DEF&#x27;, name: &#x27;Default&#x27;, country: &#x27;Default Country&#x27; }, // DEF - Default, Default Country
+  ];
+
+  getCityByAbbreviation(
+    abbreviation: string
+  ): { abbreviation: string; name: string; country: string } | undefined {
+    // Find the city object with the matching abbreviation, or return undefined if not found
+    return this.cities.find((city) &#x3D;&gt; city.abbreviation &#x3D;&#x3D;&#x3D; abbreviation);
+  }
+  generateWorkstation(plantId: string): Workstation {
+    let { stationId, description } &#x3D;
+      this.generateWorkstationNameAndDescription();
+
+    let productionCount &#x3D; Math.floor(Math.random() * 100);
+    return {
+      stationId: stationId,
+      displayName: &#x60;Workstation ${Math.floor(Math.random() * 100)}&#x60;,
+      equipmentNumber: Math.random().toString(36).substring(2, 15),
+      isOeeCalculable: Math.random() &gt;&#x3D; 0.5,
+      // isOeeCalculable: true,
+      cycleTime: Math.floor(Math.random() * 1000),
+      cycleTimeDelay: Math.floor(Math.random() * 100),
+      description: description,
+      // plantIndex:
+      //   this.cities[Math.floor(Math.random() * this.cities.length)]
+      //     .abbreviation,
+      plantIndex: plantId,
+      runningTime: Math.floor(Math.random() * 100),
+      productionCount: productionCount,
+      defectCount: Math.floor(Math.random() * (productionCount - 0 + 1)),
+    };
+  }
+
+  generateWorkstations(number: number, plantId: string): Workstation[] {
+    if (number &lt; 1)
+      throw new Error(&#x27;Number of workstations must be greater than 0&#x27;);
+
+    if (plantId.length &gt; 0) {
+      const workstations: Workstation[] &#x3D; [];
+      for (let i &#x3D; 0; i &lt; number; i++) {
+        workstations.push(this.generateWorkstation(plantId));
+      }
+      return workstations;
+    }
+    return [];
+  }
+
+  generateWorkstationNameAndDescription(): {
+    stationId: string;
+    description: string;
+  } {
+    // List of potential words to use in workstation names
+    const words &#x3D; [
+      &#x27;precision&#x27;,
+      &#x27;engine&#x27;,
+      &#x27;assembly&#x27;,
+      &#x27;robotics&#x27;,
+      &#x27;fabrication&#x27;,
+      &#x27;mechanics&#x27;,
+      &#x27;production&#x27;,
+      &#x27;quality&#x27;,
+      &#x27;machining&#x27;,
+      &#x27;innovation&#x27;,
+      &#x27;automation&#x27;,
+      &#x27;design&#x27;,
+      &#x27;manufacturing&#x27;,
+    ];
+
+    // Generate a random name by combining two randomly selected words from the list
+    const firstWordIndex &#x3D; Math.floor(Math.random() * words.length);
+    let secondWordIndex &#x3D; Math.floor(Math.random() * words.length);
+
+    // Make sure the second word is different from the first
+    while (secondWordIndex &#x3D;&#x3D;&#x3D; firstWordIndex) {
+      secondWordIndex &#x3D; Math.floor(Math.random() * words.length);
+    }
+
+    const firstName &#x3D; words[firstWordIndex];
+    const secondName &#x3D; words[secondWordIndex];
+
+    // Construct the stationId by concatenating the two words with an underscore in between
+    const stationId &#x3D; &#x60;${firstName}_${secondName}&#x60;;
+
+    // Construct the description by adding a short phrase describing the function of the workstation
+    let description &#x3D; &#x27;&#x27;;
+    switch (secondName) {
+      case &#x27;precision&#x27;:
+        description &#x3D; &#x27;Creates precise parts&#x27;;
+        break;
+      case &#x27;engine&#x27;:
+        description &#x3D; &#x27;Builds engines&#x27;;
+        break;
+      case &#x27;assembly&#x27;:
+        description &#x3D; &#x27;Assembles auto parts&#x27;;
+        break;
+      case &#x27;robotics&#x27;:
+        description &#x3D; &#x27;Uses robots to make auto parts&#x27;;
+        break;
+      case &#x27;fabrication&#x27;:
+        description &#x3D; &#x27;Fabricates auto parts&#x27;;
+        break;
+      case &#x27;mechanics&#x27;:
+        description &#x3D; &#x27;Performs mechanical work&#x27;;
+        break;
+      case &#x27;production&#x27;:
+        description &#x3D; &#x27;Produces auto parts&#x27;;
+        break;
+      case &#x27;quality&#x27;:
+        description &#x3D; &#x27;Ensures quality of auto parts&#x27;;
+        break;
+      case &#x27;machining&#x27;:
+        description &#x3D; &#x27;Machines auto parts&#x27;;
+        break;
+      case &#x27;innovation&#x27;:
+        description &#x3D; &#x27;Develops innovative auto parts&#x27;;
+        break;
+      case &#x27;automation&#x27;:
+        description &#x3D; &#x27;Automates production of auto parts&#x27;;
+        break;
+      case &#x27;design&#x27;:
+        description &#x3D; &#x27;Designs auto parts&#x27;;
+        break;
+      case &#x27;manufacturing&#x27;:
+        description &#x3D; &#x27;Manufactures auto parts&#x27;;
+        break;
+      default:
+        description &#x3D; &#x27;Performs a specific function&#x27;;
+        break;
+    }
+
+    return {
+      stationId: stationId,
+      description: description,
+    };
+  }
+
+  // OEE(Overall Equipment Effectiveness) is the gold standard for
+  // measuring manufacturing productivity. Simply put – it identifies
+  // the percentage of manufacturing time that is truly productive.
+  // An OEE score of 100 % means you are manufacturing only Good Parts,
+  // as fast as possible, with no Stop Time. In the language of OEE that
+  // means 100 % Quality(only Good Parts), 100 % Performance(as fast as possible),
+  // and 100 % Availability(no Stop Time).
+  /**
+   * Calculates the OEE for a given workstation based on its properties
+   * @param workstation The workstation object to calculate OEE for
+   * @returns An object containing the availability, performance, and quality
+   */
+  calculateOEE(workstation: Workstation): OEE {
+    // Calculate performance as the percentage of ideal cycle time achieved by the workstation
+    const performance &#x3D;
+      ((workstation.cycleTime * workstation.productionCount) /
+        (workstation.runningTime - workstation.cycleTimeDelay)) %
+      100;
+
+    // Calculate quality as the percentage of parts produced that were not defective
+    const quality &#x3D;
+      ((workstation.productionCount - workstation.defectCount) /
+        workstation.productionCount) *
+      100;
+
+    // Calculate availability as the percentage of time the workstation was available for production
+    const availability &#x3D;
+      ((workstation.runningTime - workstation.cycleTimeDelay) /
+        workstation.runningTime) *
+      100;
+
+    // Calculate OEE as the product of availability, performance, and quality
+    const oee &#x3D; (availability * performance * quality) % 100;
+
+    // Return an object containing the availability, performance, and quality
+    let oeeObject: OEE &#x3D; {
+      availability: Math.abs(parseFloat(availability.toFixed(2))),
+      performance: Math.abs(parseFloat(performance.toFixed(2))),
+      quality: Math.abs(parseFloat(quality.toFixed(2))),
+      oee: Math.abs(parseFloat(oee.toFixed(2))),
+    };
+
+    return oeeObject;
+  }
+
+  generatePartialFeedbacksData(): {
+    title: string;
+    total: number;
+    lastResult: boolean;
+    lastId: string;
+    lastTime: Date;
+    rate: number;
+  } {
+    const title: string &#x3D; &#x27;n/a&#x27;;
+    const total: number &#x3D; Math.floor(Math.random() * 100);
+    const lastResult: boolean &#x3D; false;
+
+    // Generate lastId
+    const chars: string &#x3D; &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&#x27;;
+    let id: string &#x3D; &#x27;&#x27;;
+    for (let i &#x3D; 0; i &lt; 10; i++) {
+      id +&#x3D; chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    id +&#x3D; &#x27;-&#x27;;
+    for (let i &#x3D; 0; i &lt; 10; i++) {
+      id +&#x3D; chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    id &#x3D; id.toUpperCase();
+
+    // Generate lastTime
+    const now: Date &#x3D; new Date();
+    const weekday: number &#x3D; now.getDay();
+    let daysAgo: number &#x3D; 0;
+    switch (weekday) {
+      case 0: // Sunday
+      case 6: // Saturday
+        daysAgo &#x3D; weekday - 5;
+        break;
+      default:
+        daysAgo &#x3D; weekday - 1;
+        break;
+    }
+    const lastTime: Date &#x3D; new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() - daysAgo,
+      8 + Math.floor(Math.random() * 9),
+      Math.floor(Math.random() * 60),
+      Math.floor(Math.random() * 60),
+      0
+    );
+
+    const rate: number &#x3D; +(Math.random() * 100).toFixed(2);
+
+    return {
+      title,
+      total,
+      lastResult,
+      lastId: id,
+      lastTime,
+      rate,
+    };
+  }
+
+  generateFeedbackData() {
+    let okFeedbacks &#x3D; {
+      title: &#x27;n/a&#x27;,
+      total: 0,
+      lastResult: false,
+      lastId: &#x27;n/a&#x27;,
+      lastTime: new Date(),
+      rate: 0,
+    };
+
+    let nokFeedbacks &#x3D; {
+      title: &#x27;n/a&#x27;,
+      total: 0,
+      lastResult: false,
+      lastId: &#x27;n/a&#x27;,
+      lastTime: new Date(),
+      rate: 0,
+    };
+
+    let scrapFeedbacks &#x3D; {
+      title: &#x27;n/a&#x27;,
+      total: 0,
+      lastResult: false,
+      lastId: &#x27;n/a&#x27;,
+      lastTime: new Date(),
+      rate: 0,
+    };
+
+    // Generate data for okFeedbacks
+    const okCount &#x3D; Math.floor(Math.random() * 10);
+    for (let i &#x3D; 0; i &lt; okCount; i++) {
+      const data: any &#x3D; this.generatePartialFeedbacksData();
+      okFeedbacks &#x3D; data;
+      okFeedbacks.total +&#x3D; data.total;
+    }
+
+    // Generate data for nokFeedbacks
+    const nokCount &#x3D; Math.floor(Math.random() * 10);
+    for (let i &#x3D; 0; i &lt; nokCount; i++) {
+      const data &#x3D; this.generatePartialFeedbacksData();
+      nokFeedbacks &#x3D; data;
+      nokFeedbacks.total +&#x3D; data.total;
+    }
+    // Generate data for scrapFeedbacks
+    const scrapCount &#x3D; Math.floor(Math.random() * 10);
+    for (let i &#x3D; 0; i &lt; scrapCount; i++) {
+      const data &#x3D; this.generatePartialFeedbacksData();
+      scrapFeedbacks &#x3D; data;
+      scrapFeedbacks.total +&#x3D; data.total;
+    }
+
+    // Calculate the total
+    const total &#x3D; okFeedbacks.total + nokFeedbacks.total + scrapFeedbacks.total;
+
+    okFeedbacks.rate &#x3D; Number(((okFeedbacks.total / total) * 100).toFixed(2));
+    nokFeedbacks.rate &#x3D; Number(((nokFeedbacks.total / total) * 100).toFixed(2));
+    scrapFeedbacks.rate &#x3D; Number(
+      ((scrapFeedbacks.total / total) * 100).toFixed(2)
+    );
+
+    // Find the most recent feedback
+    let mostRecent &#x3D; new Date(0);
+    let mostRecentFeedback: any;
+    [okFeedbacks, nokFeedbacks, scrapFeedbacks].forEach((feedback) &#x3D;&gt; {
+      if (feedback.lastTime &gt; mostRecent) {
+        mostRecent &#x3D; feedback.lastTime;
+        mostRecentFeedback &#x3D; feedback;
+      }
+    });
+
+    // Build the completeFeedbacks object
+    if (mostRecentFeedback.lastId &#x3D;&#x3D;&#x3D; okFeedbacks.lastId) {
+      mostRecentFeedback.lastResult &#x3D; true;
+    } else {
+      mostRecentFeedback.lastResult &#x3D; false;
+    }
+    const completeFeedbacks &#x3D; {
+      total,
+      lastResult: mostRecentFeedback.lastResult,
+      lastId: mostRecentFeedback.lastId,
+      lastTime: mostRecentFeedback.lastTime,
+    };
+
+    return { okFeedbacks, nokFeedbacks, scrapFeedbacks, completeFeedbacks };
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'WorkstationGeneratorService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
