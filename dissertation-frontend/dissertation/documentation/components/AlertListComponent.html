@@ -1,0 +1,1310 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>dissertation documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">dissertation documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  AlertListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/secure/station-selection/alert-list/alert-list.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-alert-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./alert-list.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./alert-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_collapsed" >_collapsed</a>
+                            </li>
+                            <li>
+                                <a href="#alertGroups" >alertGroups</a>
+                            </li>
+                            <li>
+                                <a href="#errorCount" >errorCount</a>
+                            </li>
+                            <li>
+                                <a href="#infoCount" >infoCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#messages" >messages</a>
+                            </li>
+                            <li>
+                                <a href="#warningCount" >warningCount</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCollapse" >toggleCollapse</a>
+                            </li>
+                            <li>
+                                <a href="#trackByFn" >trackByFn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateCounts" >updateCounts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#plantIndex" >plantIndex</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#collapsed" >collapsed</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(alertService: <a href="../injectables/AlertService.html" target="_self">AlertService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:122</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>alertService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="plantIndex"></a>
+                        <b>plantIndex</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:91</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCollapse"></a>
+                    <span class="name">
+                        <span ><b>toggleCollapse</b></span>
+                        <a href="#toggleCollapse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCollapse()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:160</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByFn"></a>
+                    <span class="name">
+                        <span ><b>trackByFn</b></span>
+                        <a href="#trackByFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByFn(index: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:164</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCounts"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>updateCounts</b></span>
+                        <a href="#updateCounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateCounts()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_collapsed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_collapsed</b></span>
+                        <a href="#_collapsed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alertGroups"></a>
+                    <span class="name">
+                        <span ><b>alertGroups</b></span>
+                        <a href="#alertGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      alertGroupId: &#x27;1&#x27;,
+      plantIndex: &#x27;A&#x27;,
+      stationId: &#x27;Station 1&#x27;,
+      severity: &#x27;WARNING&#x27;,
+      code: &#x27;123&#x27;,
+      message: &#x27;Alert 1&#x27;,
+      timestamp: &#x27;2023-04-19T10:30:00&#x27;,
+    },
+    {
+      alertGroupId: &#x27;2&#x27;,
+      plantIndex: &#x27;B&#x27;,
+      stationId: &#x27;Station 2&#x27;,
+      severity: &#x27;INFO&#x27;,
+      code: &#x27;456&#x27;,
+      message: &#x27;Alert 2&#x27;,
+      timestamp: &#x27;2023-04-19T11:15:00&#x27;,
+    },
+    {
+      alertGroupId: &#x27;3&#x27;,
+      plantIndex: &#x27;C&#x27;,
+      stationId: &#x27;Station 3&#x27;,
+      severity: &#x27;ERROR&#x27;,
+      code: &#x27;789&#x27;,
+      message: &#x27;Alert 3&#x27;,
+      timestamp: &#x27;2023-04-19T12:00:00&#x27;,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorCount"></a>
+                    <span class="name">
+                        <span ><b>errorCount</b></span>
+                        <a href="#errorCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="infoCount"></a>
+                    <span class="name">
+                        <span ><b>infoCount</b></span>
+                        <a href="#infoCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messages"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>messages</b></span>
+                        <a href="#messages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="warningCount"></a>
+                    <span class="name">
+                        <span ><b>warningCount</b></span>
+                        <a href="#warningCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="collapsed"></a>
+                        <span class="name"><b>collapsed</b><a href="#collapsed"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>collapsed()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/secure/station-selection/alert-list/alert-list.component.ts:138</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Output, EventEmitter, Input } from &#x27;@angular/core&#x27;;
+import {
+  trigger,
+  style,
+  transition,
+  animate,
+  query,
+  stagger,
+  animateChild,
+} from &#x27;@angular/animations&#x27;;
+import { AlertService } from &#x27;../../services/alert.service&#x27;;
+
+@Component({
+  selector: &#x27;app-alert-list&#x27;,
+  templateUrl: &#x27;./alert-list.component.html&#x27;,
+  styleUrls: [&#x27;./alert-list.component.scss&#x27;],
+  animations: [
+    trigger(&#x27;notificationList&#x27;, [
+      transition(&#x27;:enter&#x27;, [
+        query(&#x27;@notificationItems&#x27;, stagger(50, animateChild()), {
+          optional: true,
+        }),
+      ]),
+    ]),
+    trigger(&#x27;notificationItems&#x27;, [
+      transition(&#x27;:enter&#x27;, [
+        style({ transform: &#x27;scale(0.5)&#x27;, opacity: 0 }), // initial
+        animate(
+          &#x27;.5s cubic-bezier(.13,.24,.15,.73)&#x27;,
+          style({ transform: &#x27;scale(1)&#x27;, opacity: 1 })
+        ), // final
+        query(&#x27;@notificationBadge&#x27;, stagger(0, animateChild()), {
+          optional: true,
+        }),
+      ]),
+      transition(&#x27;:leave&#x27;, [
+        style({ transform: &#x27;scale(1)&#x27;, opacity: 1, height: &#x27;*&#x27; }),
+        animate(
+          &#x27;.8s ease-out&#x27;,
+          style({
+            transform: &#x27;scale(0.5)&#x27;,
+            opacity: 0,
+            height: &#x27;0px&#x27;,
+            margin: &#x27;0px&#x27;,
+          })
+        ),
+      ]),
+    ]),
+    trigger(&#x27;notificationBadge&#x27;, [
+      transition(&#x27;:enter,:increment&#x27;, [
+        style({ transform: &#x27;scale(0.5)&#x27;, opacity: 0 }),
+        animate(
+          &#x27;.5s cubic-bezier(.8, -0.6, 0.2, 1.6)&#x27;,
+          style({ transform: &#x27;scale(1)&#x27;, opacity: 1 })
+        ),
+      ]),
+    ]),
+
+    trigger(&#x27;groupList&#x27;, [
+      transition(&#x27;:enter&#x27;, [
+        query(&#x27;@groupItems&#x27;, stagger(50, animateChild()), { optional: true }),
+      ]),
+    ]),
+    trigger(&#x27;groupItems&#x27;, [
+      transition(&#x27;:enter&#x27;, [
+        style({ transform: &#x27;scale(0.5)&#x27;, opacity: 0 }),
+        animate(
+          &#x27;.6s cubic-bezier(.13,.24,.15,.73)&#x27;,
+          style({ transform: &#x27;scale(1)&#x27;, opacity: 1 })
+        ),
+      ]),
+      transition(&#x27;:leave&#x27;, [
+        style({ transform: &#x27;scale(1)&#x27;, opacity: 1, height: &#x27;*&#x27; }),
+        animate(
+          &#x27;.6s ease-out&#x27;,
+          style({
+            transform: &#x27;scale(0.5)&#x27;,
+            opacity: 0,
+            height: &#x27;0px&#x27;,
+            margin: &#x27;0px&#x27;,
+          })
+        ),
+      ]),
+    ]),
+  ],
+})
+export class AlertListComponent implements OnInit {
+  private _collapsed &#x3D; false;
+
+  @Input()
+  plantIndex: string | undefined &#x3D; &#x27;&#x27;;
+
+  alertGroups: any[] &#x3D; [
+    {
+      alertGroupId: &#x27;1&#x27;,
+      plantIndex: &#x27;A&#x27;,
+      stationId: &#x27;Station 1&#x27;,
+      severity: &#x27;WARNING&#x27;,
+      code: &#x27;123&#x27;,
+      message: &#x27;Alert 1&#x27;,
+      timestamp: &#x27;2023-04-19T10:30:00&#x27;,
+    },
+    {
+      alertGroupId: &#x27;2&#x27;,
+      plantIndex: &#x27;B&#x27;,
+      stationId: &#x27;Station 2&#x27;,
+      severity: &#x27;INFO&#x27;,
+      code: &#x27;456&#x27;,
+      message: &#x27;Alert 2&#x27;,
+      timestamp: &#x27;2023-04-19T11:15:00&#x27;,
+    },
+    {
+      alertGroupId: &#x27;3&#x27;,
+      plantIndex: &#x27;C&#x27;,
+      stationId: &#x27;Station 3&#x27;,
+      severity: &#x27;ERROR&#x27;,
+      code: &#x27;789&#x27;,
+      message: &#x27;Alert 3&#x27;,
+      timestamp: &#x27;2023-04-19T12:00:00&#x27;,
+    },
+  ];
+  public messages: any[] &#x3D; [];
+
+  constructor(private alertService: AlertService) {
+    this.alertService.connect().subscribe((message) &#x3D;&gt; {
+      this.messages.push(message);
+
+      if (message.plantIndex &#x3D;&#x3D;&#x3D; this.plantIndex) {
+        this.alertGroups.push(message);
+      }
+    });
+  }
+
+  infoCount: number | undefined;
+  warningCount: number | undefined;
+  errorCount: number | undefined;
+
+  get collapsed(): boolean {
+    return this._collapsed;
+  }
+
+  ngOnInit() {}
+
+  ngOnChanges() {
+    this.updateCounts();
+  }
+
+  private updateCounts() {
+    // this.infoCount &#x3D; this.alertGroups?.filter(
+    //   (group) &#x3D;&gt; group.severity &#x3D;&#x3D;&#x3D; &#x27;INFO&#x27;
+    // ).length;
+    // this.warningCount &#x3D; this.alertGroups?.filter(
+    //   (group) &#x3D;&gt; group.severity &#x3D;&#x3D;&#x3D; &#x27;WARNING&#x27;
+    // ).length;
+    // this.errorCount &#x3D; this.alertGroups?.filter(
+    //   (group) &#x3D;&gt; group.severity &#x3D;&#x3D;&#x3D; &#x27;ERROR&#x27;
+    // ).length;
+  }
+
+  toggleCollapse() {
+    this._collapsed &#x3D; !this._collapsed;
+  }
+
+  trackByFn(index: any, item: any) {
+    // return (
+    //   item.alertGroupId + item.status.toString() + item.severity.toString()
+    // );
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-generic-card [content]&#x3D;&quot;content&quot;&gt;&lt;/app-generic-card&gt;
+
+&lt;ng-template #content&gt;
+  &lt;div
+    class&#x3D;&quot;bg-white rounded text-black collapsible-list&quot;
+    [ngClass]&#x3D;&quot;{
+      &#x27;list-expanded&#x27;: !collapsed
+    }&quot;
+  &gt;
+    &lt;div class&#x3D;&quot;d-flex flex-column h-100&quot;&gt;
+      &lt;div class&#x3D;&quot;text-center mt-3 pointer&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;!collapsed&quot; class&#x3D;&quot;ml-3 alert-title display-6&quot;&gt;
+          &lt;span&gt;Alerts&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;hr class&#x3D;&quot;ml-2 mr-n1 bg-white&quot; /&gt;
+      &lt;div
+        class&#x3D;&quot;alert-notification d-flex flex-column text-center pointer&quot;
+        @notificationList
+        *ngIf&#x3D;&quot;collapsed&quot;
+      &gt;
+        &lt;div class&#x3D;&quot;icon-wrapper&quot; @notificationItems&gt;
+          &lt;div class&#x3D;&quot;notification-badge&quot; [@notificationBadge]&#x3D;&quot;errorCount&quot;&gt;
+            &lt;span
+              class&#x3D;&quot;badge badge-danger badge-pill text-center font-weight-normal&quot;
+              *ngIf&#x3D;&quot;errorCount &gt; 0&quot;
+              &gt;{{ errorCount }}&lt;/span
+            &gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;icon-wrapper&quot; @notificationItems&gt;
+          &lt;fa-icon
+            icon&#x3D;&quot;exclamation-circle&quot;
+            class&#x3D;&quot;notification-icon&quot;
+          &gt;&lt;/fa-icon&gt;
+          &lt;div class&#x3D;&quot;notification-badge&quot; [@notificationBadge]&#x3D;&quot;warningCount&quot;&gt;
+            &lt;span
+              class&#x3D;&quot;badge badge-danger badge-pill text-center font-weight-normal&quot;
+              *ngIf&#x3D;&quot;warningCount &gt; 0&quot;
+              &gt;{{ warningCount }}&lt;/span
+            &gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;icon-wrapper&quot; @notificationItems&gt;
+          &lt;fa-icon icon&#x3D;&quot;info-circle&quot; class&#x3D;&quot;notification-icon&quot;&gt;&lt;/fa-icon&gt;
+          &lt;div class&#x3D;&quot;notification-badge&quot; [@notificationBadge]&#x3D;&quot;infoCount&quot;&gt;
+            &lt;span
+              class&#x3D;&quot;badge badge-danger badge-pill text-center font-weight-normal&quot;
+              *ngIf&#x3D;&quot;infoCount &gt; 0&quot;
+              &gt;{{ infoCount }}&lt;/span
+            &gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div
+        *ngIf&#x3D;&quot;alertGroups.length &#x3D;&#x3D;&#x3D; 0&quot;
+        class&#x3D;&quot;text-center mt-5 animation-fade-in&quot;
+        style&#x3D;&quot;cursor: default&quot;
+      &gt;
+        No incoming alerts
+      &lt;/div&gt;
+
+      &lt;!-- &lt;ng-container *ngIf&#x3D;&quot;!collapsed &amp;&amp; !isLoading; else loadingMessage&quot;&gt; --&gt;
+      &lt;ng-container&gt;
+        &lt;div
+          class&#x3D;&quot;ml-2 mr-n1 h-100 hide-horizontal-scrollbar&quot;
+          *ngIf&#x3D;&quot;alertGroups.length&quot;
+        &gt;
+          &lt;!-- @groupList --&gt;
+          &lt;div
+            class&#x3D;&quot;mb-2&quot;
+            *ngFor&#x3D;&quot;let alertGroup of alertGroups.reverse(); trackBy: trackByFn&quot;
+          &gt;
+            &lt;!-- @groupItems --&gt;
+            &lt;div class&#x3D;&quot;m-1&quot;&gt;
+              &lt;div class&#x3D;&quot;card-alert&quot;&gt;
+                &lt;app-alert-group-card
+                  [alertGroup]&#x3D;&quot;alertGroup&quot;
+                &gt;&lt;/app-alert-group-card&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/ng-container&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./alert-list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$slide-in-duration: 0s;
+$slide-in-delay: 0s;
+$slide-out-duration: 0s;
+$slide-out-delay: 0s;
+
+$notification-fade-duration: 0.8s;
+
+.collapsible-list {
+  height: 792px;
+  width: 64px;
+
+  &amp;.list-collapsed {
+    width: 64px;
+  }
+  &amp;.list-expanded {
+    width: 300px;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  color: white;
+}
+
+.icon-wrapper {
+  position: relative;
+  height: 64px;
+  margin-top: 10px;
+}
+
+.notification-icon {
+  font-size: 32px;
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  vertical-align: middle;
+}
+.notification-badge {
+  overflow: visible;
+  color: white;
+  font-weight: normal !important;
+  margin: 0;
+  width: 32px;
+  position: absolute;
+  top: -9px;
+  right: 0px;
+}
+
+.alert-title {
+  visibility: hidden;
+  display: inline;
+  overflow: hidden;
+  opacity: 0;
+
+  animation: fade-in-title $notification-fade-duration ease-in-out
+    $slide-out-duration both;
+}
+
+@keyframes fade-in-title {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.alert-icon {
+  font-size: 80%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
+
+.filter-button {
+  position: absolute;
+  top: 18px;
+  right: 46px;
+  color: white;
+  font-size: 12px;
+}
+
+.filter-active {
+  height: 0.5rem;
+  width: 0.5rem;
+  top: -4px;
+  right: -4px;
+}
+
+.card-alert:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.4);
+  transform: scale(1.01);
+  margin-bottom: 10%;
+  border-radius: 25px;
+}
+
+.card-alert {
+  transition: all 0.3s ease;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+.hide-horizontal-scrollbar {
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  padding: 5%;
+}
+
+// scrollbar styles
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c2c2c2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8a8a8;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: #e8e8e8;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-generic-card [content]="content"></app-generic-card><ng-template #content>  <div    class="bg-white rounded text-black collapsible-list"    [ngClass]="{      \'list-expanded\': !collapsed    }"  >    <div class="d-flex flex-column h-100">      <div class="text-center mt-3 pointer">        <div *ngIf="!collapsed" class="ml-3 alert-title display-6">          <span>Alerts</span>        </div>      </div>      <hr class="ml-2 mr-n1 bg-white" />      <div        class="alert-notification d-flex flex-column text-center pointer"        @notificationList        *ngIf="collapsed"      >        <div class="icon-wrapper" @notificationItems>          <div class="notification-badge" [@notificationBadge]="errorCount">            <span              class="badge badge-danger badge-pill text-center font-weight-normal"              *ngIf="errorCount > 0"              >{{ errorCount }}</span            >          </div>        </div>        <div class="icon-wrapper" @notificationItems>          <fa-icon            icon="exclamation-circle"            class="notification-icon"          ></fa-icon>          <div class="notification-badge" [@notificationBadge]="warningCount">            <span              class="badge badge-danger badge-pill text-center font-weight-normal"              *ngIf="warningCount > 0"              >{{ warningCount }}</span            >          </div>        </div>        <div class="icon-wrapper" @notificationItems>          <fa-icon icon="info-circle" class="notification-icon"></fa-icon>          <div class="notification-badge" [@notificationBadge]="infoCount">            <span              class="badge badge-danger badge-pill text-center font-weight-normal"              *ngIf="infoCount > 0"              >{{ infoCount }}</span            >          </div>        </div>      </div>      <div        *ngIf="alertGroups.length === 0"        class="text-center mt-5 animation-fade-in"        style="cursor: default"      >        No incoming alerts      </div>      <!-- <ng-container *ngIf="!collapsed && !isLoading; else loadingMessage"> -->      <ng-container>        <div          class="ml-2 mr-n1 h-100 hide-horizontal-scrollbar"          *ngIf="alertGroups.length"        >          <!-- @groupList -->          <div            class="mb-2"            *ngFor="let alertGroup of alertGroups.reverse(); trackBy: trackByFn"          >            <!-- @groupItems -->            <div class="m-1">              <div class="card-alert">                <app-alert-group-card                  [alertGroup]="alertGroup"                ></app-alert-group-card>              </div>            </div>          </div>        </div>      </ng-container>    </div>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AlertGroupCardComponent', 'selector': 'app-alert-group-card'},{'name': 'AlertListComponent', 'selector': 'app-alert-list'},{'name': 'AnomalyObserveSpectogramModalComponent', 'selector': 'app-anomaly-observe-spectogram-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BreadcrumbsComponent', 'selector': 'app-breadcrumbs'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'ExportConfirmationModalComponent', 'selector': 'app-export-confirmation-modal'},{'name': 'FeedbacksComponent', 'selector': 'app-feedbacks'},{'name': 'GaugeComponent', 'selector': 'app-gauge'},{'name': 'GenericCardComponent', 'selector': 'app-generic-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OeeCalculationComponent', 'selector': 'app-oee-calculation'},{'name': 'OeeChartComponent', 'selector': 'app-oee-chart'},{'name': 'PlantConfigComponent', 'selector': 'app-plant-config'},{'name': 'PlantSelectionComponent', 'selector': 'app-plant-selection'},{'name': 'PredictiveMaintenanceAnomalyOverviewComponent', 'selector': 'app-predictive-maintenance-anomaly-overview'},{'name': 'PredictiveMaintenanceChartComponent', 'selector': 'app-predictive-maintenance-chart'},{'name': 'PredictiveMaintenanceComponent', 'selector': 'app-predictive-maintenance'},{'name': 'PredictiveMaintenanceMachineOverviewComponent', 'selector': 'app-predictive-maintenance-machine-overview'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'StationDetailsComponent', 'selector': 'app-station-details'},{'name': 'StationSelectionComponent', 'selector': 'app-station-selection'},{'name': 'StatusWidgetComponent', 'selector': 'app-status-widget'},{'name': 'WorkstationConfigComponent', 'selector': 'app-workstation-config'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AlertListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AlertListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

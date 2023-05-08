@@ -1,0 +1,995 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>dissertation documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">dissertation documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  WorkstationConfigComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/secure/config/workstation-config/workstation-config.component.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-workstation-config</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./workstation-config.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./workstation-config.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#originalWorkstation" >originalWorkstation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteWorkstation" >deleteWorkstation</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#updateWorkstation" >updateWorkstation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isNewWorkstation" >isNewWorkstation</a>
+                            </li>
+                            <li>
+                                <a href="#workstation" >workstation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#workstationAdded" >workstationAdded</a>
+                            </li>
+                            <li>
+                                <a href="#workstationDeleted" >workstationDeleted</a>
+                            </li>
+                            <li>
+                                <a href="#workstationUpdated" >workstationUpdated</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(workstationService: <a href="../injectables/WorkstationsService.html" target="_self">WorkstationsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>workstationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WorkstationsService.html" target="_self" >WorkstationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isNewWorkstation"></a>
+                        <b>isNewWorkstation</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="workstation"></a>
+                        <b>workstation</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>{ plantIndex: string; stationId: string; displayName: string; description: string; cycleTime: number; runningTime: number; productionCount: number; defectCount: number; isOeeCalculable: boolean; equipmentNumber: string; cycleTimeDelay: number; }</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    plantIndex: &#x27;&#x27;,
+    stationId: &#x27;&#x27;,
+    displayName: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    cycleTime: 0,
+    runningTime: 0,
+    productionCount: 0,
+    defectCount: 0,
+    isOeeCalculable: false,
+    equipmentNumber: &#x27;&#x27;,
+    cycleTimeDelay: 0,
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="workstationAdded"></a>
+                        <b>workstationAdded</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="workstationDeleted"></a>
+                        <b>workstationDeleted</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:38</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="workstationUpdated"></a>
+                        <b>workstationUpdated</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteWorkstation"></a>
+                    <span class="name">
+                        <span ><b>deleteWorkstation</b></span>
+                        <a href="#deleteWorkstation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteWorkstation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateWorkstation"></a>
+                    <span class="name">
+                        <span ><b>updateWorkstation</b></span>
+                        <a href="#updateWorkstation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateWorkstation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="originalWorkstation"></a>
+                    <span class="name">
+                        <span ><b>originalWorkstation</b></span>
+                        <a href="#originalWorkstation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Workstation.html" target="_self" >Workstation</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/secure/config/workstation-config/workstation-config.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
+import { WorkstationsService } from &#x27;../../services/workstations.service&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { Workstation } from &#x27;../../../types/work-station&#x27;;
+
+@Component({
+  selector: &#x27;app-workstation-config&#x27;,
+  templateUrl: &#x27;./workstation-config.component.html&#x27;,
+  styleUrls: [&#x27;./workstation-config.component.scss&#x27;],
+})
+export class WorkstationConfigComponent {
+  originalWorkstation: Workstation;
+
+  constructor(private workstationService: WorkstationsService) {
+    this.originalWorkstation &#x3D; JSON.parse(JSON.stringify(this.workstation));
+  }
+
+  @Input()
+  workstation &#x3D; {
+    plantIndex: &#x27;&#x27;,
+    stationId: &#x27;&#x27;,
+    displayName: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    cycleTime: 0,
+    runningTime: 0,
+    productionCount: 0,
+    defectCount: 0,
+    isOeeCalculable: false,
+    equipmentNumber: &#x27;&#x27;,
+    cycleTimeDelay: 0,
+  };
+
+  @Input()
+  isNewWorkstation: boolean &#x3D; false;
+
+  @Output() workstationAdded &#x3D; new EventEmitter&lt;Workstation&gt;();
+  @Output() workstationUpdated &#x3D; new EventEmitter&lt;Workstation&gt;();
+  @Output() workstationDeleted &#x3D; new EventEmitter&lt;Workstation&gt;();
+
+  onSubmit(): void {
+    if (this.workstation) {
+      this.workstationService
+        .addWorkstation(this.workstation)
+        .subscribe((res) &#x3D;&gt; console.log(res));
+    }
+
+    this.workstationAdded.emit(this.workstation);
+  }
+
+  updateWorkstation(): void {
+    if (this.workstation) {
+      this.workstationService
+        .updateWorkstation(this.workstation)
+        .subscribe((res: any) &#x3D;&gt; console.log(res));
+    }
+    this.workstationUpdated.emit(this.workstation);
+  }
+
+  deleteWorkstation() {
+    if (this.workstation) {
+      this.workstationService
+        .deleteWorkstation(
+          this.workstation.plantIndex,
+          this.workstation.stationId
+        )
+        .subscribe((res: any) &#x3D;&gt; console.log(res));
+    }
+    this.workstationDeleted.emit(this.workstation);
+  }
+
+  resetForm(): void {
+    this.workstation &#x3D; JSON.parse(JSON.stringify(this.originalWorkstation));
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+  &lt;form
+    (submit)&#x3D;&quot;!isNewWorkstation ? onSubmit() : updateWorkstation()&quot;
+    #workstationForm&#x3D;&quot;ngForm&quot;
+  &gt;
+    &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;plantIndex&quot; class&#x3D;&quot;form-label&quot;&gt;Plant Index&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;text&quot;
+              id&#x3D;&quot;plantIndex&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.plantIndex&quot;
+              name&#x3D;&quot;plantIndex&quot;
+              required
+              disabled
+            /&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;stationId&quot; class&#x3D;&quot;form-label&quot;&gt;Station Id&lt;/label&gt;
+            &lt;input
+              *ngIf&#x3D;&quot;!isNewWorkstation&quot;
+              type&#x3D;&quot;text&quot;
+              id&#x3D;&quot;stationId&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.stationId&quot;
+              name&#x3D;&quot;stationId&quot;
+              required
+              disabled
+            /&gt;
+            &lt;input
+              *ngIf&#x3D;&quot;isNewWorkstation&quot;
+              type&#x3D;&quot;text&quot;
+              id&#x3D;&quot;stationId&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.stationId&quot;
+              name&#x3D;&quot;stationId&quot;
+              required
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Text input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;displayName&quot; class&#x3D;&quot;form-label&quot;&gt;Display Name&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;text&quot;
+              id&#x3D;&quot;displayName&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.displayName&quot;
+              name&#x3D;&quot;displayName&quot;
+              required
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Text input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;description&quot; class&#x3D;&quot;form-label&quot;&gt;Description&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;text&quot;
+              id&#x3D;&quot;description&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.description&quot;
+              name&#x3D;&quot;description&quot;
+              required
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Text input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;equipmentNumber&quot; class&#x3D;&quot;form-label&quot;
+              &gt;Equipment Number&lt;/label
+            &gt;
+            &lt;input
+              type&#x3D;&quot;text&quot;
+              id&#x3D;&quot;equipmentNumber&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.equipmentNumber&quot;
+              name&#x3D;&quot;equipmentNumber&quot;
+              required
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-sm-6&quot;&gt;
+          &lt;!-- Number input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;cycleTime&quot; class&#x3D;&quot;form-label&quot;&gt;Cycle Time (s)&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              id&#x3D;&quot;cycleTime&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.cycleTime&quot;
+              name&#x3D;&quot;cycleTime&quot;
+              required
+              min&#x3D;&quot;0&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Number input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;cycleTimeDelay&quot; class&#x3D;&quot;form-label&quot;
+              &gt;Cycle Time Delay (s)&lt;/label
+            &gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              id&#x3D;&quot;cycleTimeDelay&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.cycleTimeDelay&quot;
+              name&#x3D;&quot;cycleTimeDelay&quot;
+              required
+              min&#x3D;&quot;0&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Number input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;runningTime&quot; class&#x3D;&quot;form-label&quot;&gt;Running Time (s)&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              id&#x3D;&quot;runningTime&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.runningTime&quot;
+              name&#x3D;&quot;runningTime&quot;
+              required
+              min&#x3D;&quot;0&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Number input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;productionCount&quot; class&#x3D;&quot;form-label&quot;
+              &gt;(Usual) Production Count&lt;/label
+            &gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              id&#x3D;&quot;productionCount&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.productionCount&quot;
+              name&#x3D;&quot;productionCount&quot;
+              required
+              min&#x3D;&quot;0&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Number input --&gt;
+          &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;defectCount&quot; class&#x3D;&quot;form-label&quot;
+              &gt;(Usual) Defect Count&lt;/label
+            &gt;
+            &lt;input
+              type&#x3D;&quot;number&quot;
+              id&#x3D;&quot;defectCount&quot;
+              class&#x3D;&quot;form-control&quot;
+              [(ngModel)]&#x3D;&quot;workstation.defectCount&quot;
+              name&#x3D;&quot;defectCount&quot;
+              required
+              min&#x3D;&quot;0&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Checkbox --&gt;
+          &lt;div class&#x3D;&quot;form-check d-flex justify-content-center mb-4&quot;&gt;
+            &lt;input
+              class&#x3D;&quot;form-check-input me-2&quot;
+              type&#x3D;&quot;checkbox&quot;
+              id&#x3D;&quot;isOeeCalculable&quot;
+              [(ngModel)]&#x3D;&quot;workstation.isOeeCalculable&quot;
+              name&#x3D;&quot;isOeeCalculable&quot;
+              required
+            /&gt;
+            &lt;label class&#x3D;&quot;form-check-label&quot; for&#x3D;&quot;isOeeCalculable&quot;
+              &gt;Is OEE Calculable?&lt;/label
+            &gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Form buttons --&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+          &lt;button
+            *ngIf&#x3D;&quot;isNewWorkstation&quot;
+            type&#x3D;&quot;reset&quot;
+            (click)&#x3D;&quot;resetForm()&quot;
+            class&#x3D;&quot;btn btn-info btn-block text-white mb-4&quot;
+          &gt;
+            Reset
+          &lt;/button&gt;
+          &lt;button
+            type&#x3D;&quot;submit&quot;
+            class&#x3D;&quot;btn btn-primary btn-block mb-4&quot;
+            [disabled]&#x3D;&quot;
+              !(
+                workstation.plantIndex &amp;&amp;
+                workstation.stationId &amp;&amp;
+                workstation.displayName &amp;&amp;
+                workstation.description
+              )
+            &quot;
+          &gt;
+            {{ isNewWorkstation ? &quot;Save&quot; : &quot;Update&quot; }} workstation
+          &lt;/button&gt;
+          &lt;button
+            type&#x3D;&quot;reset&quot;
+            *ngIf&#x3D;&quot;!isNewWorkstation&quot;
+            (click)&#x3D;&quot;deleteWorkstation()&quot;
+            class&#x3D;&quot;btn btn-danger btn-block&quot;
+          &gt;
+            Delete workstation
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./workstation-config.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.form-control:focus,
+.form-control:hover {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  transition: all 0.5s ease-in-out;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>  <form    (submit)="!isNewWorkstation ? onSubmit() : updateWorkstation()"    #workstationForm="ngForm"  >    <div class="container-fluid">      <div class="row">        <div class="col-sm-6">          <div class="mb-4">            <label for="plantIndex" class="form-label">Plant Index</label>            <input              type="text"              id="plantIndex"              class="form-control"              [(ngModel)]="workstation.plantIndex"              name="plantIndex"              required              disabled            />          </div>          <div class="mb-4">            <label for="stationId" class="form-label">Station Id</label>            <input              *ngIf="!isNewWorkstation"              type="text"              id="stationId"              class="form-control"              [(ngModel)]="workstation.stationId"              name="stationId"              required              disabled            />            <input              *ngIf="isNewWorkstation"              type="text"              id="stationId"              class="form-control"              [(ngModel)]="workstation.stationId"              name="stationId"              required            />          </div>          <!-- Text input -->          <div class="mb-4">            <label for="displayName" class="form-label">Display Name</label>            <input              type="text"              id="displayName"              class="form-control"              [(ngModel)]="workstation.displayName"              name="displayName"              required            />          </div>          <!-- Text input -->          <div class="mb-4">            <label for="description" class="form-label">Description</label>            <input              type="text"              id="description"              class="form-control"              [(ngModel)]="workstation.description"              name="description"              required            />          </div>          <!-- Text input -->          <div class="mb-4">            <label for="equipmentNumber" class="form-label"              >Equipment Number</label            >            <input              type="text"              id="equipmentNumber"              class="form-control"              [(ngModel)]="workstation.equipmentNumber"              name="equipmentNumber"              required            />          </div>        </div>        <div class="col-sm-6">          <!-- Number input -->          <div class="mb-4">            <label for="cycleTime" class="form-label">Cycle Time (s)</label>            <input              type="number"              id="cycleTime"              class="form-control"              [(ngModel)]="workstation.cycleTime"              name="cycleTime"              required              min="0"            />          </div>          <!-- Number input -->          <div class="mb-4">            <label for="cycleTimeDelay" class="form-label"              >Cycle Time Delay (s)</label            >            <input              type="number"              id="cycleTimeDelay"              class="form-control"              [(ngModel)]="workstation.cycleTimeDelay"              name="cycleTimeDelay"              required              min="0"            />          </div>          <!-- Number input -->          <div class="mb-4">            <label for="runningTime" class="form-label">Running Time (s)</label>            <input              type="number"              id="runningTime"              class="form-control"              [(ngModel)]="workstation.runningTime"              name="runningTime"              required              min="0"            />          </div>          <!-- Number input -->          <div class="mb-4">            <label for="productionCount" class="form-label"              >(Usual) Production Count</label            >            <input              type="number"              id="productionCount"              class="form-control"              [(ngModel)]="workstation.productionCount"              name="productionCount"              required              min="0"            />          </div>          <!-- Number input -->          <div class="mb-4">            <label for="defectCount" class="form-label"              >(Usual) Defect Count</label            >            <input              type="number"              id="defectCount"              class="form-control"              [(ngModel)]="workstation.defectCount"              name="defectCount"              required              min="0"            />          </div>          <!-- Checkbox -->          <div class="form-check d-flex justify-content-center mb-4">            <input              class="form-check-input me-2"              type="checkbox"              id="isOeeCalculable"              [(ngModel)]="workstation.isOeeCalculable"              name="isOeeCalculable"              required            />            <label class="form-check-label" for="isOeeCalculable"              >Is OEE Calculable?</label            >          </div>        </div>        <!-- Form buttons -->        <div class="row">          <button            *ngIf="isNewWorkstation"            type="reset"            (click)="resetForm()"            class="btn btn-info btn-block text-white mb-4"          >            Reset          </button>          <button            type="submit"            class="btn btn-primary btn-block mb-4"            [disabled]="              !(                workstation.plantIndex &&                workstation.stationId &&                workstation.displayName &&                workstation.description              )            "          >            {{ isNewWorkstation ? "Save" : "Update" }} workstation          </button>          <button            type="reset"            *ngIf="!isNewWorkstation"            (click)="deleteWorkstation()"            class="btn btn-danger btn-block"          >            Delete workstation          </button>        </div>      </div>    </div>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AlertGroupCardComponent', 'selector': 'app-alert-group-card'},{'name': 'AlertListComponent', 'selector': 'app-alert-list'},{'name': 'AnomalyObserveSpectogramModalComponent', 'selector': 'app-anomaly-observe-spectogram-modal'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BreadcrumbsComponent', 'selector': 'app-breadcrumbs'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'ExportConfirmationModalComponent', 'selector': 'app-export-confirmation-modal'},{'name': 'FeedbacksComponent', 'selector': 'app-feedbacks'},{'name': 'GaugeComponent', 'selector': 'app-gauge'},{'name': 'GenericCardComponent', 'selector': 'app-generic-card'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'OeeCalculationComponent', 'selector': 'app-oee-calculation'},{'name': 'OeeChartComponent', 'selector': 'app-oee-chart'},{'name': 'PlantConfigComponent', 'selector': 'app-plant-config'},{'name': 'PlantSelectionComponent', 'selector': 'app-plant-selection'},{'name': 'PredictiveMaintenanceAnomalyOverviewComponent', 'selector': 'app-predictive-maintenance-anomaly-overview'},{'name': 'PredictiveMaintenanceChartComponent', 'selector': 'app-predictive-maintenance-chart'},{'name': 'PredictiveMaintenanceComponent', 'selector': 'app-predictive-maintenance'},{'name': 'PredictiveMaintenanceMachineOverviewComponent', 'selector': 'app-predictive-maintenance-machine-overview'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'StationDetailsComponent', 'selector': 'app-station-details'},{'name': 'StationSelectionComponent', 'selector': 'app-station-selection'},{'name': 'StatusWidgetComponent', 'selector': 'app-status-widget'},{'name': 'WorkstationConfigComponent', 'selector': 'app-workstation-config'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'WorkstationConfigComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'WorkstationConfigComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

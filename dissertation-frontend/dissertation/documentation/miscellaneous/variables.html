@@ -1,0 +1,685 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>dissertation documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">dissertation documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#AlertResolutions" title="src/app/types/alerts.ts" ><b>AlertResolutions</b>&nbsp;&nbsp;&nbsp;(src/.../alerts.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AlertSeverities" title="src/app/types/alerts.ts" ><b>AlertSeverities</b>&nbsp;&nbsp;&nbsp;(src/.../alerts.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AlertStatuses" title="src/app/types/alerts.ts" ><b>AlertStatuses</b>&nbsp;&nbsp;&nbsp;(src/.../alerts.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="codegen.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(codegen.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#createWorkstations" title="src/src/graphql/mutations.ts" ><b>createWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../mutations.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteWorkstations" title="src/src/graphql/mutations.ts" ><b>deleteWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../mutations.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getWorkstations" title="src/src/graphql/queries.ts" ><b>getWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../queries.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#listWorkstations" title="src/src/graphql/queries.ts" ><b>listWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../queries.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#onCreateWorkstations" title="src/src/graphql/subscriptions.ts" ><b>onCreateWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../subscriptions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#onDeleteWorkstations" title="src/src/graphql/subscriptions.ts" ><b>onDeleteWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../subscriptions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#onUpdateWorkstations" title="src/src/graphql/subscriptions.ts" ><b>onUpdateWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../subscriptions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateWorkstations" title="src/src/graphql/mutations.ts" ><b>updateWorkstations</b>&nbsp;&nbsp;&nbsp;(src/.../mutations.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/types/alerts.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AlertResolutions"></a>
+                    <span class="name">
+                        <span ><b>AlertResolutions</b></span>
+                        <a href="#AlertResolutions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;NONE&#x27;, &#x27;WONTFIX&#x27;, &#x27;SOLVED&#x27;, &#x27;AUTOCLOSED&#x27;
+] as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AlertSeverities"></a>
+                    <span class="name">
+                        <span ><b>AlertSeverities</b></span>
+                        <a href="#AlertSeverities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;INFO&#x27;, &#x27;WARNING&#x27;, &#x27;ERROR&#x27;, &#x27;UNKNOWN&#x27;
+] as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AlertStatuses"></a>
+                    <span class="name">
+                        <span ><b>AlertStatuses</b></span>
+                        <a href="#AlertStatuses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;OPEN&#x27;, &#x27;AUTOINWORK&#x27;, &#x27;DONE&#x27;
+] as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>codegen.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CodegenConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  schema: &#x27;graphql.schema.json&#x27;,
+  documents: &#x27;./src/**/*.ts&#x27;,
+  generates: {
+    &#x27;./graphql/generated.ts&#x27;: {
+      plugins: [
+        &#x27;typescript&#x27;,
+        &#x27;typescript-operations&#x27;,
+        &#x27;typescript-apollo-angular&#x27;,
+      ],
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/src/graphql/mutations.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createWorkstations"></a>
+                    <span class="name">
+                        <span ><b>createWorkstations</b></span>
+                        <a href="#createWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  mutation CreateWorkstations($input: CreateWorkstationsInput!) {
+    createWorkstations(input: $input) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteWorkstations"></a>
+                    <span class="name">
+                        <span ><b>deleteWorkstations</b></span>
+                        <a href="#deleteWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  mutation DeleteWorkstations($input: DeleteWorkstationsInput!) {
+    deleteWorkstations(input: $input) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateWorkstations"></a>
+                    <span class="name">
+                        <span ><b>updateWorkstations</b></span>
+                        <a href="#updateWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  mutation UpdateWorkstations($input: UpdateWorkstationsInput!) {
+    updateWorkstations(input: $input) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: false,
+  baseUrl:
+    // &#x27;https://pcxm2807wj.execute-api.us-east-1.amazonaws.com/default/get-workstations&#x27;,
+    &#x27;https://13i4267r3h.execute-api.us-east-1.amazonaws.com/dev/&#x27;,
+  cognito: {
+    userPoolId: &#x27;us-east-1_4565JxUiw&#x27;,
+    userPoolWebClientId: &#x27;28fq9c0vvhe45fogd6vshof4ur&#x27;,
+  },
+  awsmobile: {
+    aws_project_region: &#x27;us-east-1&#x27;,
+    aws_cognito_identity_pool_id:
+      &#x27;us-east-1:8e19b3e5-9d24-4cc3-8494-4832f69306e4&#x27;,
+    aws_cognito_region: &#x27;us-east-1&#x27;,
+    aws_user_pools_id: &#x27;us-east-1_pk9rdtTBV&#x27;,
+    aws_user_pools_web_client_id: &#x27;3ufg9ndpvorf20a1t98ees44b&#x27;,
+    oauth: {},
+    aws_cognito_username_attributes: [&#x27;EMAIL&#x27;],
+    aws_cognito_social_providers: [],
+    aws_cognito_signup_attributes: [&#x27;EMAIL&#x27;],
+    aws_cognito_mfa_configuration: &#x27;OFF&#x27;,
+    aws_cognito_mfa_types: [&#x27;SMS&#x27;],
+    aws_cognito_password_protection_settings: {
+      passwordPolicyMinLength: 8,
+      passwordPolicyCharacters: [],
+    },
+    aws_cognito_verification_mechanisms: [&#x27;EMAIL&#x27;],
+    aws_appsync_graphqlEndpoint:
+      &#x27;https://lolndpmbyjdgnfo7ic74h2xdby.appsync-api.us-east-1.amazonaws.com/graphql&#x27;,
+    aws_appsync_region: &#x27;us-east-1&#x27;,
+    aws_appsync_authenticationType: &#x27;AMAZON_COGNITO_USER_POOLS&#x27;,
+    iot_endpoint: &#x27;aq8kzj0nqtdiy-ats.iot.us-east-1.amazonaws.com&#x27;,
+    iot_policy_name: &#x27;dissertation-iot-policy&#x27;,
+    access_key_id: &#x27;AKIAQ3J74PCXMN222R77&#x27;,
+    secret_access_key_id: &#x27;8nFgQ8+neTZjnYUT1SjXb/4arTmaZRqMqZC3e7jx&#x27;
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/src/graphql/queries.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWorkstations"></a>
+                    <span class="name">
+                        <span ><b>getWorkstations</b></span>
+                        <a href="#getWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  query GetWorkstations($stationId: String!) {
+    getWorkstations(stationId: $stationId) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listWorkstations"></a>
+                    <span class="name">
+                        <span ><b>listWorkstations</b></span>
+                        <a href="#listWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  query ListWorkstations(
+    $filter: TableWorkstationsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listWorkstations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        cycleTime
+        cycleTimeDelay
+        defectCount
+        description
+        displayName
+        equipmentNumber
+        isOeeCalculable
+        plantIndex
+        productionCount
+        runningTime
+        stationId
+      }
+      nextToken
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/src/graphql/subscriptions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCreateWorkstations"></a>
+                    <span class="name">
+                        <span ><b>onCreateWorkstations</b></span>
+                        <a href="#onCreateWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  subscription OnCreateWorkstations(
+    $cycleTime: Int
+    $cycleTimeDelay: Int
+    $defectCount: Int
+    $description: String
+    $stationId: String
+  ) {
+    onCreateWorkstations(
+      cycleTime: $cycleTime
+      cycleTimeDelay: $cycleTimeDelay
+      defectCount: $defectCount
+      description: $description
+      stationId: $stationId
+    ) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteWorkstations"></a>
+                    <span class="name">
+                        <span ><b>onDeleteWorkstations</b></span>
+                        <a href="#onDeleteWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  subscription OnDeleteWorkstations(
+    $cycleTime: Int
+    $cycleTimeDelay: Int
+    $defectCount: Int
+    $description: String
+    $stationId: String
+  ) {
+    onDeleteWorkstations(
+      cycleTime: $cycleTime
+      cycleTimeDelay: $cycleTimeDelay
+      defectCount: $defectCount
+      description: $description
+      stationId: $stationId
+    ) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onUpdateWorkstations"></a>
+                    <span class="name">
+                        <span ><b>onUpdateWorkstations</b></span>
+                        <a href="#onUpdateWorkstations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;
+  subscription OnUpdateWorkstations(
+    $cycleTime: Int
+    $cycleTimeDelay: Int
+    $defectCount: Int
+    $description: String
+    $stationId: String
+  ) {
+    onUpdateWorkstations(
+      cycleTime: $cycleTime
+      cycleTimeDelay: $cycleTimeDelay
+      defectCount: $defectCount
+      description: $description
+      stationId: $stationId
+    ) {
+      cycleTime
+      cycleTimeDelay
+      defectCount
+      description
+      displayName
+      equipmentNumber
+      isOeeCalculable
+      plantIndex
+      productionCount
+      runningTime
+      stationId
+    }
+  }
+&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
