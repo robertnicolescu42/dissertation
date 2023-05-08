@@ -46,15 +46,13 @@ exports.handler = async (event) => {
     // Return a success response
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        message: `Plant ${plantIndex} and all related workstations deleted successfully`,
-      }),
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "*",
-        "Access-Control-Allow-Methods": "OPTIONS,GET",
         "Access-Control-Allow-Origin": "*",
       },
+      body: JSON.stringify({
+        message: "Success",
+      }),
     };
   } catch (error) {
     // Handle any errors that occur during the operation
