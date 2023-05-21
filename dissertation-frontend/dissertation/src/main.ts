@@ -3,9 +3,9 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
-import Amplify, { Auth } from 'aws-amplify';
 import { AWSAppSyncClient, AUTH_TYPE } from 'aws-appsync';
 import { environment } from './../src/environments/environment';
+import Amplify from 'aws-amplify';
 
 Amplify.configure(environment.awsmobile);
 
