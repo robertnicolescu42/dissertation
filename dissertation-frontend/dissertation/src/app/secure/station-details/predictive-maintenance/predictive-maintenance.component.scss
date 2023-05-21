@@ -41,3 +41,14 @@
     opacity: 1;
   }
 }
+
+.tab {
+  transition: transform 200ms ease-in-out;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.tab:hover,
+.tab:focus {
+  transform: scale(1.02);
+}
