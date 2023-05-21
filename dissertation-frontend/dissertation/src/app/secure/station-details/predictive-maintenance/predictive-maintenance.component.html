@@ -3,7 +3,7 @@
     <div class="button-group justify-content-center py-2">
       <button
         *ngFor="let tab of tabs"
-        class="button"
+        class="button tab"
         [ngClass]="{ active: tab.id === activeTab }"
         (click)="activeTab = tab.id"
         style="width: 15%"
