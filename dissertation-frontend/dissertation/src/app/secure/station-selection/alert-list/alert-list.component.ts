@@ -91,33 +91,33 @@ export class AlertListComponent implements OnInit {
   plantIndex: string | undefined = '';
 
   alertGroups: any[] = [
-    {
-      alertGroupId: '1',
-      plantIndex: 'A',
-      stationId: 'Station 1',
-      severity: 'WARNING',
-      code: '123',
-      message: 'Alert 1',
-      timestamp: '2023-04-19T10:30:00',
-    },
-    {
-      alertGroupId: '2',
-      plantIndex: 'B',
-      stationId: 'Station 2',
-      severity: 'INFO',
-      code: '456',
-      message: 'Alert 2',
-      timestamp: '2023-04-19T11:15:00',
-    },
-    {
-      alertGroupId: '3',
-      plantIndex: 'C',
-      stationId: 'Station 3',
-      severity: 'ERROR',
-      code: '789',
-      message: 'Alert 3',
-      timestamp: '2023-04-19T12:00:00',
-    },
+    // {
+    //   alertGroupId: '1',
+    //   plantIndex: 'A',
+    //   stationId: 'Station 1',
+    //   severity: 'WARNING',
+    //   code: '123',
+    //   message: 'Alert 1',
+    //   timestamp: '2023-04-19T10:30:00',
+    // },
+    // {
+    //   alertGroupId: '2',
+    //   plantIndex: 'B',
+    //   stationId: 'Station 2',
+    //   severity: 'INFO',
+    //   code: '456',
+    //   message: 'Alert 2',
+    //   timestamp: '2023-04-19T11:15:00',
+    // },
+    // {
+    //   alertGroupId: '3',
+    //   plantIndex: 'C',
+    //   stationId: 'Station 3',
+    //   severity: 'ERROR',
+    //   code: '789',
+    //   message: 'Alert 3',
+    //   timestamp: '2023-04-19T12:00:00',
+    // },
   ];
   public messages: any[] = [];
 
