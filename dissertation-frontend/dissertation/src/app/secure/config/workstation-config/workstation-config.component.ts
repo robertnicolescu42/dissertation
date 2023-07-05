@@ -40,20 +40,20 @@ export class WorkstationConfigComponent {
   onSubmit(): void {
     if (this.workstation) {
       this.workstationService
-        .addWorkstation(this.workstation)
+        .updateWorkstation(this.workstation)
         .subscribe((res) => console.log(res));
     }
 
-    this.workstationAdded.emit(this.workstation);
+    this.workstationUpdated.emit(this.workstation);
   }
 
   updateWorkstation(): void {
     if (this.workstation) {
       this.workstationService
-        .updateWorkstation(this.workstation)
+        .addWorkstation(this.workstation)
         .subscribe((res: any) => console.log(res));
     }
-    this.workstationUpdated.emit(this.workstation);
+    this.workstationAdded.emit(this.workstation);
   }
 
   deleteWorkstation() {
