@@ -108,6 +108,7 @@ export class ConfigComponent implements OnInit {
 
   onPlantDeleted(plant: Plant) {
     this.plants = this.plants.filter((p) => p.plantIndex !== plant.plantIndex);
+    this.plantsService.deletePlant(plant.plantIndex).subscribe();
     this.selectedPlant = this.plants[0];
     this.selectPlant(this.plants[0]);
   }
